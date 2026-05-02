@@ -173,15 +173,15 @@
     {
       "id": "ux-heuristics-compass",
       "name": "UX Heuristics Compass",
-      "status": "early alpha",
-      "maturity": "early alpha",
-      "tagline": "Make heuristic UX audits easier to run and easier to share.",
-      "description": "A structured UX audit assistant for visible usability issues, severity, bounded captures, and stakeholder-ready audit reports.",
-      "homepage_url": "",
-      "repo_url": "",
-      "learn_more_url": "#about",
-      "safety_gate": "public_page_and_package_pending",
-      "public_notes": "No public download is listed until public package and example surfaces are reviewed.",
+      "status": "v0.1.0-beta.1 landing page live",
+      "maturity": "early beta",
+      "tagline": "Spot usability problems before an interface ships.",
+      "description": "A structured UX audit assistant for screenshots, app screens, bounded captures, severity, and stakeholder-ready audit reports.",
+      "homepage_url": "https://jonathankhobson.github.io/ux-heuristic-compass/",
+      "repo_url": "https://github.com/JonathanKHobson/ux-heuristic-compass",
+      "learn_more_url": "https://jonathankhobson.github.io/ux-heuristic-compass/",
+      "safety_gate": "landing_page_live_packages_pending",
+      "public_notes": "Landing page is live. Downloads remain locked until beta package verification, checksums, and public package scan pass.",
       "downloads": []
     }
   ]
