@@ -1,16 +1,20 @@
+/* compass-public-visual-system: uxhc-v1 */
 :root {
   color-scheme: light;
-  --ink: #17211f;
-  --muted: #54615e;
-  --paper: #f8fbf9;
+  --bg: #f7faf7;
+  --paper: #ffffff;
   --panel: #ffffff;
-  --line: #cbd8d3;
+  --ink: #17211f;
+  --muted: #5f6f6a;
   --teal: #0f766e;
+  --teal-dark: #0b5f59;
   --coral: #d95f43;
   --leaf: #527a39;
-  --gold: #b7791f;
-  --soft: #edf4f1;
+  --gold: #d99c2b;
+  --line: #d9e5df;
+  --soft: #eef6f1;
   --danger: #9f2d20;
+  --shadow: 0 18px 50px rgba(23, 33, 31, 0.08);
 }
 
 * {
@@ -23,10 +27,12 @@ html {
 
 body {
   margin: 0;
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: var(--paper);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background:
+    linear-gradient(180deg, rgba(15, 118, 110, 0.06), transparent 340px),
+    var(--bg);
   color: var(--ink);
-  line-height: 1.55;
+  line-height: 1.58;
   letter-spacing: 0;
 }
 
@@ -38,7 +44,7 @@ footer {
 }
 
 header {
-  padding: 42px 0 20px;
+  padding: 44px 0 24px;
   display: grid;
   gap: 18px;
 }
@@ -46,62 +52,69 @@ header {
 .brand {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 18px;
 }
 
 .brand img {
-  width: 76px;
-  height: 76px;
+  width: 86px;
+  height: 86px;
   border-radius: 8px;
   border: 1px solid var(--line);
   background: var(--panel);
+  box-shadow: var(--shadow);
 }
 
 h1,
 h2,
-h3 {
-  margin: 0;
-  line-height: 1.15;
+h3,
+p {
+  margin-top: 0;
 }
 
 h1 {
-  font-size: 2.35rem;
+  margin-bottom: 12px;
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 1.02;
+  letter-spacing: 0;
 }
 
 h2 {
-  font-size: 1.35rem;
+  font-size: 1.45rem;
+  line-height: 1.2;
   margin-bottom: 10px;
 }
 
 h3 {
-  font-size: 1.06rem;
+  font-size: 1.05rem;
   margin-bottom: 8px;
 }
 
 p {
-  margin: 0 0 12px;
+  margin-bottom: 12px;
 }
 
 a {
-  color: var(--teal);
+  color: var(--teal-dark);
+  font-weight: 700;
 }
 
 a:focus-visible,
-button:focus-visible {
-  outline: 3px solid var(--gold);
+button:focus-visible,
+summary:focus-visible {
+  outline: 3px solid rgba(217, 95, 67, 0.35);
   outline-offset: 3px;
 }
 
 .lead {
-  max-width: 820px;
+  max-width: 880px;
   color: var(--muted);
-  font-size: 1.08rem;
+  font-size: 1.18rem;
 }
 
 .subtitle {
-  max-width: 820px;
+  max-width: 880px;
   color: var(--ink);
-  font-size: 1.22rem;
+  font-size: 1.18rem;
   font-weight: 800;
   margin-bottom: -4px;
 }
@@ -112,24 +125,13 @@ button:focus-visible {
   display: inline-flex;
   align-items: center;
   width: fit-content;
-  border-radius: 8px;
-  font-size: .85rem;
-  font-weight: 700;
-}
-
-.tag {
-  color: #fff;
-  background: var(--teal);
-  padding: 4px 8px;
-  margin-bottom: 8px;
-}
-
-.status-pill,
-.meta-pill {
-  color: var(--ink);
-  background: var(--soft);
   border: 1px solid var(--line);
-  padding: 3px 8px;
+  border-radius: 8px;
+  padding: 6px 10px;
+  background: var(--soft);
+  color: var(--teal-dark);
+  font-size: 0.83rem;
+  font-weight: 800;
 }
 
 .status-pill.beta {
@@ -149,28 +151,40 @@ button:focus-visible {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  padding: 4px 0 14px;
+  margin: 10px 0 22px;
+  border-bottom: 1px solid var(--line);
 }
 
 .tab-nav button {
+  appearance: none;
   border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--panel);
+  border-bottom: 0;
+  border-radius: 8px 8px 0 0;
+  padding: 12px 15px;
+  background: #edf5f0;
   color: var(--ink);
   cursor: pointer;
   font: inherit;
-  font-weight: 700;
-  padding: 9px 12px;
+  font-weight: 800;
 }
 
 .tab-nav button[aria-selected="true"] {
-  background: var(--teal);
-  border-color: var(--teal);
-  color: #fff;
+  background: var(--paper);
+  color: var(--teal-dark);
+  box-shadow: 0 -3px 0 var(--coral) inset;
 }
 
 .tab-panel[hidden] {
   display: none;
+}
+
+.tab-panel {
+  animation: fade 160ms ease-out;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 section {
@@ -199,23 +213,14 @@ section {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--panel);
-  padding: 18px;
+  padding: 22px;
+  box-shadow: var(--shadow);
 }
 
 .product-card {
-  border-left: 4px solid var(--teal);
   display: grid;
   gap: 12px;
   align-content: start;
-}
-
-.product-card[data-maturity="alpha"],
-.product-card[data-maturity="early alpha"] {
-  border-left-color: var(--gold);
-}
-
-.product-card[data-product-id="job-application-compass"] {
-  border-left-color: var(--danger);
 }
 
 .product-head {
@@ -239,39 +244,36 @@ section {
 
 .button {
   display: inline-flex;
-  min-height: 42px;
+  min-height: 44px;
   align-items: center;
   justify-content: center;
-  border: 0;
+  border: 1px solid var(--teal);
   border-radius: 8px;
   background: var(--teal);
   color: #fff;
   cursor: pointer;
   font: inherit;
   font-weight: 800;
-  padding: 10px 13px;
+  padding: 11px 15px;
   text-decoration: none;
 }
 
 .button.secondary {
+  border-color: var(--coral);
   background: var(--coral);
 }
 
-.button.ghost {
-  background: var(--leaf);
-}
-
+.button.ghost,
 .button.quiet {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  color: var(--ink);
+  background: transparent;
+  color: var(--teal-dark);
 }
 
 .button.disabled,
 .button[aria-disabled="true"] {
-  background: #e7eeeb;
-  border: 1px solid var(--line);
-  color: var(--muted);
+  background: #e4ebe7;
+  border-color: #a9b8b2;
+  color: #5e6f68;
   cursor: not-allowed;
 }
 
@@ -288,7 +290,7 @@ section {
 
 .download-item p {
   color: var(--muted);
-  font-size: .92rem;
+  font-size: 0.92rem;
 }
 
 .download-item code,
@@ -299,7 +301,7 @@ section {
 .status-note {
   margin: 0;
   color: var(--muted);
-  font-size: .94rem;
+  font-size: 0.94rem;
 }
 
 .notice {
@@ -321,8 +323,10 @@ li {
 }
 
 details {
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 14px;
+  background: #fbfdfb;
 }
 
 summary {
@@ -342,8 +346,14 @@ footer {
 }
 
 @media (max-width: 720px) {
+  header,
+  main,
+  footer {
+    width: min(100% - 24px, 1120px);
+  }
+
   header {
-    padding-top: 30px;
+    padding-top: 32px;
   }
 
   .brand {
@@ -351,12 +361,18 @@ footer {
   }
 
   .brand img {
-    width: 62px;
-    height: 62px;
+    width: 64px;
+    height: 64px;
   }
 
-  h1 {
-    font-size: 1.85rem;
+  .tab-nav {
+    gap: 6px;
+  }
+
+  .tab-nav button {
+    flex: 1 1 140px;
+    border-radius: 8px;
+    border: 1px solid var(--line);
   }
 
   .product-grid,

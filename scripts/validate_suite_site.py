@@ -66,6 +66,10 @@ def validate_static_text() -> None:
         if forbidden in combined:
             fail(f"forbidden string found in public files: {forbidden}")
 
+    styles = read(ROOT / "styles.css")
+    if "compass-public-visual-system: uxhc-v1" not in styles:
+        fail("shared Compass visual-system marker missing from styles.css")
+
     job_section = re.search(
         r'data-product-id="job-application-compass".*?</article>',
         read(ROOT / "index.html"),
