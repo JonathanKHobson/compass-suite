@@ -1,0 +1,211 @@
+#!/usr/bin/env python3
+"""Validate the Compass Suite static storefront before publishing."""
+
+from __future__ import annotations
+
+import argparse
+import json
+import re
+import sys
+import urllib.error
+import urllib.request
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[1]
+PUBLIC_FILES = [
+    ROOT / "index.html",
+    ROOT / "styles.css",
+    ROOT / "site.js",
+    ROOT / "suite-manifest.json",
+]
+
+FORBIDDEN_STRINGS = [
+    "About & FAQ",
+    "About &amp; FAQ",
+    "PLACEHOLDER",
+    "v0.1.0-beta.7",
+    "v0.1.0-beta.8",
+    "v0.1.0-beta.9",
+    "/Volumes/",
+    "/Users/",
+    "._",
+    ".DS_Store",
+]
+
+PRIVATE_HINTS = [
+    "resume.pdf",
+    "cover-letter",
+    "phone",
+    "gmail.com",
+    "employer-specific",
+]
+
+
+def fail(message: str) -> None:
+    print(f"FAIL: {message}")
+    raise SystemExit(1)
+
+
+def read(path: Path) -> str:
+    if not path.exists():
+        fail(f"missing required file: {path.relative_to(ROOT)}")
+    return path.read_text(encoding="utf-8")
+
+
+def load_manifest() -> dict:
+    try:
+        return json.loads(read(ROOT / "suite-manifest.json"))
+    except json.JSONDecodeError as exc:
+        fail(f"suite-manifest.json is invalid JSON: {exc}")
+
+
+def validate_static_text() -> None:
+    combined = "\n".join(read(path) for path in PUBLIC_FILES)
+    for forbidden in FORBIDDEN_STRINGS:
+        if forbidden in combined:
+            fail(f"forbidden string found in public files: {forbidden}")
+
+    job_section = re.search(
+        r'data-product-id="job-application-compass".*?</article>',
+        read(ROOT / "index.html"),
+        flags=re.DOTALL,
+    )
+    if not job_section:
+        fail("Job Application Compass card missing")
+    job_text = job_section.group(0).lower()
+    for hint in PRIVATE_HINTS:
+        if hint in job_text:
+            fail(f"Job Application Compass card contains private-data hint: {hint}")
+
+
+def validate_tabs() -> None:
+    html = read(ROOT / "index.html")
+    labels = re.findall(r'data-tab-target="[^"]+">([^<]+)</button>', html)
+    expected = ["Get Started", "About", "Install Guide", "FAQ"]
+    if labels != expected:
+        fail(f"tab labels/order mismatch: got {labels}, expected {expected}")
+    for disallowed in ["Example", "Advanced"]:
+        if f">{disallowed}</button>" in html:
+            fail(f"V1 suite site must not include {disallowed} tab")
+
+
+def validate_manifest_parity(manifest: dict) -> None:
+    html = read(ROOT / "index.html")
+    products = manifest.get("products", [])
+    if len(products) != 6:
+        fail(f"expected 6 Compass products, found {len(products)}")
+
+    ids = {product.get("id") for product in products}
+    expected_ids = {
+        "critical-compass",
+        "prompt-compass",
+        "ttrpg-compass",
+        "research-compass",
+        "job-application-compass",
+        "ux-heuristics-compass",
+    }
+    if ids != expected_ids:
+        fail(f"product ids mismatch: got {sorted(ids)}, expected {sorted(expected_ids)}")
+
+    for product in products:
+        product_id = product["id"]
+        if f'data-product-id="{product_id}"' not in html:
+            fail(f"product card missing from HTML: {product_id}")
+
+        downloads = product.get("downloads", [])
+        if product_id in {
+            "ttrpg-compass",
+            "research-compass",
+            "job-application-compass",
+            "ux-heuristics-compass",
+        } and downloads:
+            fail(f"{product_id} must not expose downloads before its public gate clears")
+
+        if product_id == "job-application-compass":
+            gate = product.get("safety_gate", "")
+            if "privacy_scrub_required" not in gate:
+                fail("Job Application Compass manifest must require privacy scrub")
+
+        for download in downloads:
+            url = download.get("url", "")
+            checksum = download.get("checksum", "")
+            filename = download.get("filename", "")
+            if not url or not url.startswith("https://"):
+                fail(f"{product_id} download has invalid URL: {filename}")
+            if url not in html:
+                fail(f"{product_id} download URL missing from HTML: {filename}")
+            if not re.fullmatch(r"[a-f0-9]{64}", checksum):
+                fail(f"{product_id} checksum is not a SHA-256 hex digest: {filename}")
+            if download.get("availability") != "available":
+                fail(f"{product_id} downloadable asset is not marked available: {filename}")
+
+    download_links = re.findall(r'<a [^>]*data-download-url="([^"]+)"[^>]*data-learn-url="([^"]+)"', html)
+    if len(download_links) != 10:
+        fail(f"expected 10 enhanced download links, found {len(download_links)}")
+
+
+def check_url(url: str) -> None:
+    request = urllib.request.Request(
+        url,
+        method="HEAD",
+        headers={"User-Agent": "CompassSuiteValidator/1.0"},
+    )
+    try:
+        with urllib.request.urlopen(request, timeout=20) as response:
+            if response.status >= 400:
+                fail(f"URL returned HTTP {response.status}: {url}")
+    except urllib.error.HTTPError as exc:
+        if exc.code not in {403, 405}:
+            fail(f"URL returned HTTP {exc.code}: {url}")
+        fallback = urllib.request.Request(
+            url,
+            headers={
+                "User-Agent": "CompassSuiteValidator/1.0",
+                "Range": "bytes=0-0",
+            },
+        )
+        with urllib.request.urlopen(fallback, timeout=20) as response:
+            if response.status >= 400:
+                fail(f"URL returned HTTP {response.status}: {url}")
+    except urllib.error.URLError as exc:
+        fail(f"URL check failed for {url}: {exc}")
+
+
+def validate_links(manifest: dict) -> None:
+    urls = {
+        "https://jonathankhobson.github.io/critical-compass/",
+        "https://jonathankhobson.github.io/prompt-compass/",
+        "https://jonathankhobson.github.io/what-is-an-mcp/",
+    }
+    for product in manifest.get("products", []):
+        for key in ("homepage_url", "repo_url", "learn_more_url"):
+            value = product.get(key)
+            if value and value.startswith("https://"):
+                urls.add(value)
+        for download in product.get("downloads", []):
+            urls.add(download["url"])
+
+    for url in sorted(urls):
+        check_url(url)
+        print(f"OK: {url}")
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--check-links", action="store_true", help="verify public URLs over the network")
+    args = parser.parse_args()
+
+    manifest = load_manifest()
+    validate_static_text()
+    validate_tabs()
+    validate_manifest_parity(manifest)
+    if args.check_links:
+        validate_links(manifest)
+
+    print("Compass Suite storefront validation passed.")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

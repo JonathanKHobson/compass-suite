@@ -1,0 +1,188 @@
+{
+  "schema_version": "compass-suite.manifest.v1",
+  "site": {
+    "name": "Compass Suite",
+    "planned_public_url": "https://jonathankhobson.github.io/compass-suite/",
+    "description": "A public storefront for Jonathan Kyle Hobson's local-first Compass tools.",
+    "last_verified": "2026-05-02",
+    "source_of_truth_note": "Keep product cards, download buttons, statuses, and safety gates aligned with this manifest before publishing."
+  },
+  "products": [
+    {
+      "id": "critical-compass",
+      "name": "Critical Compass",
+      "status": "v0.1.0-beta.10",
+      "maturity": "public beta",
+      "tagline": "Pressure-test claims before they travel.",
+      "description": "A critical-thinking assistant for auditing evidence gaps, assumptions, framing risks, missing voices, and report-ready next steps.",
+      "homepage_url": "https://jonathankhobson.github.io/critical-compass/",
+      "repo_url": "https://github.com/JonathanKHobson/critical-compass",
+      "learn_more_url": "https://jonathankhobson.github.io/critical-compass/",
+      "safety_gate": "public_release_verified",
+      "public_notes": "Public beta download URLs were checked before adding to the suite storefront.",
+      "downloads": [
+        {
+          "label": "Plugin Zip",
+          "kind": "plugin_zip",
+          "filename": "critical-compass-plugin.zip",
+          "url": "https://github.com/JonathanKHobson/critical-compass/releases/download/v0.1.0-beta.10/critical-compass-plugin.zip",
+          "checksum": "350e5bb5a2d834e6d7993eefea2d4e174bfa5b20011c06af995de1a888e33880",
+          "availability": "available",
+          "recommended_for": "Claude Cowork or Claude Code"
+        },
+        {
+          "label": "Desktop Extension",
+          "kind": "mcpb",
+          "filename": "critical-compass-0.1.0.mcpb",
+          "url": "https://github.com/JonathanKHobson/critical-compass/releases/download/v0.1.0-beta.10/critical-compass-0.1.0.mcpb",
+          "checksum": "49736f5277454c16e796be25f3460a7a774397a00e0a01597a7e2f65919af219",
+          "availability": "available",
+          "recommended_for": "Claude Desktop"
+        },
+        {
+          "label": "Skill File",
+          "kind": "skill_file",
+          "filename": "critical-compass.skill",
+          "url": "https://github.com/JonathanKHobson/critical-compass/releases/download/v0.1.0-beta.10/critical-compass.skill",
+          "checksum": "a817558e092776153bb16a3454aec9b655dd48b011296c6db927f25d2c5abd2f",
+          "availability": "available",
+          "recommended_for": "Prompt-only Claude skill use"
+        },
+        {
+          "label": "Skill Zip",
+          "kind": "skill_zip",
+          "filename": "skill.zip",
+          "url": "https://github.com/JonathanKHobson/critical-compass/releases/download/v0.1.0-beta.10/skill.zip",
+          "checksum": "efa064bc1becc8c1794d837f33a60a3aa5efd11a797587a431271ecbe23476cf",
+          "availability": "available",
+          "recommended_for": "Skill import workflows that expect a zip"
+        },
+        {
+          "label": "Source Zip",
+          "kind": "source_zip",
+          "filename": "critical-compass-source.zip",
+          "url": "https://github.com/JonathanKHobson/critical-compass/releases/download/v0.1.0-beta.10/critical-compass-source.zip",
+          "checksum": "6bac6e3dd4be9886358c8ab877f5f763ed8692daf400ebdfd9f908d95a32c58d",
+          "availability": "available",
+          "recommended_for": "Technical reviewers and source installs"
+        }
+      ]
+    },
+    {
+      "id": "prompt-compass",
+      "name": "Prompt Compass",
+      "status": "v0.1.0-beta.3",
+      "maturity": "public beta",
+      "tagline": "Turn rough asks into usable AI instructions.",
+      "description": "A prompt-engineering assistant for diagnosing, improving, comparing, targeting, and preflighting prompts before they hit a model.",
+      "homepage_url": "https://jonathankhobson.github.io/prompt-compass/",
+      "repo_url": "https://github.com/JonathanKHobson/prompt-compass",
+      "learn_more_url": "https://jonathankhobson.github.io/prompt-compass/",
+      "safety_gate": "public_release_verified",
+      "public_notes": "Public beta download URLs were checked before adding to the suite storefront.",
+      "downloads": [
+        {
+          "label": "Plugin Zip",
+          "kind": "plugin_zip",
+          "filename": "prompt-compass-plugin.zip",
+          "url": "https://github.com/JonathanKHobson/prompt-compass/releases/download/v0.1.0-beta.3/prompt-compass-plugin.zip",
+          "checksum": "473123d1a5cafa89e660abc7dff690b20a0b836cc6ccc42dc6f046163f635530",
+          "availability": "available",
+          "recommended_for": "Claude Cowork or Claude Code"
+        },
+        {
+          "label": "Desktop Extension",
+          "kind": "mcpb",
+          "filename": "prompt-compass-0.1.0.mcpb",
+          "url": "https://github.com/JonathanKHobson/prompt-compass/releases/download/v0.1.0-beta.3/prompt-compass-0.1.0.mcpb",
+          "checksum": "3da7253481bc15ba051f1bc45481a641854becea4c5fcf61d6768d193c1bf130",
+          "availability": "available",
+          "recommended_for": "Claude Desktop"
+        },
+        {
+          "label": "Skill File",
+          "kind": "skill_file",
+          "filename": "prompt-compass.skill",
+          "url": "https://github.com/JonathanKHobson/prompt-compass/releases/download/v0.1.0-beta.3/prompt-compass.skill",
+          "checksum": "77911d338373cc0d3637a3ff07b5fbb72ae81e12449a4b69c76d1c543ce30608",
+          "availability": "available",
+          "recommended_for": "Prompt-only Claude skill use"
+        },
+        {
+          "label": "Skill Zip",
+          "kind": "skill_zip",
+          "filename": "skill.zip",
+          "url": "https://github.com/JonathanKHobson/prompt-compass/releases/download/v0.1.0-beta.3/skill.zip",
+          "checksum": "460ef16327ede26813416b3ac412cf316584807731705401b047c80b44344645",
+          "availability": "available",
+          "recommended_for": "Skill import workflows that expect a zip"
+        },
+        {
+          "label": "Source Zip",
+          "kind": "source_zip",
+          "filename": "prompt-compass-source.zip",
+          "url": "https://github.com/JonathanKHobson/prompt-compass/releases/download/v0.1.0-beta.3/prompt-compass-source.zip",
+          "checksum": "86a052a91c20c380316b2dea6be5f699a0304c417f669eb0a528c314a71f9036",
+          "availability": "available",
+          "recommended_for": "Technical reviewers and source installs"
+        }
+      ]
+    },
+    {
+      "id": "ttrpg-compass",
+      "name": "TTRPG Compass",
+      "status": "alpha",
+      "maturity": "alpha",
+      "tagline": "Spark better sessions. Stay in the flow.",
+      "description": "An inspiration engine for AI-using game masters: hooks, NPCs, locations, stores, encounters, rules trust rails, and live-session sparks.",
+      "homepage_url": "",
+      "repo_url": "",
+      "learn_more_url": "#about",
+      "safety_gate": "public_page_and_package_pending",
+      "public_notes": "No public download is listed until a package, page, and public/private boundary scan are complete.",
+      "downloads": []
+    },
+    {
+      "id": "research-compass",
+      "name": "Research Compass",
+      "status": "alpha / MVP",
+      "maturity": "alpha",
+      "tagline": "Route research questions before the answer gets too confident.",
+      "description": "A grounding layer for research-shaped questions: pattern recommendations, source-lane routing, evidence checks, and private-note boundaries.",
+      "homepage_url": "",
+      "repo_url": "",
+      "learn_more_url": "#about",
+      "safety_gate": "public_page_and_package_pending",
+      "public_notes": "No public download is listed until release packaging and public/private boundary checks are complete.",
+      "downloads": []
+    },
+    {
+      "id": "job-application-compass",
+      "name": "Job Application Compass",
+      "status": "early alpha",
+      "maturity": "early alpha",
+      "tagline": "Turn job descriptions into evidence-grounded application packets.",
+      "description": "A private-first application packet assistant for mapping a job description to verified evidence, drafts, and follow-up materials.",
+      "homepage_url": "",
+      "repo_url": "",
+      "learn_more_url": "#about",
+      "safety_gate": "privacy_scrub_required_before_public_page_or_download",
+      "public_notes": "Do not publish a homepage, package, screenshots, examples, or downloads until the privacy scrub removes personal application data.",
+      "downloads": []
+    },
+    {
+      "id": "ux-heuristics-compass",
+      "name": "UX Heuristics Compass",
+      "status": "early alpha",
+      "maturity": "early alpha",
+      "tagline": "Make heuristic UX audits easier to run and easier to share.",
+      "description": "A structured UX audit assistant for visible usability issues, severity, bounded captures, and stakeholder-ready audit reports.",
+      "homepage_url": "",
+      "repo_url": "",
+      "learn_more_url": "#about",
+      "safety_gate": "public_page_and_package_pending",
+      "public_notes": "No public download is listed until public package and example surfaces are reviewed.",
+      "downloads": []
+    }
+  ]
+}

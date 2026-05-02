@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Compass Suite</title>
+  <meta name="description" content="A public storefront for Jonathan Kyle Hobson's local-first Compass tools.">
+  <link rel="icon" href="assets/compass-badge.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <img src="assets/compass-badge.svg" alt="Compass Suite badge">
+      <div>
+        <span class="tag">Compass Suite</span>
+        <h1>MCP Compass Suite</h1>
+      </div>
+    </div>
+    <p class="subtitle">Choose the right Compass for the work in front of you.</p>
+    <p class="lead">A storefront for local-first AI tools that help you critique writing, improve prompts, ground research, prepare games, build job packets, and audit UX work without turning every task into a giant system.</p>
+  </header>
+
+  <main>
+    <nav class="tab-nav" role="tablist" aria-label="Compass Suite sections">
+      <button id="tab-get-started" role="tab" aria-controls="get-started" aria-selected="true" data-tab-target="get-started">Get Started</button>
+      <button id="tab-about" role="tab" aria-controls="about" aria-selected="false" data-tab-target="about">About</button>
+      <button id="tab-install" role="tab" aria-controls="install" aria-selected="false" data-tab-target="install">Install Guide</button>
+      <button id="tab-faq" role="tab" aria-controls="faq" aria-selected="false" data-tab-target="faq">FAQ</button>
+    </nav>
+
+    <section id="get-started" class="tab-panel" role="tabpanel" aria-labelledby="tab-get-started">
+      <div class="notice">
+        <h2>Start With the Compass That Matches Your Task</h2>
+        <p>Critical Compass and Prompt Compass are the current public beta downloads. The alpha tools are listed so the suite has a home, but their public downloads stay locked until their pages, packages, and privacy boundaries are ready.</p>
+      </div>
+
+      <section class="product-grid" aria-label="Compass products">
+        <article class="product-card" data-product-id="critical-compass" data-maturity="public beta">
+          <div class="product-head">
+            <div class="product-meta">
+              <span class="status-pill beta">Public beta</span>
+              <span class="meta-pill">v0.1.0-beta.10</span>
+            </div>
+            <h2>Critical Compass</h2>
+            <p><strong>Pressure-test claims before they travel.</strong></p>
+            <p>A critical-thinking assistant for auditing evidence gaps, assumptions, framing risks, missing voices, and report-ready next steps.</p>
+          </div>
+          <div class="product-actions">
+            <a class="button quiet" href="https://jonathankhobson.github.io/critical-compass/" target="_blank" rel="noopener">Learn More</a>
+            <a class="button quiet" href="https://github.com/JonathanKHobson/critical-compass" target="_blank" rel="noopener">GitHub</a>
+          </div>
+          <div class="download-list" aria-label="Critical Compass downloads">
+            <div class="download-item">
+              <h3>Plugin Zip</h3>
+              <p>Best for Claude Cowork or Claude Code.</p>
+              <a class="button" href="https://github.com/JonathanKHobson/critical-compass/releases/download/v0.1.0-beta.10/critical-compass-plugin.zip" download data-download-url="https://github.com/JonathanKHobson/critical-compass/releases/download/v0.1.0-beta.10/critical-compass-plugin.zip" data-learn-url="https://jonathankhobson.github.io/critical-compass/">Download + Learn</a>
+            </div>
+            <div class="download-item">
+              <h3>Desktop Extension</h3>
+              <p>Best for Claude Desktop.</p>
+              <a class="button secondary" href="https://github.com/JonathanKHobson/critical-compass/releases/download/v0.1.0-beta.10/critical-compass-0.1.0.mcpb" download data-download-url="https://github.com/JonathanKHobson/critical-compass/releases/download/v0.1.0-beta.10/critical-compass-0.1.0.mcpb" data-learn-url="https://jonathankhobson.github.io/critical-compass/">Download + Learn</a>
+            </div>
+            <details>
+              <summary>More download options</summary>
+              <div class="download-actions">
+                <a class="button ghost" href="https://github.com/JonathanKHobson/critical-compass/releases/download/v0.1.0-beta.10/critical-compass.skill" download data-download-url="https://github.com/JonathanKHobson/critical-compass/releases/download/v0.1.0-beta.10/critical-compass.skill" data-learn-url="https://jonathankhobson.github.io/critical-compass/">Skill File</a>
+                <a class="button ghost" href="https://github.com/JonathanKHobson/critical-compass/releases/download/v0.1.0-beta.10/skill.zip" download data-download-url="https://github.com/JonathanKHobson/critical-compass/releases/download/v0.1.0-beta.10/skill.zip" data-learn-url="https://jonathankhobson.github.io/critical-compass/">Skill Zip</a>
+                <a class="button quiet" href="https://github.com/JonathanKHobson/critical-compass/releases/download/v0.1.0-beta.10/critical-compass-source.zip" download data-download-url="https://github.com/JonathanKHobson/critical-compass/releases/download/v0.1.0-beta.10/critical-compass-source.zip" data-learn-url="https://jonathankhobson.github.io/critical-compass/">Source Zip</a>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <article class="product-card" data-product-id="prompt-compass" data-maturity="public beta">
+          <div class="product-head">
+            <div class="product-meta">
+              <span class="status-pill beta">Public beta</span>
+              <span class="meta-pill">v0.1.0-beta.3</span>
+            </div>
+            <h2>Prompt Compass</h2>
+            <p><strong>Turn rough asks into usable AI instructions.</strong></p>
+            <p>A prompt-engineering assistant for diagnosing, improving, comparing, targeting, and preflighting prompts before they hit a model.</p>
+          </div>
+          <div class="product-actions">
+            <a class="button quiet" href="https://jonathankhobson.github.io/prompt-compass/" target="_blank" rel="noopener">Learn More</a>
+            <a class="button quiet" href="https://github.com/JonathanKHobson/prompt-compass" target="_blank" rel="noopener">GitHub</a>
+          </div>
+          <div class="download-list" aria-label="Prompt Compass downloads">
+            <div class="download-item">
+              <h3>Plugin Zip</h3>
+              <p>Best for Claude Cowork or Claude Code.</p>
+              <a class="button" href="https://github.com/JonathanKHobson/prompt-compass/releases/download/v0.1.0-beta.3/prompt-compass-plugin.zip" download data-download-url="https://github.com/JonathanKHobson/prompt-compass/releases/download/v0.1.0-beta.3/prompt-compass-plugin.zip" data-learn-url="https://jonathankhobson.github.io/prompt-compass/">Download + Learn</a>
+            </div>
+            <div class="download-item">
+              <h3>Desktop Extension</h3>
+              <p>Best for Claude Desktop.</p>
+              <a class="button secondary" href="https://github.com/JonathanKHobson/prompt-compass/releases/download/v0.1.0-beta.3/prompt-compass-0.1.0.mcpb" download data-download-url="https://github.com/JonathanKHobson/prompt-compass/releases/download/v0.1.0-beta.3/prompt-compass-0.1.0.mcpb" data-learn-url="https://jonathankhobson.github.io/prompt-compass/">Download + Learn</a>
+            </div>
+            <details>
+              <summary>More download options</summary>
+              <div class="download-actions">
+                <a class="button ghost" href="https://github.com/JonathanKHobson/prompt-compass/releases/download/v0.1.0-beta.3/prompt-compass.skill" download data-download-url="https://github.com/JonathanKHobson/prompt-compass/releases/download/v0.1.0-beta.3/prompt-compass.skill" data-learn-url="https://jonathankhobson.github.io/prompt-compass/">Skill File</a>
+                <a class="button ghost" href="https://github.com/JonathanKHobson/prompt-compass/releases/download/v0.1.0-beta.3/skill.zip" download data-download-url="https://github.com/JonathanKHobson/prompt-compass/releases/download/v0.1.0-beta.3/skill.zip" data-learn-url="https://jonathankhobson.github.io/prompt-compass/">Skill Zip</a>
+                <a class="button quiet" href="https://github.com/JonathanKHobson/prompt-compass/releases/download/v0.1.0-beta.3/prompt-compass-source.zip" download data-download-url="https://github.com/JonathanKHobson/prompt-compass/releases/download/v0.1.0-beta.3/prompt-compass-source.zip" data-learn-url="https://jonathankhobson.github.io/prompt-compass/">Source Zip</a>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <article class="product-card" data-product-id="ttrpg-compass" data-maturity="alpha">
+          <div class="product-head">
+            <div class="product-meta">
+              <span class="status-pill alpha">Alpha</span>
+              <span class="meta-pill">Preview</span>
+            </div>
+            <h2>TTRPG Compass</h2>
+            <p><strong>Spark better sessions. Stay in the flow.</strong></p>
+            <p>An inspiration engine for AI-using game masters: hooks, NPCs, locations, stores, encounters, rules trust rails, and live-session sparks.</p>
+          </div>
+          <p class="status-note">Public page and downloads are pending package review.</p>
+          <a class="button quiet" href="#about">Read Suite Overview</a>
+          <span class="button disabled" aria-disabled="true">Downloads Coming Later</span>
+        </article>
+
+        <article class="product-card" data-product-id="research-compass" data-maturity="alpha">
+          <div class="product-head">
+            <div class="product-meta">
+              <span class="status-pill alpha">Alpha / MVP</span>
+              <span class="meta-pill">Preview</span>
+            </div>
+            <h2>Research Compass</h2>
+            <p><strong>Route research questions before the answer gets too confident.</strong></p>
+            <p>A grounding layer for research-shaped questions: pattern recommendations, source-lane routing, evidence checks, and private-note boundaries.</p>
+          </div>
+          <p class="status-note">Public page and downloads are pending release packaging and boundary checks.</p>
+          <a class="button quiet" href="#about">Read Suite Overview</a>
+          <span class="button disabled" aria-disabled="true">Downloads Coming Later</span>
+        </article>
+
+        <article class="product-card" data-product-id="job-application-compass" data-maturity="early alpha">
+          <div class="product-head">
+            <div class="product-meta">
+              <span class="status-pill early-alpha">Early alpha</span>
+              <span class="meta-pill">Private-first</span>
+            </div>
+            <h2>Job Application Compass</h2>
+            <p><strong>Turn job descriptions into evidence-grounded application packets.</strong></p>
+            <p>A private-first application packet assistant for mapping a job description to verified evidence, drafts, and follow-up materials.</p>
+          </div>
+          <p class="status-note">No public page or downloads until the personal-information scrub passes.</p>
+          <a class="button quiet" href="#about">Read Suite Overview</a>
+          <span class="button disabled" aria-disabled="true">Locked Until Privacy Scrub</span>
+        </article>
+
+        <article class="product-card" data-product-id="ux-heuristics-compass" data-maturity="early alpha">
+          <div class="product-head">
+            <div class="product-meta">
+              <span class="status-pill early-alpha">Early alpha</span>
+              <span class="meta-pill">Preview</span>
+            </div>
+            <h2>UX Heuristics Compass</h2>
+            <p><strong>Make heuristic UX audits easier to run and easier to share.</strong></p>
+            <p>A structured UX audit assistant for visible usability issues, severity, bounded captures, and stakeholder-ready audit reports.</p>
+          </div>
+          <p class="status-note">Public page and downloads are pending public package and example review.</p>
+          <a class="button quiet" href="#about">Read Suite Overview</a>
+          <span class="button disabled" aria-disabled="true">Downloads Coming Later</span>
+        </article>
+      </section>
+    </section>
+
+    <section id="about" class="tab-panel" role="tabpanel" aria-labelledby="tab-about" hidden>
+      <div class="section-intro">
+        <h2>About the Compass Suite</h2>
+        <p>The Compass Suite is a family of local-first AI helpers. Each Compass gives an AI assistant a bounded job, a clearer workflow, and a stronger standard for when to ask, retrieve, validate, or stop.</p>
+      </div>
+
+      <section class="info-grid" aria-label="Compass Suite overview">
+        <div class="info-block">
+          <h2>What They Share</h2>
+          <p>These tools favor narrow workflows, local files, clear install paths, conservative claims, and validation before polished output. They are designed to help a host AI work more carefully instead of simply sounding more confident.</p>
+        </div>
+        <div class="info-block">
+          <h2>What They Do Not Do</h2>
+          <p>They do not replace human judgment, guarantee truth, or make private material public. Alpha products may change quickly, so this suite page describes them lightly until their public contracts settle.</p>
+        </div>
+        <div class="info-block">
+          <h2>Why a Storefront Exists</h2>
+          <p>Each Compass has its own home page and release notes. This page gives the suite a single front door so people can choose the right tool without learning every project history first.</p>
+        </div>
+      </section>
+
+      <section aria-label="Compass tool overview">
+        <h2>Tool Overview</h2>
+        <div class="info-grid">
+          <div class="info-block">
+            <h3>Critical Compass</h3>
+            <p>Use it when the question is whether a text should be trusted, revised, verified, reframed, or handled with more care.</p>
+          </div>
+          <div class="info-block">
+            <h3>Prompt Compass</h3>
+            <p>Use it when an AI instruction is vague, brittle, too broad, missing constraints, or aimed at the wrong model or surface.</p>
+          </div>
+          <div class="info-block">
+            <h3>TTRPG Compass</h3>
+            <p>Use it for session sparks, table-ready creative material, and support that keeps rules and prep from breaking the flow.</p>
+          </div>
+          <div class="info-block">
+            <h3>Research Compass</h3>
+            <p>Use it to frame a research-shaped question, choose the right evidence lane, and keep private notes separate from public sources.</p>
+          </div>
+          <div class="info-block">
+            <h3>Job Application Compass</h3>
+            <p>Use it privately to map a job description to verified evidence and produce application materials without inventing claims.</p>
+          </div>
+          <div class="info-block">
+            <h3>UX Heuristics Compass</h3>
+            <p>Use it for structured heuristic reviews of screens, captures, visible usability issues, severity, and stakeholder-ready audit output.</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="notice privacy-notice">
+        <h2>Privacy Boundary</h2>
+        <p>Job Application Compass stays locked until a public scrub proves that private career material, contact details, application history, private links, and local-only evidence files are not exposed.</p>
+      </div>
+    </section>
+
+    <section id="install" class="tab-panel" role="tabpanel" aria-labelledby="tab-install" hidden>
+      <div class="section-intro">
+        <h2>Install Guide</h2>
+        <p>Most Compass tools ship in a few formats. Pick the one that matches how you use AI today. You can usually install more than one format if you want both a tool connection and a prompt-only fallback.</p>
+      </div>
+
+      <section class="install-grid" aria-label="Install options">
+        <div class="install-block">
+          <h2>Plugin Zip</h2>
+          <p>Use this for Claude Cowork or Claude Code when a product offers a packaged plugin bundle.</p>
+          <ol>
+            <li>Download the plugin zip from the product card.</li>
+            <li>Open the dedicated product page in the new tab for product-specific instructions.</li>
+            <li>Follow the host app's current plugin install flow.</li>
+          </ol>
+        </div>
+        <div class="install-block">
+          <h2>Desktop Extension</h2>
+          <p>Use the MCPB or extension file for Claude Desktop when a product offers one.</p>
+          <ol>
+            <li>Download the desktop extension file.</li>
+            <li>Open Claude Desktop settings and find Extensions.</li>
+            <li>Install the file, approve the standard local-extension warning, then test the product's get-started prompt.</li>
+          </ol>
+        </div>
+        <div class="install-block">
+          <h2>Skill File or Skill Zip</h2>
+          <p>Use this when you want the prompt-only version or when the host does not support the MCP connector yet.</p>
+          <ol>
+            <li>Download the skill file or skill zip.</li>
+            <li>Add it through your host app's skill import flow.</li>
+            <li>Use the product page's starter prompt to confirm the skill is active.</li>
+          </ol>
+        </div>
+        <div class="install-block">
+          <h2>Source Zip</h2>
+          <p>Use this for source review, technical install, or local inspection before trusting a package.</p>
+          <ol>
+            <li>Download the source zip.</li>
+            <li>Review the files and checksums.</li>
+            <li>Follow the product page's source-install instructions rather than guessing from the suite page.</li>
+          </ol>
+        </div>
+      </section>
+
+      <div class="notice">
+        <h2>Install Reality Check</h2>
+        <p>Host apps change their exact plugin and extension flows. The dedicated Compass pages remain the authority for product-specific steps, checksums, examples, and troubleshooting.</p>
+      </div>
+    </section>
+
+    <section id="faq" class="tab-panel" role="tabpanel" aria-labelledby="tab-faq" hidden>
+      <div class="section-intro">
+        <h2>FAQ</h2>
+        <p>Plain-language answers for people who are still mapping the AI tooling landscape.</p>
+      </div>
+
+      <section class="faq-grid" aria-label="Frequently asked questions">
+        <div class="faq-block">
+          <h2>What is an MCP?</h2>
+          <p>MCP means Model Context Protocol. It is a way for an AI host to connect to tools, local data, and structured workflows. In plain terms: it lets the AI ask a local tool to do a bounded job instead of improvising everything in chat.</p>
+          <p><a href="https://jonathankhobson.github.io/what-is-an-mcp/" target="_blank" rel="noopener">Learn more about MCPs</a></p>
+        </div>
+        <div class="faq-block">
+          <h2>What is a skill?</h2>
+          <p>A skill is a packaged instruction set the AI can read and follow. It is usually lighter than an MCP because it may not expose local tools or databases, but it can still guide the AI through a workflow.</p>
+        </div>
+        <div class="faq-block">
+          <h2>What is Claude Desktop?</h2>
+          <p>Claude Desktop is Anthropic's desktop app for using Claude on your computer. It can work with local extensions and MCP connectors when those are installed and approved.</p>
+        </div>
+        <div class="faq-block">
+          <h2>What is Codex?</h2>
+          <p>Codex is a coding-oriented AI environment. It is useful when a Compass needs local files inspected, packages validated, tests run, or source installs handled carefully.</p>
+        </div>
+        <div class="faq-block">
+          <h2>How are Claude, Codex, and Claude Desktop different?</h2>
+          <p>Claude is the AI model family. Claude Desktop is an app for using Claude on your computer. Codex is a coding-agent environment with strong local file and command-line workflows.</p>
+        </div>
+        <div class="faq-block">
+          <h2>What does local-first mean here?</h2>
+          <p>Local-first means the product is designed to run from files and tools on your machine when possible. It reduces dependence on hosted services, but you still need to review any third-party package before installing it.</p>
+        </div>
+        <div class="faq-block">
+          <h2>Why are some Compass downloads locked?</h2>
+          <p>Alpha products change quickly. A download appears here only after the product has a public-safe page, package, checksum, and private-data boundary review.</p>
+        </div>
+        <div class="faq-block">
+          <h2>Do I need a GitHub account?</h2>
+          <p>No. Public download buttons point directly to release files. GitHub is where the public files are hosted.</p>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer>
+    <p>Compass Suite is maintained by Jonathan Kyle Hobson. Individual Compass pages remain the authority for product-specific docs, checksums, examples, and release notes.</p>
+    <div class="footer-links">
+      <a href="https://jonathankhobson.github.io/critical-compass/">Critical Compass</a>
+      <a href="https://jonathankhobson.github.io/prompt-compass/">Prompt Compass</a>
+      <a href="https://jonathankhobson.github.io/what-is-an-mcp/">Learn More About MCPs</a>
+    </div>
+  </footer>
+
+  <script src="site.js"></script>
+</body>
+</html>

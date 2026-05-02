@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title desc">
+  <title id="title">Compass Suite badge</title>
+  <desc id="desc">A simple compass mark used for the Compass Suite storefront.</desc>
+  <rect width="120" height="120" rx="16" fill="#f8fbf9"/>
+  <circle cx="60" cy="60" r="44" fill="none" stroke="#0f766e" stroke-width="8"/>
+  <path d="M76 18 64 63 98 80 56 69z" fill="#d95f43"/>
+  <path d="M44 102 56 57 22 40 64 51z" fill="#527a39"/>
+  <circle cx="60" cy="60" r="7" fill="#17211f"/>
+</svg>
