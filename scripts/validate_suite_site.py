@@ -122,7 +122,6 @@ def validate_manifest_parity(manifest: dict) -> None:
             "ttrpg-compass",
             "research-compass",
             "job-application-compass",
-            "ux-heuristics-compass",
         } and downloads:
             fail(f"{product_id} must not expose downloads before its public gate clears")
 
@@ -145,8 +144,8 @@ def validate_manifest_parity(manifest: dict) -> None:
                 fail(f"{product_id} downloadable asset is not marked available: {filename}")
 
     download_links = re.findall(r'<a [^>]*data-download-url="([^"]+)"[^>]*data-learn-url="([^"]+)"', html)
-    if len(download_links) != 10:
-        fail(f"expected 10 enhanced download links, found {len(download_links)}")
+    if len(download_links) != 15:
+        fail(f"expected 15 enhanced download links, found {len(download_links)}")
 
 
 def check_url(url: str) -> None:

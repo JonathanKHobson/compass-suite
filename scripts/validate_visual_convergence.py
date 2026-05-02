@@ -26,7 +26,7 @@ LOCAL_PAGES = {
         "path": BASE / "ux-heuristic-compass" / "dist" / "share" / "github-pages" / "index.html",
         "tabs": ["Get Started", "About", "Install Guide", "Example", "FAQ", "Advanced"],
         "marker_file": BASE / "ux-heuristic-compass" / "dist" / "share" / "github-pages" / "styles.css",
-        "downloads_disabled": True,
+        "downloads_enabled": True,
     },
     "suite": {
         "path": BASE / "compass-suite" / "index.html",
@@ -84,11 +84,11 @@ def validate_page(name: str, config: dict) -> None:
             if f">{disallowed}</button>" in html:
                 fail(f"suite must not include {disallowed} tab")
 
-    if config.get("downloads_disabled"):
-        if UXHC_RELEASE_URL in html:
-            fail("UXHC release download link is active before package verification")
-        if html.count("disabled") < 3:
-            fail("UXHC should keep package download buttons disabled")
+    if config.get("downloads_enabled"):
+        if UXHC_RELEASE_URL not in html:
+            fail("UXHC release download links are missing after package verification")
+        if "Download Opens After" in html or "Skill Download Coming Soon" in html:
+            fail("UXHC still has pending download copy after package verification")
 
 
 def validate_sidecars() -> None:
