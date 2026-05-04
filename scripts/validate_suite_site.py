@@ -15,6 +15,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC_FILES = [
     ROOT / "index.html",
+    ROOT / "404.html",
     ROOT / "styles.css",
     ROOT / "site.js",
     ROOT / "suite-manifest.json",
@@ -31,6 +32,17 @@ FORBIDDEN_STRINGS = [
     "/Users/",
     "._",
     ".DS_Store",
+    "Download + Learn",
+]
+
+REQUIRED_STRINGS = [
+    "Not sure what to download?",
+    "Claude Code / Cowork Plugin",
+    "Claude Desktop Extension",
+    "Download and Open Guide",
+    "MCP Basics",
+    "Check Back for Public Package",
+    "Download started. Guide opened.",
 ]
 
 PRIVATE_HINTS = [
@@ -65,14 +77,32 @@ def validate_static_text() -> None:
     for forbidden in FORBIDDEN_STRINGS:
         if forbidden in combined:
             fail(f"forbidden string found in public files: {forbidden}")
+    for required in REQUIRED_STRINGS:
+        if required not in combined:
+            fail(f"required storefront hardening string missing: {required}")
 
     styles = read(ROOT / "styles.css")
     if "compass-public-visual-system: uxhc-v1" not in styles:
         fail("shared Compass visual-system marker missing from styles.css")
+    for required_css in [
+        "overflow-x: hidden",
+        ".download-chooser",
+        ".sr-only",
+    ]:
+        if required_css not in styles:
+            fail(f"mobile/accessibility containment CSS missing: {required_css}")
+
+    html = read(ROOT / "index.html")
+    for href in [
+        "https://jonathankhobson.github.io/what-is-an-mcp/",
+        "https://jonathankhobson.github.io/what-is-an-mcp/#mcp-risks",
+    ]:
+        if href in html and f'href="{href}" target="_blank" rel="noopener"' not in html:
+            fail(f"MCP explainer link must open in a new tab: {href}")
 
     job_section = re.search(
         r'data-product-id="job-application-compass".*?</article>',
-        read(ROOT / "index.html"),
+        html,
         flags=re.DOTALL,
     )
     if not job_section:
@@ -81,6 +111,23 @@ def validate_static_text() -> None:
     for hint in PRIVATE_HINTS:
         if hint in job_text:
             fail(f"Job Application Compass card contains private-data hint: {hint}")
+
+    error_page = read(ROOT / "404.html")
+    for recovery_link in [
+        "https://jonathankhobson.github.io/compass-suite/",
+        "https://jonathankhobson.github.io/critical-compass/",
+        "https://jonathankhobson.github.io/prompt-compass/",
+        "https://jonathankhobson.github.io/ux-heuristic-compass/",
+        "https://jonathankhobson.github.io/what-is-an-mcp/",
+    ]:
+        if recovery_link not in error_page:
+            fail(f"404 recovery link missing: {recovery_link}")
+
+    for sidecar in ROOT.rglob("*"):
+        if ".git" in sidecar.parts or "__pycache__" in sidecar.parts:
+            continue
+        if sidecar.name == ".DS_Store" or sidecar.name.startswith("._"):
+            fail(f"sidecar file found: {sidecar.relative_to(ROOT)}")
 
 
 def validate_tabs() -> None:

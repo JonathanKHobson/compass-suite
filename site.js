@@ -1,6 +1,11 @@
 (function () {
   const tabs = Array.from(document.querySelectorAll('[role="tab"][data-tab-target]'));
   const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
+  const liveRegion = document.createElement('div');
+  liveRegion.className = 'sr-only';
+  liveRegion.setAttribute('aria-live', 'polite');
+  liveRegion.setAttribute('aria-atomic', 'true');
+  document.body.append(liveRegion);
 
   function showTab(targetId, updateHash) {
     const selectedTab = tabs.find((tab) => tab.dataset.tabTarget === targetId) || tabs[0];
@@ -60,6 +65,13 @@
         return;
       }
       window.open(learnUrl, '_blank', 'noopener');
+      const originalText = link.dataset.originalText || link.textContent.trim();
+      link.dataset.originalText = originalText;
+      link.textContent = 'Download started. Guide opened.';
+      liveRegion.textContent = 'Download started. Product guide opened in a new tab.';
+      window.setTimeout(() => {
+        link.textContent = link.dataset.originalText || originalText;
+      }, 2200);
     });
   });
 }());

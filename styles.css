@@ -23,6 +23,8 @@
 
 html {
   scroll-behavior: smooth;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -34,6 +36,14 @@ body {
   color: var(--ink);
   line-height: 1.58;
   letter-spacing: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
 }
 
 header,
@@ -96,6 +106,7 @@ p {
 a {
   color: var(--teal-dark);
   font-weight: 700;
+  overflow-wrap: anywhere;
 }
 
 a:focus-visible,
@@ -178,6 +189,18 @@ summary:focus-visible {
   display: none;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .tab-panel {
   animation: fade 160ms ease-out;
 }
@@ -189,6 +212,7 @@ summary:focus-visible {
 
 section {
   padding: 20px 0;
+  min-width: 0;
 }
 
 .section-intro {
@@ -215,6 +239,8 @@ section {
   background: var(--panel);
   padding: 22px;
   box-shadow: var(--shadow);
+  max-width: 100%;
+  min-width: 0;
 }
 
 .product-card {
@@ -240,6 +266,7 @@ section {
   flex-wrap: wrap;
   align-items: center;
   gap: 8px;
+  min-width: 0;
 }
 
 .button {
@@ -256,11 +283,15 @@ section {
   font-weight: 800;
   padding: 11px 15px;
   text-decoration: none;
+  max-width: 100%;
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 .button.secondary {
-  border-color: var(--coral);
-  background: var(--coral);
+  border-color: var(--teal);
+  background: var(--teal);
 }
 
 .button.ghost,
@@ -281,11 +312,13 @@ section {
   display: grid;
   gap: 10px;
   margin-top: 2px;
+  min-width: 0;
 }
 
 .download-item {
   border-top: 1px solid var(--line);
   padding-top: 10px;
+  min-width: 0;
 }
 
 .download-item p {
@@ -302,6 +335,69 @@ section {
   margin: 0;
   color: var(--muted);
   font-size: 0.94rem;
+}
+
+.download-chooser {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.3fr);
+  gap: 18px;
+  align-items: stretch;
+  margin-bottom: 18px;
+}
+
+.chooser-copy,
+.chooser-item {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.chooser-copy {
+  padding: 22px;
+  border-left: 4px solid var(--teal);
+}
+
+.chooser-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.eyebrow {
+  margin-bottom: 6px;
+  color: var(--teal-dark);
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.inline-help {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+}
+
+.chooser-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  min-width: 0;
+}
+
+.chooser-item {
+  display: grid;
+  gap: 6px;
+  padding: 16px;
+}
+
+.chooser-item span {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.chooser-item strong {
+  color: var(--ink);
+  overflow-wrap: anywhere;
 }
 
 .notice {
@@ -327,11 +423,16 @@ details {
   border-radius: 8px;
   padding: 14px;
   background: #fbfdfb;
+  min-width: 0;
 }
 
 summary {
   cursor: pointer;
   font-weight: 800;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  overflow-wrap: anywhere;
 }
 
 footer {
@@ -366,13 +467,18 @@ footer {
   }
 
   .tab-nav {
-    gap: 6px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    border-bottom: 0;
   }
 
   .tab-nav button {
-    flex: 1 1 140px;
+    width: 100%;
+    min-height: 48px;
     border-radius: 8px;
     border: 1px solid var(--line);
+    text-align: left;
   }
 
   .product-grid,
@@ -380,5 +486,45 @@ footer {
   .install-grid,
   .faq-grid {
     grid-template-columns: 1fr;
+  }
+
+  .download-chooser,
+  .chooser-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-actions,
+  .download-actions {
+    align-items: stretch;
+  }
+
+  .product-actions .button,
+  .download-actions .button,
+  .download-item .button,
+  .product-card > .button,
+  .product-card > .button.disabled {
+    width: 100%;
+  }
+}
+
+@media (max-width: 420px) {
+  header,
+  main,
+  footer {
+    width: min(100% - 20px, 1120px);
+  }
+
+  .brand {
+    display: grid;
+  }
+
+  .product-card,
+  .info-block,
+  .install-block,
+  .faq-block,
+  .notice,
+  .chooser-copy,
+  .chooser-item {
+    padding: 18px;
   }
 }
