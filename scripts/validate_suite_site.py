@@ -43,6 +43,8 @@ REQUIRED_STRINGS = [
     "MCP Basics",
     "Check Back for Public Package",
     "Download started. Guide opened.",
+    "Codex can work with these local packages and source zips",
+    "Codex can work with local Compass source packages when configured manually",
 ]
 
 PRIVATE_HINTS = [
@@ -93,6 +95,23 @@ def validate_static_text() -> None:
             fail(f"mobile/accessibility containment CSS missing: {required_css}")
 
     html = read(ROOT / "index.html")
+    expected_card_order = [
+        "critical-compass",
+        "prompt-compass",
+        "ux-heuristics-compass",
+        "ttrpg-compass",
+        "research-compass",
+        "job-application-compass",
+    ]
+    card_order = re.findall(r'data-product-id="([^"]+)"', html)
+    if card_order != expected_card_order:
+        fail(f"product card order mismatch: got {card_order}, expected {expected_card_order}")
+
+    product_grid_pos = html.find('class="product-grid"')
+    chooser_pos = html.find('class="download-chooser"')
+    if chooser_pos == -1 or product_grid_pos == -1 or chooser_pos < product_grid_pos:
+        fail("download chooser must appear after the product grid so available Compasses are seen first")
+
     for href in [
         "https://jonathankhobson.github.io/what-is-an-mcp/",
         "https://jonathankhobson.github.io/what-is-an-mcp/#mcp-risks",
@@ -146,6 +165,18 @@ def validate_manifest_parity(manifest: dict) -> None:
     products = manifest.get("products", [])
     if len(products) != 6:
         fail(f"expected 6 Compass products, found {len(products)}")
+
+    manifest_order = [product.get("id") for product in products]
+    expected_order = [
+        "critical-compass",
+        "prompt-compass",
+        "ux-heuristics-compass",
+        "ttrpg-compass",
+        "research-compass",
+        "job-application-compass",
+    ]
+    if manifest_order != expected_order:
+        fail(f"manifest product order mismatch: got {manifest_order}, expected {expected_order}")
 
     ids = {product.get("id") for product in products}
     expected_ids = {
