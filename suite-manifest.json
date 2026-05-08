@@ -131,7 +131,7 @@
     {
       "id": "ux-heuristics-compass",
       "name": "UX Heuristics Compass",
-      "status": "v0.1.0-beta.1",
+      "status": "v0.1.0-beta.10",
       "maturity": "early beta",
       "tagline": "Spot usability problems before an interface ships.",
       "description": "A structured UX audit assistant for screenshots, app screens, bounded captures, severity, and stakeholder-ready audit reports.",
@@ -145,8 +145,8 @@
           "label": "Plugin Zip",
           "kind": "plugin_zip",
           "filename": "ux-heuristic-compass-plugin.zip",
-          "url": "https://github.com/JonathanKHobson/ux-heuristic-compass/releases/download/v0.1.0-beta.1/ux-heuristic-compass-plugin.zip",
-          "checksum": "b64b1b280ba4a9066ed094d60b196968b1fdd309a375d6afcf9a8da644451c1b",
+          "url": "https://github.com/JonathanKHobson/ux-heuristic-compass/releases/download/v0.1.0-beta.10/ux-heuristic-compass-plugin.zip",
+          "checksum": "dc40974b0602f1f1d7188e4d06f90cf73472e0d4743d55359b10b042d22010c2",
           "availability": "available",
           "recommended_for": "Claude Cowork or Claude Code"
         },
@@ -154,8 +154,8 @@
           "label": "Desktop Extension",
           "kind": "mcpb",
           "filename": "ux-heuristic-compass-0.1.0.mcpb",
-          "url": "https://github.com/JonathanKHobson/ux-heuristic-compass/releases/download/v0.1.0-beta.1/ux-heuristic-compass-0.1.0.mcpb",
-          "checksum": "97c160c81e1e6397b730dae54498fd8fdae93c28813735d7870931f94907a64c",
+          "url": "https://github.com/JonathanKHobson/ux-heuristic-compass/releases/download/v0.1.0-beta.10/ux-heuristic-compass-0.1.0.mcpb",
+          "checksum": "fcbea8b3352cd9b096ece5729977ccd5d6c878116b77a7fd65c6c4078881b2f8",
           "availability": "available",
           "recommended_for": "Claude Desktop"
         },
@@ -163,8 +163,8 @@
           "label": "Skill File",
           "kind": "skill_file",
           "filename": "ux-heuristic-compass.skill",
-          "url": "https://github.com/JonathanKHobson/ux-heuristic-compass/releases/download/v0.1.0-beta.1/ux-heuristic-compass.skill",
-          "checksum": "ba2867b1fa9e1016050f4dfd678f3487ea44f4f5120644737f1e324c35f23231",
+          "url": "https://github.com/JonathanKHobson/ux-heuristic-compass/releases/download/v0.1.0-beta.10/ux-heuristic-compass.skill",
+          "checksum": "0be58675d60e137626303783f1a0dd3d154d1453f597fbe33b8261fcef8f132a",
           "availability": "available",
           "recommended_for": "Prompt-only Claude skill use"
         },
@@ -172,8 +172,8 @@
           "label": "Skill Zip",
           "kind": "skill_zip",
           "filename": "skill.zip",
-          "url": "https://github.com/JonathanKHobson/ux-heuristic-compass/releases/download/v0.1.0-beta.1/skill.zip",
-          "checksum": "de3141506fd73ce1bcfdd92c9d11d56f06310fce9d39c8b5cff76ce6c64e1c04",
+          "url": "https://github.com/JonathanKHobson/ux-heuristic-compass/releases/download/v0.1.0-beta.10/skill.zip",
+          "checksum": "0d13f5389adb9a269689f83dc76e0fcfd10306b4e1b5e9e3ad73ef24f2b13448",
           "availability": "available",
           "recommended_for": "Skill import workflows that expect a zip"
         },
@@ -181,8 +181,8 @@
           "label": "Source Zip",
           "kind": "source_zip",
           "filename": "ux-heuristic-compass-source.zip",
-          "url": "https://github.com/JonathanKHobson/ux-heuristic-compass/releases/download/v0.1.0-beta.1/ux-heuristic-compass-source.zip",
-          "checksum": "75892c1980da6338959de547821f9f2945a8bca217a3e8fed5283ed454f9d45d",
+          "url": "https://github.com/JonathanKHobson/ux-heuristic-compass/releases/download/v0.1.0-beta.10/ux-heuristic-compass-source.zip",
+          "checksum": "18dcd62231a9d3932de81f024b185acbaf5d59d9c1124262bfdbc86ca4d3e0b8",
           "availability": "available",
           "recommended_for": "Technical reviewers and source installs"
         }

@@ -6,8 +6,8 @@ Static storefront for the Compass Suite. This page links people to individual Co
 
 - Tabs: `Get Started`, `About`, `Install Guide`, `FAQ`.
 - No `Advanced` or `Examples` tab in the suite site yet.
-- Critical Compass and Prompt Compass are the only products with public download buttons.
-- UX Heuristics Compass has a public beta landing page, but its downloads stay locked until package verification finishes.
+- Critical Compass, Prompt Compass, and UX Heuristics Compass have public beta download buttons.
+- UX Heuristics Compass is published as `v0.1.0-beta.10`; its individual landing page remains authoritative for install guidance, checksums, examples, and release notes.
 - Alpha and early-alpha products stay preview-only until their packages, pages, and privacy boundaries are verified.
 - Job Application Compass must not publish downloads, screenshots, examples, or home-page content until a personal-information scrub passes.
 
