@@ -435,15 +435,61 @@ summary {
   overflow-wrap: anywhere;
 }
 
-footer {
+.suite-footer {
   padding: 28px 0 44px;
   color: var(--muted);
 }
 
-.footer-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+.suite-footer-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: var(--shadow);
+  padding: 22px;
+}
+
+.suite-footer-note {
+  margin: 0 0 16px;
+  padding: 0 0 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.suite-footer-heading {
+  margin: 0 0 4px;
+  color: var(--ink);
+  font-weight: 900;
+}
+
+.suite-footer-purpose,
+.suite-footer-legal {
+  margin: 0;
+}
+
+.suite-footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin: 18px 0;
+}
+
+.suite-footer-group h2 {
+  margin: 0 0 8px;
+  color: var(--ink);
+  font-size: 0.94rem;
+}
+
+.suite-footer-links {
+  display: grid;
+  gap: 6px;
+}
+
+.suite-footer-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  width: fit-content;
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 @media (max-width: 720px) {
@@ -491,6 +537,11 @@ footer {
   .download-chooser,
   .chooser-grid {
     grid-template-columns: 1fr;
+  }
+
+  .suite-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
 
   .product-actions,

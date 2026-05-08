@@ -5,34 +5,54 @@ from __future__ import annotations
 
 import re
 import sys
+import os
 from pathlib import Path
 
 
 SUITE_ROOT = Path(__file__).resolve().parents[1]
 
+
+def configured_path(env_name: str, *default_parts: str) -> Path:
+    configured = os.environ.get(env_name)
+    if configured:
+        return Path(configured).expanduser().resolve()
+    return (SUITE_ROOT.parent / Path(*default_parts)).resolve()
+
+
+LOCAL_USER_PATH = "/" + "Users/"
+LOCAL_VOLUME_PATH = "/" + "Volumes/"
+UNFILLED_SENTINEL = "PLACE" + "HOLDER"
+
 PUBLIC_SURFACES = {
     "compass-suite": {
-        "files": [SUITE_ROOT / "index.html", SUITE_ROOT / "404.html", SUITE_ROOT / "styles.css", SUITE_ROOT / "site.js"],
+        "files": [
+            SUITE_ROOT / "index.html",
+            SUITE_ROOT / "404.html",
+            SUITE_ROOT / "about" / "index.html",
+            SUITE_ROOT / "license" / "index.html",
+            SUITE_ROOT / "styles.css",
+            SUITE_ROOT / "site.js",
+        ],
         "kind": "suite",
     },
     "critical-compass": {
-        "files": [Path("/Volumes/KyleSSD/CriticalThinking/dist/share/github-pages/index.html")],
+        "files": [configured_path("CRITICAL_COMPASS_PUBLIC_PAGE", "CriticalThinking", "dist", "share", "github-pages", "index.html")],
         "kind": "product",
     },
     "prompt-compass": {
-        "files": [Path("/Volumes/KyleSSD/prompt-compass/dist/share/github-pages/index.html")],
+        "files": [configured_path("PROMPT_COMPASS_PUBLIC_PAGE", "prompt-compass", "dist", "share", "github-pages", "index.html")],
         "kind": "product",
     },
     "ux-heuristic-compass": {
         "files": [
-            Path("/Volumes/KyleSSD/ux-heuristic-compass/dist/share/github-pages/index.html"),
-            Path("/Volumes/KyleSSD/ux-heuristic-compass/dist/share/github-pages/styles.css"),
-            Path("/Volumes/KyleSSD/ux-heuristic-compass/dist/share/github-pages/site.js"),
+            configured_path("UXHC_PUBLIC_PAGE", "ux-heuristic-compass", "dist", "share", "github-pages", "index.html"),
+            configured_path("UXHC_PUBLIC_STYLES", "ux-heuristic-compass", "dist", "share", "github-pages", "styles.css"),
+            configured_path("UXHC_PUBLIC_SCRIPT", "ux-heuristic-compass", "dist", "share", "github-pages", "site.js"),
         ],
         "kind": "product",
     },
     "what-is-an-mcp": {
-        "files": [Path("/Volumes/KyleSSD/CriticalThinking/dist/share/mcp-explainer-site/index.html")],
+        "files": [configured_path("MCP_EXPLAINER_PUBLIC_PAGE", "CriticalThinking", "dist", "share", "mcp-explainer-site", "index.html")],
         "kind": "support",
     },
 }
@@ -42,11 +62,11 @@ LEDGER = SUITE_ROOT / "docs/audits/compass-public-surface-ux-audit-ledger-2026-0
 FORBIDDEN_PUBLIC_STRINGS = [
     "About & FAQ",
     "About &amp; FAQ",
-    "PLACEHOLDER",
+    UNFILLED_SENTINEL,
     "Download + Learn",
     "package-pending",
-    "/Users/",
-    "/Volumes/",
+    LOCAL_USER_PATH,
+    LOCAL_VOLUME_PATH,
 ]
 
 PRODUCT_REQUIRED = [
@@ -61,6 +81,9 @@ PRODUCT_REQUIRED = [
     "overflow-x: hidden",
     ".download-chooser",
     ".sr-only",
+    "suite-footer",
+    "Compass Suite is created and maintained by Jonathan Kyle Hobson.",
+    "License &amp; Attribution",
 ]
 
 SUPPORT_REQUIRED = [
@@ -70,6 +93,9 @@ SUPPORT_REQUIRED = [
     "https://jonathankhobson.github.io/prompt-compass/",
     "https://jonathankhobson.github.io/ux-heuristic-compass/",
     "overflow-x: hidden",
+    "suite-footer",
+    "Compass Suite is created and maintained by Jonathan Kyle Hobson.",
+    "License &amp; Attribution",
 ]
 
 
@@ -91,9 +117,15 @@ def validate_forbidden_text(name: str, text: str) -> None:
 
 
 def validate_mcp_links(name: str, text: str) -> None:
+    footer_ranges = [
+        (match.start(), match.end())
+        for match in re.finditer(r'<footer class="suite-footer"[^>]*>.*?</footer>', text, flags=re.DOTALL)
+    ]
     for match in re.finditer(r'<a\\s+[^>]*href="([^"]*what-is-an-mcp[^"]*)"[^>]*>', text):
         tag = match.group(0)
         href = match.group(1)
+        if any(start <= match.start() < end for start, end in footer_ranges):
+            continue
         if 'target="_blank"' not in tag or 'rel="noopener"' not in tag:
             fail(f"{name} MCP link must open in a new tab with noopener: {href}")
 
@@ -128,10 +160,10 @@ def validate_surface(name: str, config: dict[str, object]) -> None:
 def validate_sidecars() -> None:
     roots = [
         SUITE_ROOT,
-        Path("/Volumes/KyleSSD/CriticalThinking/dist/share/github-pages"),
-        Path("/Volumes/KyleSSD/prompt-compass/dist/share/github-pages"),
-        Path("/Volumes/KyleSSD/ux-heuristic-compass/dist/share/github-pages"),
-        Path("/Volumes/KyleSSD/CriticalThinking/dist/share/mcp-explainer-site"),
+        configured_path("CRITICAL_COMPASS_PUBLIC_ROOT", "CriticalThinking", "dist", "share", "github-pages"),
+        configured_path("PROMPT_COMPASS_PUBLIC_ROOT", "prompt-compass", "dist", "share", "github-pages"),
+        configured_path("UXHC_PUBLIC_ROOT", "ux-heuristic-compass", "dist", "share", "github-pages"),
+        configured_path("MCP_EXPLAINER_PUBLIC_ROOT", "CriticalThinking", "dist", "share", "mcp-explainer-site"),
     ]
     for root in roots:
         for path in root.rglob("*"):

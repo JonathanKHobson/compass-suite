@@ -13,23 +13,33 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
+LOCAL_VOLUME_PATH = "/" + "Volumes/"
+LOCAL_USER_PATH = "/" + "Users/"
+UNFILLED_SENTINEL = "PLACE" + "HOLDER"
 PUBLIC_FILES = [
     ROOT / "index.html",
     ROOT / "404.html",
+    ROOT / "about" / "index.html",
+    ROOT / "license" / "index.html",
     ROOT / "styles.css",
     ROOT / "site.js",
     ROOT / "suite-manifest.json",
+    ROOT / "snippets" / "universal-footer.html",
+    ROOT / "legal" / "LICENSE-DOCS-CC-BY-SA-4.0.md",
+    ROOT / "legal" / "NOTICE.md",
+    ROOT / "legal" / "BRAND-AND-ATTRIBUTION.md",
+    ROOT / "legal" / "THIRD_PARTY_NOTICES.md",
 ]
 
 FORBIDDEN_STRINGS = [
     "About & FAQ",
     "About &amp; FAQ",
-    "PLACEHOLDER",
+    UNFILLED_SENTINEL,
     "v0.1.0-beta.7",
     "v0.1.0-beta.8",
     "v0.1.0-beta.9",
-    "/Volumes/",
-    "/Users/",
+    LOCAL_VOLUME_PATH,
+    LOCAL_USER_PATH,
     "._",
     ".DS_Store",
     "Download + Learn",
@@ -45,6 +55,12 @@ REQUIRED_STRINGS = [
     "Download started. Guide opened.",
     "Codex can work with these local packages and source zips",
     "Codex can work with local Compass source packages when configured manually",
+    "suite-footer",
+    "Compass Suite is created and maintained by Jonathan Kyle Hobson.",
+    "About the Author",
+    "License &amp; Attribution",
+    "AGPL-3.0-only",
+    "CC BY-SA 4.0",
 ]
 
 PRIVATE_HINTS = [
@@ -90,9 +106,23 @@ def validate_static_text() -> None:
         "overflow-x: hidden",
         ".download-chooser",
         ".sr-only",
+        ".suite-footer-grid",
     ]:
         if required_css not in styles:
             fail(f"mobile/accessibility containment CSS missing: {required_css}")
+
+    for page in [ROOT / "index.html", ROOT / "404.html", ROOT / "about" / "index.html", ROOT / "license" / "index.html"]:
+        text = read(page)
+        for required_footer in [
+            'class="suite-footer"',
+            'role="contentinfo"',
+            'aria-label="Compass network footer"',
+            "https://jonathankhobson.github.io/compass-suite/about/",
+            "https://jonathankhobson.github.io/compass-suite/license/",
+            "https://www.linkedin.com/in/jonathankylehobson/",
+        ]:
+            if required_footer not in text:
+                fail(f"{page.relative_to(ROOT)} missing universal footer requirement: {required_footer}")
 
     html = read(ROOT / "index.html")
     expected_card_order = [

@@ -10,9 +10,9 @@ This ledger closes the cross-site UX audit pass for the currently live Compass p
 
 ## Source Reports
 
-- `/Users/jonathanhobson/Desktop/compass-suite-ux-audit.md`
-- `/Volumes/KyleSSD/ux-heuristic-compass/reports/compass-suite-2026-05-04/compass-suite-uxhc-advanced-audit.md`
-- `/Volumes/KyleSSD/ux-heuristic-compass/reports/compass-suite-2026-05-04/compass-suite-uxhc-desktop-audit.md`
+- Compass Suite UX audit brief supplied by Jonathan.
+- UX Heuristics Compass advanced audit report for the Compass Suite public surface.
+- UX Heuristics Compass desktop audit report for the Compass Suite public surface.
 
 ## Status Definitions
 

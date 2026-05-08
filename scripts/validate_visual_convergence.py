@@ -10,6 +10,9 @@ from pathlib import Path
 
 
 BASE = Path(os.environ.get("COMPASS_PUBLIC_PAGE_BASE", Path(__file__).resolve().parents[2]))
+LOCAL_VOLUME_PATH = "/" + "Volumes/"
+LOCAL_USER_PATH = "/" + "Users/"
+UNFILLED_SENTINEL = "PLACE" + "HOLDER"
 
 LOCAL_PAGES = {
     "critical": {
@@ -38,9 +41,9 @@ LOCAL_PAGES = {
 FORBIDDEN_PUBLIC_STRINGS = [
     "About & FAQ",
     "About &amp; FAQ",
-    "PLACEHOLDER",
-    "/Volumes/",
-    "/Users/",
+    UNFILLED_SENTINEL,
+    LOCAL_VOLUME_PATH,
+    LOCAL_USER_PATH,
     ".DS_Store",
 ]
 
