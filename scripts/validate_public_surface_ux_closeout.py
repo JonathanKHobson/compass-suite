@@ -64,6 +64,10 @@ PUBLIC_SURFACES = {
         "files": [configured_path("MCP_EXPLAINER_PUBLIC_PAGE", "websites", "what-is-an-mcp", "index.html")],
         "kind": "support",
     },
+    "ai-basics": {
+        "files": [configured_path("AI_BASICS_PUBLIC_PAGE", "websites", "shareables", "s", "understanding-ai-2026", "index.html")],
+        "kind": "resource",
+    },
 }
 
 LEDGER = SUITE_ROOT / "docs/audits/compass-public-surface-ux-audit-ledger-2026-05-04.md"
@@ -85,6 +89,7 @@ PRODUCT_REQUIRED = [
     "Claude Desktop Extension",
     "Download and Open Guide",
     "MCP Basics (opens in a new tab)",
+    "AI Basics",
     "data-guide-hash",
     "Download started. Guide opened.",
     "overflow-x: hidden",
@@ -103,6 +108,7 @@ PRODUCT_REQUIRED = [
 
 SUPPORT_REQUIRED = [
     "Back to Compass Suite",
+    "AI Basics",
     "Compass Recovery Links",
     "site-nav",
     "site-nav-toggle",
@@ -116,6 +122,20 @@ SUPPORT_REQUIRED = [
     "suite-footer",
     "Compass Suite is created and maintained by Jonathan Kyle Hobson.",
     "License &amp; Attribution",
+]
+
+RESOURCE_REQUIRED = [
+    "AI Basics",
+    "site-nav",
+    "site-nav-toggle",
+    "section-nav-toggle",
+    "progress-bar",
+    "--font-display",
+    "--site-nav-h",
+    "Compass Suite is created and maintained by Jonathan Kyle Hobson.",
+    "suite-footer",
+    "License &amp; Attribution",
+    "compass-public-visual-system: uxhc-v1",
 ]
 
 
@@ -181,11 +201,20 @@ def validate_surface(name: str, config: dict[str, object]) -> None:
         fail(f"{name} missing mobile network menu contract")
     if config["kind"] in {"product", "suite"} and "section-nav-toggle" not in combined:
         fail(f"{name} missing mobile section menu contract")
+    if "AI Basics" not in combined:
+        fail(f"{name} missing AI Basics network/resource link")
     kind = config["kind"]
     if kind == "product":
         validate_product(name, combined)
     elif kind == "support":
         validate_support(name, combined)
+    elif kind == "resource":
+        for required in RESOURCE_REQUIRED:
+            if required not in combined:
+                fail(f"{name} missing resource-page closeout requirement: {required}")
+        for dark_token in ["#09090e", "--bg:       #09090e", "--surf:     #111118"]:
+            if dark_token in combined:
+                fail(f"{name} contains dark-mode token regression: {dark_token}")
 
 
 def validate_sidecars() -> None:
@@ -195,6 +224,7 @@ def validate_sidecars() -> None:
         configured_path("PROMPT_COMPASS_PUBLIC_ROOT", "websites", "prompt-compass"),
         configured_path("UXHC_PUBLIC_ROOT", "websites", "ux-heuristic-compass"),
         configured_path("MCP_EXPLAINER_PUBLIC_ROOT", "websites", "what-is-an-mcp"),
+        configured_path("AI_BASICS_PUBLIC_ROOT", "websites", "shareables"),
     ]
     for root in roots:
         for path in root.rglob("*"):

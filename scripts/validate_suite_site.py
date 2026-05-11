@@ -50,6 +50,8 @@ REQUIRED_STRINGS = [
     "Claude Code / Cowork Plugin",
     "Claude Desktop Extension",
     "Download and Open Guide",
+    "AI Basics",
+    "https://jonathankhobson.github.io/shareables/s/understanding-ai-2026/",
     "MCP Basics",
     "Check Back for Public Package",
     "Download started. Guide opened.",
@@ -152,6 +154,8 @@ def validate_static_text() -> None:
     ]:
         if href in html and f'href="{href}" target="_blank" rel="noopener"' not in html:
             fail(f"MCP explainer link must open in a new tab: {href}")
+    if 'href="https://jonathankhobson.github.io/shareables/s/understanding-ai-2026/" target="_blank"' in html:
+        fail("AI Basics links should use same-tab Compass network navigation")
 
     job_section = re.search(
         r'data-product-id="job-application-compass".*?</article>',

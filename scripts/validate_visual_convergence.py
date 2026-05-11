@@ -46,6 +46,12 @@ LOCAL_PAGES = {
         "marker_file": WEBSITES_ROOT / "what-is-an-mcp" / "index.html",
         "kind": "support",
     },
+    "ai-basics": {
+        "path": WEBSITES_ROOT / "shareables" / "s" / "understanding-ai-2026" / "index.html",
+        "tabs": [],
+        "marker_file": WEBSITES_ROOT / "shareables" / "s" / "understanding-ai-2026" / "index.html",
+        "kind": "resource",
+    },
 }
 
 FORBIDDEN_PUBLIC_STRINGS = [
@@ -91,7 +97,9 @@ def validate_page(name: str, config: dict) -> None:
     for required in ["site-nav", "site-nav-toggle", "progress-bar", "--font-display", "--site-nav-h", "suite-footer"]:
         if required not in combined:
             fail(f"{name} missing shared visual-system requirement: {required}")
-    if config.get("kind") in {"product", "suite"}:
+    if "AI Basics" not in combined:
+        fail(f"{name} missing AI Basics network/resource link")
+    if config.get("kind") in {"product", "suite", "resource"}:
         for required in ["section-nav-toggle", 'aria-controls="section-nav-menu"']:
             if required not in combined:
                 fail(f"{name} missing mobile section-nav requirement: {required}")
