@@ -68,7 +68,7 @@
     <section id="get-started" class="tab-panel" role="tabpanel" aria-labelledby="tab-get-started">
       <div class="notice">
         <h2>Start With the Compass That Matches Your Task</h2>
-        <p>Critical Compass, Prompt Compass, and UX Heuristics Compass are the current public beta downloads. The alpha tools are listed so the suite has a home, but their public downloads stay locked until their pages, packages, and privacy boundaries are ready.</p>
+        <p>Critical Compass, Prompt Compass, UX Heuristics Compass, and Job Application Compass Skills are the current public beta downloads. The alpha tools are listed so the suite has a home, but their public downloads stay locked until their pages, packages, and privacy boundaries are ready.</p>
       </div>
 
       <section class="product-grid" aria-label="Compass products">
@@ -210,19 +210,36 @@
           <span class="button disabled" aria-disabled="true">Check Back for Public Package</span>
         </article>
 
-        <article class="product-card" data-product-id="job-application-compass" data-maturity="early alpha">
+        <article class="product-card" data-product-id="job-application-compass" data-maturity="public skills beta">
           <div class="product-head">
             <div class="product-meta">
-              <span class="status-pill early-alpha">Early alpha</span>
-              <span class="meta-pill">Private-first</span>
+              <span class="status-pill beta">Public skills beta</span>
+              <span class="meta-pill">v0.1.0-skills.1</span>
             </div>
-            <h2>Job Application Compass</h2>
-            <p><strong>Turn job descriptions into evidence-grounded application packets.</strong></p>
-            <p>A private-first application packet assistant for mapping a job description to verified evidence, drafts, and follow-up materials.</p>
+            <h2>Job Application Compass Skills</h2>
+            <p><strong>Craft career materials without inventing claims.</strong></p>
+            <p>A skills-only public release for evidence-grounded resumes, cover letters, portfolio cases, and career communication. The private MCP and packet engine remain local-only.</p>
           </div>
-          <p class="status-note">No public page or downloads until the personal-information scrub passes.</p>
-          <a class="button quiet" href="#about">Read Suite Overview</a>
-          <span class="button disabled" aria-disabled="true">Check Back After Privacy Scrub</span>
+          <div class="product-actions">
+            <a class="button quiet" href="https://jonathankhobson.github.io/job-application-compass/" target="_blank" rel="noopener">Learn More</a>
+            <a class="button quiet" href="https://github.com/JonathanKHobson/job-application-compass" target="_blank" rel="noopener">GitHub</a>
+          </div>
+          <div class="download-list" aria-label="Job Application Compass Skills downloads">
+            <div class="download-item">
+              <h3>Skills-Only Plugin</h3>
+              <p>Plugin Zip. Use this if your host supports plugin-style imports and you want all four public skills together.</p>
+              <a class="button" href="https://github.com/JonathanKHobson/job-application-compass/releases/download/v0.1.0-skills.1/job-application-compass-skills-plugin.zip" download data-download-url="https://github.com/JonathanKHobson/job-application-compass/releases/download/v0.1.0-skills.1/job-application-compass-skills-plugin.zip" data-learn-url="https://jonathankhobson.github.io/job-application-compass/">Download and Open Guide</a>
+            </div>
+            <details>
+              <summary>Individual skill downloads</summary>
+              <div class="download-actions">
+                <a class="button ghost" href="https://github.com/JonathanKHobson/job-application-compass/releases/download/v0.1.0-skills.1/resume-crafter.skill" download data-download-url="https://github.com/JonathanKHobson/job-application-compass/releases/download/v0.1.0-skills.1/resume-crafter.skill" data-learn-url="https://jonathankhobson.github.io/job-application-compass/">Resume Skill</a>
+                <a class="button ghost" href="https://github.com/JonathanKHobson/job-application-compass/releases/download/v0.1.0-skills.1/cover-letter-crafter.skill" download data-download-url="https://github.com/JonathanKHobson/job-application-compass/releases/download/v0.1.0-skills.1/cover-letter-crafter.skill" data-learn-url="https://jonathankhobson.github.io/job-application-compass/">Cover Letter Skill</a>
+                <a class="button ghost" href="https://github.com/JonathanKHobson/job-application-compass/releases/download/v0.1.0-skills.1/portfolio-crafter.skill" download data-download-url="https://github.com/JonathanKHobson/job-application-compass/releases/download/v0.1.0-skills.1/portfolio-crafter.skill" data-learn-url="https://jonathankhobson.github.io/job-application-compass/">Portfolio Skill</a>
+                <a class="button ghost" href="https://github.com/JonathanKHobson/job-application-compass/releases/download/v0.1.0-skills.1/communication-story-crafter.skill" download data-download-url="https://github.com/JonathanKHobson/job-application-compass/releases/download/v0.1.0-skills.1/communication-story-crafter.skill" data-learn-url="https://jonathankhobson.github.io/job-application-compass/">Communication Skill</a>
+              </div>
+            </details>
+          </div>
         </article>
       </section>
 
@@ -230,26 +247,26 @@
         <div class="chooser-copy">
           <p class="eyebrow">Not sure what to download?</p>
           <h2 id="download-chooser-title">Pick the file that matches where you work.</h2>
-          <p>Each public Compass offers the same basic package types. Start with the host app you use most, then open the product guide if you want the exact install steps.</p>
+          <p>Most public Compasses offer plugin, extension, skill, and source formats. Skill-only releases publish only the prompt guidance layer and keep private local tooling locked.</p>
           <p>Codex can work with these local packages and source zips, but this storefront does not provide a one-click Codex install path. Use the product page or source files if you are setting one up manually.</p>
           <p><a class="inline-help" href="https://jonathankhobson.github.io/what-is-an-mcp/" target="_blank" rel="noopener">MCP Basics (opens in a new tab)</a></p>
         </div>
         <div class="chooser-grid" aria-label="Download chooser">
           <div class="chooser-item">
             <span>I use Claude Desktop</span>
-            <strong>Choose the Claude Desktop Extension.</strong>
+            <strong>Choose a Desktop Extension when the product offers one.</strong>
           </div>
           <div class="chooser-item">
             <span>I use Claude Code or Claude Cowork</span>
-            <strong>Choose the Claude Code / Cowork Plugin.</strong>
+            <strong>Choose the plugin, including skills-only bundles.</strong>
           </div>
           <div class="chooser-item">
             <span>I only want prompt guidance</span>
             <strong>Choose the Skill File or Skill Zip.</strong>
           </div>
           <div class="chooser-item">
-            <span>I want to inspect the code first</span>
-            <strong>Choose the Source Zip.</strong>
+            <span>I want to inspect the contents first</span>
+            <strong>Choose the Source Zip or skill zip.</strong>
           </div>
         </div>
       </section>
@@ -301,14 +318,14 @@
           </div>
           <div class="info-block">
             <h3>Job Application Compass</h3>
-            <p>Use it privately to map a job description to verified evidence and produce application materials without inventing claims.</p>
+            <p>Use the public skills to craft resumes, cover letters, portfolios, and career communication from supplied evidence. The private MCP packet engine remains locked.</p>
           </div>
         </div>
       </section>
 
       <div class="notice privacy-notice">
         <h2>Privacy Boundary</h2>
-        <p>Job Application Compass stays locked until a public scrub proves that private career material, contact details, application history, private links, and local-only evidence files are not exposed.</p>
+        <p>Job Application Compass now publishes only scrubbed generic skills. The private MCP, personal profile, source register, sample packets, contact details, application history, private links, and local-only evidence files remain unpublished.</p>
       </div>
     </section>
 
@@ -403,7 +420,7 @@
         </div>
         <div class="faq-block">
           <h2>Why are some Compass downloads locked?</h2>
-          <p>Alpha products change quickly. A download appears here only after the product has a public-safe page, package, checksum, and private-data boundary review. Critical Compass, Prompt Compass, and UX Heuristics Compass currently meet that bar.</p>
+          <p>Alpha products change quickly. A download appears here only after the product has a public-safe page, package, checksum, and private-data boundary review. Job Application Compass currently publishes only its scrubbed public skills, not its private MCP.</p>
         </div>
         <div class="faq-block">
           <h2>Do I need a GitHub account?</h2>
@@ -435,6 +452,7 @@
               <a href="https://jonathankhobson.github.io/critical-compass/">Critical Compass</a>
               <a href="https://jonathankhobson.github.io/prompt-compass/">Prompt Compass</a>
               <a href="https://jonathankhobson.github.io/ux-heuristic-compass/">UX Heuristics Compass</a>
+              <a href="https://jonathankhobson.github.io/job-application-compass/">Job Application Compass Skills</a>
             </div>
           </section>
           <section class="suite-footer-group" aria-labelledby="footer-trust">

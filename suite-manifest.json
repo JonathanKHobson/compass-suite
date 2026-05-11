@@ -218,17 +218,63 @@
     },
     {
       "id": "job-application-compass",
-      "name": "Job Application Compass",
-      "status": "early alpha",
-      "maturity": "early alpha",
-      "tagline": "Turn job descriptions into evidence-grounded application packets.",
-      "description": "A private-first application packet assistant for mapping a job description to verified evidence, drafts, and follow-up materials.",
-      "homepage_url": "",
-      "repo_url": "",
-      "learn_more_url": "#about",
-      "safety_gate": "privacy_scrub_required_before_public_page_or_download",
-      "public_notes": "Do not publish a homepage, package, screenshots, examples, or downloads until the privacy scrub removes personal application data.",
-      "downloads": []
+      "name": "Job Application Compass Skills",
+      "status": "public skills beta",
+      "maturity": "public skills beta",
+      "tagline": "Craft career materials without inventing claims.",
+      "description": "A skills-only public release for evidence-grounded resumes, cover letters, portfolio cases, and career communication. The private MCP and packet engine remain local-only.",
+      "homepage_url": "https://jonathankhobson.github.io/job-application-compass/",
+      "repo_url": "https://github.com/JonathanKHobson/job-application-compass",
+      "learn_more_url": "https://jonathankhobson.github.io/job-application-compass/",
+      "safety_gate": "public_skills_only_private_mcp_locked",
+      "public_notes": "Only scrubbed public skills are published. No MCPB, source zip, local server, profile, source register, sample application packet, or private packet engine is distributed.",
+      "downloads": [
+        {
+          "label": "Skills-Only Plugin",
+          "kind": "skills_plugin_zip",
+          "filename": "job-application-compass-skills-plugin.zip",
+          "url": "https://github.com/JonathanKHobson/job-application-compass/releases/download/v0.1.0-skills.1/job-application-compass-skills-plugin.zip",
+          "checksum": "6faa1fe8a9fa66bfed89054dbf5e0d3b22eb37e45bc7ef59d810145610d29ed7",
+          "availability": "available",
+          "recommended_for": "Claude Code or Claude Cowork style skill bundle imports"
+        },
+        {
+          "label": "Resume Crafter Skill",
+          "kind": "skill_file",
+          "filename": "resume-crafter.skill",
+          "url": "https://github.com/JonathanKHobson/job-application-compass/releases/download/v0.1.0-skills.1/resume-crafter.skill",
+          "checksum": "a386f2f9a81431d2d35acf6949485ad7daeb76ca03052d028e73c04ccc67e1c1",
+          "availability": "available",
+          "recommended_for": "Resume craft and audit"
+        },
+        {
+          "label": "Cover Letter Crafter Skill",
+          "kind": "skill_file",
+          "filename": "cover-letter-crafter.skill",
+          "url": "https://github.com/JonathanKHobson/job-application-compass/releases/download/v0.1.0-skills.1/cover-letter-crafter.skill",
+          "checksum": "26febb42483c435267715d20c6712014b60f443635b90cdc43774e98c0da3cbd",
+          "availability": "available",
+          "recommended_for": "Cover letter craft and audit"
+        },
+        {
+          "label": "Portfolio Crafter Skill",
+          "kind": "skill_file",
+          "filename": "portfolio-crafter.skill",
+          "url": "https://github.com/JonathanKHobson/job-application-compass/releases/download/v0.1.0-skills.1/portfolio-crafter.skill",
+          "checksum": "c9c34f727a0e2e4827588601642de06f6b6fad61cdbd4db2c38ee593af955f1a",
+          "availability": "available",
+          "recommended_for": "Portfolio case-study craft and audit"
+        },
+        {
+          "label": "Communication Story Crafter Skill",
+          "kind": "skill_file",
+          "filename": "communication-story-crafter.skill",
+          "url": "https://github.com/JonathanKHobson/job-application-compass/releases/download/v0.1.0-skills.1/communication-story-crafter.skill",
+          "checksum": "bedeb1b8a0fce00ac624211a28ffb4176e90d3ae3787c3a8cbf35c69d344132a",
+          "availability": "available",
+          "recommended_for": "Career communication, story, and messaging"
+        }
+      ]
     }
   ]
 }
