@@ -104,6 +104,9 @@ def validate_static_text() -> None:
         fail("shared Compass visual-system marker missing from styles.css")
     for required_css in [
         "overflow-x: hidden",
+        ".site-nav-toggle",
+        ".section-nav-toggle",
+        ".js-enabled .site-nav-links",
         ".download-chooser",
         ".sr-only",
         ".suite-footer-grid",
@@ -114,6 +117,7 @@ def validate_static_text() -> None:
     for page in [ROOT / "index.html", ROOT / "404.html", ROOT / "about" / "index.html", ROOT / "license" / "index.html"]:
         text = read(page)
         for required_footer in [
+            'class="site-nav-toggle"',
             'class="suite-footer"',
             'role="contentinfo"',
             'aria-label="Compass network footer"',

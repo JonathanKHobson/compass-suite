@@ -10,13 +10,19 @@ from pathlib import Path
 
 
 SUITE_ROOT = Path(__file__).resolve().parents[1]
+BUNDLE_ROOT = Path(
+    os.environ.get(
+        "COMPASS_PUBLIC_SITES_ROOT",
+        SUITE_ROOT.parent.parent if SUITE_ROOT.parent.name == "websites" else SUITE_ROOT.parent,
+    )
+).resolve()
 
 
 def configured_path(env_name: str, *default_parts: str) -> Path:
     configured = os.environ.get(env_name)
     if configured:
         return Path(configured).expanduser().resolve()
-    return (SUITE_ROOT.parent / Path(*default_parts)).resolve()
+    return (BUNDLE_ROOT / Path(*default_parts)).resolve()
 
 
 LOCAL_USER_PATH = "/" + "Users/"
@@ -36,23 +42,26 @@ PUBLIC_SURFACES = {
         "kind": "suite",
     },
     "critical-compass": {
-        "files": [configured_path("CRITICAL_COMPASS_PUBLIC_PAGE", "CriticalThinking", "dist", "share", "github-pages", "index.html")],
+        "files": [configured_path("CRITICAL_COMPASS_PUBLIC_PAGE", "websites", "critical-compass", "index.html")],
         "kind": "product",
+        "release_url": "https://github.com/JonathanKHobson/critical-compass/releases/download/v0.1.0-beta.10/",
     },
     "prompt-compass": {
-        "files": [configured_path("PROMPT_COMPASS_PUBLIC_PAGE", "prompt-compass", "dist", "share", "github-pages", "index.html")],
+        "files": [configured_path("PROMPT_COMPASS_PUBLIC_PAGE", "websites", "prompt-compass", "index.html")],
         "kind": "product",
+        "release_url": "https://github.com/JonathanKHobson/prompt-compass/releases/download/v0.1.0-beta.3/",
     },
     "ux-heuristic-compass": {
         "files": [
-            configured_path("UXHC_PUBLIC_PAGE", "ux-heuristic-compass", "dist", "share", "github-pages", "index.html"),
-            configured_path("UXHC_PUBLIC_STYLES", "ux-heuristic-compass", "dist", "share", "github-pages", "styles.css"),
-            configured_path("UXHC_PUBLIC_SCRIPT", "ux-heuristic-compass", "dist", "share", "github-pages", "site.js"),
+            configured_path("UXHC_PUBLIC_PAGE", "websites", "ux-heuristic-compass", "index.html"),
+            configured_path("UXHC_PUBLIC_STYLES", "websites", "ux-heuristic-compass", "styles.css"),
+            configured_path("UXHC_PUBLIC_SCRIPT", "websites", "ux-heuristic-compass", "site.js"),
         ],
         "kind": "product",
+        "release_url": "https://github.com/JonathanKHobson/ux-heuristic-compass/releases/download/v0.1.0-beta.10/",
     },
     "what-is-an-mcp": {
-        "files": [configured_path("MCP_EXPLAINER_PUBLIC_PAGE", "CriticalThinking", "dist", "share", "mcp-explainer-site", "index.html")],
+        "files": [configured_path("MCP_EXPLAINER_PUBLIC_PAGE", "websites", "what-is-an-mcp", "index.html")],
         "kind": "support",
     },
 }
@@ -80,6 +89,12 @@ PRODUCT_REQUIRED = [
     "Download started. Guide opened.",
     "overflow-x: hidden",
     ".download-chooser",
+    "site-nav",
+    "site-nav-toggle",
+    "section-nav-toggle",
+    "progress-bar",
+    "--font-display",
+    "--site-nav-h",
     ".sr-only",
     "suite-footer",
     "Compass Suite is created and maintained by Jonathan Kyle Hobson.",
@@ -89,6 +104,11 @@ PRODUCT_REQUIRED = [
 SUPPORT_REQUIRED = [
     "Back to Compass Suite",
     "Compass Recovery Links",
+    "site-nav",
+    "site-nav-toggle",
+    "progress-bar",
+    "--font-display",
+    "--site-nav-h",
     "https://jonathankhobson.github.io/critical-compass/",
     "https://jonathankhobson.github.io/prompt-compass/",
     "https://jonathankhobson.github.io/ux-heuristic-compass/",
@@ -117,14 +137,18 @@ def validate_forbidden_text(name: str, text: str) -> None:
 
 
 def validate_mcp_links(name: str, text: str) -> None:
-    footer_ranges = [
+    skip_ranges = [
         (match.start(), match.end())
         for match in re.finditer(r'<footer class="suite-footer"[^>]*>.*?</footer>', text, flags=re.DOTALL)
     ]
-    for match in re.finditer(r'<a\\s+[^>]*href="([^"]*what-is-an-mcp[^"]*)"[^>]*>', text):
+    skip_ranges += [
+        (match.start(), match.end())
+        for match in re.finditer(r'<nav class="site-nav"[^>]*>.*?</nav>', text, flags=re.DOTALL)
+    ]
+    for match in re.finditer(r'<a\s+[^>]*href="([^"]*what-is-an-mcp[^"]*)"[^>]*>', text):
         tag = match.group(0)
         href = match.group(1)
-        if any(start <= match.start() < end for start, end in footer_ranges):
+        if any(start <= match.start() < end for start, end in skip_ranges):
             continue
         if 'target="_blank"' not in tag or 'rel="noopener"' not in tag:
             fail(f"{name} MCP link must open in a new tab with noopener: {href}")
@@ -134,6 +158,9 @@ def validate_product(name: str, text: str) -> None:
     for required in PRODUCT_REQUIRED:
         if required not in text:
             fail(f"{name} missing product-page closeout requirement: {required}")
+    release_url = PUBLIC_SURFACES[name].get("release_url")
+    if release_url and str(release_url) not in text:
+        fail(f"{name} missing expected release URL prefix: {release_url}")
     if text.count("Download and Open Guide") < 2:
         fail(f"{name} should have primary plugin and extension guide-download CTAs")
     validate_mcp_links(name, text)
@@ -150,6 +177,10 @@ def validate_support(name: str, text: str) -> None:
 def validate_surface(name: str, config: dict[str, object]) -> None:
     combined = "\n".join(read(path) for path in config["files"])  # type: ignore[index]
     validate_forbidden_text(name, combined)
+    if "site-nav-toggle" not in combined or 'aria-controls="site-nav-menu"' not in combined:
+        fail(f"{name} missing mobile network menu contract")
+    if config["kind"] in {"product", "suite"} and "section-nav-toggle" not in combined:
+        fail(f"{name} missing mobile section menu contract")
     kind = config["kind"]
     if kind == "product":
         validate_product(name, combined)
@@ -160,10 +191,10 @@ def validate_surface(name: str, config: dict[str, object]) -> None:
 def validate_sidecars() -> None:
     roots = [
         SUITE_ROOT,
-        configured_path("CRITICAL_COMPASS_PUBLIC_ROOT", "CriticalThinking", "dist", "share", "github-pages"),
-        configured_path("PROMPT_COMPASS_PUBLIC_ROOT", "prompt-compass", "dist", "share", "github-pages"),
-        configured_path("UXHC_PUBLIC_ROOT", "ux-heuristic-compass", "dist", "share", "github-pages"),
-        configured_path("MCP_EXPLAINER_PUBLIC_ROOT", "CriticalThinking", "dist", "share", "mcp-explainer-site"),
+        configured_path("CRITICAL_COMPASS_PUBLIC_ROOT", "websites", "critical-compass"),
+        configured_path("PROMPT_COMPASS_PUBLIC_ROOT", "websites", "prompt-compass"),
+        configured_path("UXHC_PUBLIC_ROOT", "websites", "ux-heuristic-compass"),
+        configured_path("MCP_EXPLAINER_PUBLIC_ROOT", "websites", "what-is-an-mcp"),
     ]
     for root in roots:
         for path in root.rglob("*"):

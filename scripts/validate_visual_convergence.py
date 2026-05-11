@@ -9,32 +9,42 @@ import os
 from pathlib import Path
 
 
-BASE = Path(os.environ.get("COMPASS_PUBLIC_PAGE_BASE", Path(__file__).resolve().parents[2]))
+WEBSITES_ROOT = Path(os.environ.get("COMPASS_PUBLIC_PAGE_BASE", Path(__file__).resolve().parents[2])).resolve()
 LOCAL_VOLUME_PATH = "/" + "Volumes/"
 LOCAL_USER_PATH = "/" + "Users/"
 UNFILLED_SENTINEL = "PLACE" + "HOLDER"
 
 LOCAL_PAGES = {
     "critical": {
-        "path": BASE / "CriticalThinking" / "dist" / "share" / "github-pages" / "index.html",
+        "path": WEBSITES_ROOT / "critical-compass" / "index.html",
         "tabs": ["Get Started", "About", "Install Guide", "Example", "FAQ", "Advanced"],
-        "marker_file": BASE / "CriticalThinking" / "dist" / "share" / "github-pages" / "index.html",
+        "marker_file": WEBSITES_ROOT / "critical-compass" / "index.html",
+        "kind": "product",
     },
     "prompt": {
-        "path": BASE / "prompt-compass" / "dist" / "share" / "github-pages" / "index.html",
+        "path": WEBSITES_ROOT / "prompt-compass" / "index.html",
         "tabs": ["Get Started", "About", "Install Guide", "Example", "FAQ", "Advanced"],
-        "marker_file": BASE / "prompt-compass" / "dist" / "share" / "github-pages" / "index.html",
+        "marker_file": WEBSITES_ROOT / "prompt-compass" / "index.html",
+        "kind": "product",
     },
     "uxhc": {
-        "path": BASE / "ux-heuristic-compass" / "dist" / "share" / "github-pages" / "index.html",
+        "path": WEBSITES_ROOT / "ux-heuristic-compass" / "index.html",
         "tabs": ["Get Started", "About", "Install Guide", "Example", "FAQ", "Advanced"],
-        "marker_file": BASE / "ux-heuristic-compass" / "dist" / "share" / "github-pages" / "styles.css",
+        "marker_file": WEBSITES_ROOT / "ux-heuristic-compass" / "styles.css",
         "downloads_enabled": True,
+        "kind": "product",
     },
     "suite": {
-        "path": BASE / "compass-suite" / "index.html",
+        "path": WEBSITES_ROOT / "compass-suite" / "index.html",
         "tabs": ["Get Started", "About", "Install Guide", "FAQ"],
-        "marker_file": BASE / "compass-suite" / "styles.css",
+        "marker_file": WEBSITES_ROOT / "compass-suite" / "styles.css",
+        "kind": "suite",
+    },
+    "mcp": {
+        "path": WEBSITES_ROOT / "what-is-an-mcp" / "index.html",
+        "tabs": [],
+        "marker_file": WEBSITES_ROOT / "what-is-an-mcp" / "index.html",
+        "kind": "support",
     },
 }
 
@@ -77,10 +87,21 @@ def validate_page(name: str, config: dict) -> None:
     marker_text = read(config["marker_file"])
     if "compass-public-visual-system: uxhc-v1" not in marker_text:
         fail(f"{name} missing shared visual-system marker")
+    combined = html + "\n" + marker_text
+    for required in ["site-nav", "site-nav-toggle", "progress-bar", "--font-display", "--site-nav-h", "suite-footer"]:
+        if required not in combined:
+            fail(f"{name} missing shared visual-system requirement: {required}")
+    if config.get("kind") in {"product", "suite"}:
+        for required in ["section-nav-toggle", 'aria-controls="section-nav-menu"']:
+            if required not in combined:
+                fail(f"{name} missing mobile section-nav requirement: {required}")
 
     for forbidden in FORBIDDEN_PUBLIC_STRINGS:
         if forbidden in html:
             fail(f"{name} contains forbidden public string: {forbidden}")
+
+    if config.get("kind") in {"product", "support"} and "Back to Compass Suite" not in html:
+        fail(f"{name} missing Back to Compass Suite affordance")
 
     if name == "suite":
         for disallowed in ("Example", "Advanced"):
@@ -98,6 +119,8 @@ def validate_sidecars() -> None:
     for config in LOCAL_PAGES.values():
         root = config["path"].parent
         for path in root.rglob("*"):
+            if ".git" in path.parts or "__pycache__" in path.parts:
+                continue
             if path.name == ".DS_Store" or path.name.startswith("._"):
                 fail(f"sidecar file found: {path}")
 
