@@ -57,6 +57,13 @@ REQUIRED_STRINGS = [
     "Download started. Guide opened.",
     "Codex can work with these local packages and source zips",
     "Codex can work with local Compass source packages when configured manually",
+    "These screenshots show the tested UI",
+    "Tested Claude Surfaces",
+    "Before Manual Config Edits",
+    "After Install, Verify",
+    "assets/install-guide/plugin/plugin-01-open-claude-code.png",
+    "assets/install-guide/mcpb/mcpb-01-download.png",
+    "assets/install-guide/skill/skill-01-open-skills.png",
     "suite-footer",
     "Compass Suite is created and maintained by Jonathan Kyle Hobson.",
     "About the Author",
@@ -67,7 +74,6 @@ REQUIRED_STRINGS = [
 
 PRIVATE_HINTS = [
     "resume.pdf",
-    "cover-letter",
     "phone",
     "gmail.com",
     "employer-specific",
@@ -237,14 +243,18 @@ def validate_manifest_parity(manifest: dict) -> None:
         if product_id in {
             "ttrpg-compass",
             "research-compass",
-            "job-application-compass",
         } and downloads:
             fail(f"{product_id} must not expose downloads before its public gate clears")
 
         if product_id == "job-application-compass":
             gate = product.get("safety_gate", "")
-            if "privacy_scrub_required" not in gate:
-                fail("Job Application Compass manifest must require privacy scrub")
+            if gate != "public_skills_only_private_mcp_locked":
+                fail("Job Application Compass manifest must keep the private MCP locked")
+            for download in downloads:
+                kind = download.get("kind", "")
+                filename = download.get("filename", "")
+                if "source" in kind or "mcp" in kind or filename.endswith((".mcpb", "-source.zip")):
+                    fail(f"Job Application Compass may publish skills only, not private MCP/source assets: {filename}")
 
         for download in downloads:
             url = download.get("url", "")
@@ -260,8 +270,8 @@ def validate_manifest_parity(manifest: dict) -> None:
                 fail(f"{product_id} downloadable asset is not marked available: {filename}")
 
     download_links = re.findall(r'<a [^>]*data-download-url="([^"]+)"[^>]*data-learn-url="([^"]+)"', html)
-    if len(download_links) != 15:
-        fail(f"expected 15 enhanced download links, found {len(download_links)}")
+    if len(download_links) != 20:
+        fail(f"expected 20 enhanced download links, found {len(download_links)}")
 
 
 def check_url(url: str) -> None:

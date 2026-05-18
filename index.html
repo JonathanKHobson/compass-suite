@@ -332,7 +332,17 @@
     <section id="install" class="tab-panel" role="tabpanel" aria-labelledby="tab-install" hidden>
       <div class="section-intro">
         <h2>Install Guide</h2>
-        <p>Most Compass tools ship in a few formats. Pick the one that matches how you use AI today. You can usually install more than one format if you want both a tool connection and a prompt-only fallback.</p>
+        <p>Most Compass tools ship in a few formats. Pick the one that matches how you use AI today. These screenshots show the tested UI. If your app does not show this path, stop and use the product diagnostic prompt instead of improvising.</p>
+      </div>
+
+      <div class="notice">
+        <h2>Tested Claude Surfaces</h2>
+        <p>The screenshots below reflect the Claude Code, Claude Cowork, and Claude Desktop surfaces available during testing. Claude's install UI can differ by platform, account, and version. Local MCP/plugin and Desktop extension installs are not claimed for Claude.ai in a web browser.</p>
+      </div>
+
+      <div class="notice install-warning">
+        <h2>Before Manual Config Edits</h2>
+        <p>Do not hand-edit Claude config, or let an assistant rewrite it, unless it first backs up the file, reads existing server names, merges only the Compass you are installing, writes UTF-8 without a BOM, and verifies that no existing MCPs disappeared.</p>
       </div>
 
       <section class="install-grid" aria-label="Install options">
@@ -341,8 +351,21 @@
           <p>Use this packaged plugin zip for Claude Cowork or Claude Code when you want the full tool connection.</p>
           <ol>
             <li>Download the plugin zip from the product card.</li>
-            <li>Open the dedicated product page in the new tab for product-specific instructions.</li>
-            <li>Follow the host app's current plugin install flow.</li>
+            <li>Open Claude Cowork or Claude Code.</li>
+            <li>Click <strong>Customize</strong>, then use <strong>Personal Plugins</strong> &rarr; <strong>+</strong> &rarr; <strong>Create Plugin</strong> &rarr; <strong>Upload Plugin</strong>.</li>
+            <li>Drag in the plugin zip and confirm the Compass appears as installed.</li>
+          </ol>
+          <p class="install-subnote">If you only see Skills and Connectors, and Connectors only accepts a remote MCP URL, stop. That is not the plugin upload path.</p>
+          <ol class="install-walkthrough" aria-label="Claude Cowork plugin install screenshots">
+            <li><figure class="install-step-shot"><img src="assets/install-guide/plugin/plugin-01-open-claude-code.png" alt="Claude Code or Claude Cowork open before plugin installation" loading="lazy"><figcaption><strong>Step 1:</strong> Open Claude Code or Claude Cowork.</figcaption></figure></li>
+            <li><figure class="install-step-shot"><img src="assets/install-guide/plugin/plugin-02-customize.png" alt="Customize entry point in Claude Code or Claude Cowork" loading="lazy"><figcaption><strong>Step 2:</strong> Open Customize from the left sidebar.</figcaption></figure></li>
+            <li><figure class="install-step-shot"><img src="assets/install-guide/plugin/plugin-03-personal-plugins.png" alt="Customize screen showing Personal Plugins" loading="lazy"><figcaption><strong>Step 3:</strong> Confirm you can see Personal Plugins.</figcaption></figure></li>
+            <li><figure class="install-step-shot"><img src="assets/install-guide/plugin/plugin-04-plus-hover.png" alt="Personal Plugins plus button hover state" loading="lazy"><figcaption><strong>Step 4:</strong> Hover over the plus button until Add Plugin appears.</figcaption></figure></li>
+            <li><figure class="install-step-shot"><img src="assets/install-guide/plugin/plugin-05-add-menu.png" alt="Plugin add menu opened from Personal Plugins" loading="lazy"><figcaption><strong>Step 5:</strong> Click the plus button to open the plugin menu.</figcaption></figure></li>
+            <li><figure class="install-step-shot"><img src="assets/install-guide/plugin/plugin-06-upload-plugin-menu.png" alt="Create Plugin menu with Upload Plugin option" loading="lazy"><figcaption><strong>Step 6:</strong> Choose Create Plugin, then Upload Plugin.</figcaption></figure></li>
+            <li><figure class="install-step-shot"><img src="assets/install-guide/plugin/plugin-07-upload-local-plugin.png" alt="Upload local plugin screen" loading="lazy"><figcaption><strong>Step 7:</strong> Choose the local upload option.</figcaption></figure></li>
+            <li><figure class="install-step-shot"><img src="assets/install-guide/plugin/plugin-08-drop-plugin-zip.png" alt="Plugin upload area with drag and drop target" loading="lazy"><figcaption><strong>Step 8:</strong> Drag in the plugin zip for the Compass you chose.</figcaption></figure></li>
+            <li><figure class="install-step-shot"><img src="assets/install-guide/plugin/plugin-09-installed.png" alt="Compass plugin installed confirmation" loading="lazy"><figcaption><strong>Step 9:</strong> Confirm the Compass appears as installed.</figcaption></figure></li>
           </ol>
         </div>
         <div class="install-block">
@@ -351,7 +374,15 @@
           <ol>
             <li>Download the desktop extension file.</li>
             <li>Open Claude Desktop settings and find Extensions.</li>
-            <li>Install the file, approve the standard local-extension warning, then test the product's get-started prompt.</li>
+            <li>Drag the file into the Extensions panel, approve the warning, then test the product's get-started prompt.</li>
+          </ol>
+          <p class="install-subnote">If your Claude Desktop build does not show Settings &rarr; Extensions, do not hand-edit config as a beginner workaround. Use the product diagnostic prompt.</p>
+          <ol class="install-walkthrough" aria-label="Claude Desktop extension install screenshots">
+            <li><figure class="install-step-shot"><img src="assets/install-guide/mcpb/mcpb-01-download.png" alt="MCPB file ready for install" loading="lazy"><figcaption><strong>Step 1:</strong> Download the Compass .mcpb file.</figcaption></figure></li>
+            <li><figure class="install-step-shot"><img src="assets/install-guide/mcpb/mcpb-02-open-settings.png" alt="Claude Desktop settings entry point" loading="lazy"><figcaption><strong>Step 2:</strong> Open Claude Desktop settings.</figcaption></figure></li>
+            <li><figure class="install-step-shot"><img src="assets/install-guide/mcpb/mcpb-03-extensions.png" alt="Claude Desktop Extensions area" loading="lazy"><figcaption><strong>Step 3:</strong> Open the Extensions area if your build has it.</figcaption></figure></li>
+            <li><figure class="install-step-shot"><img src="assets/install-guide/mcpb/mcpb-04-drop-file.png" alt="MCPB drag and drop install area" loading="lazy"><figcaption><strong>Step 4:</strong> Drag the .mcpb file into the Extensions panel.</figcaption></figure></li>
+            <li><figure class="install-step-shot"><img src="assets/install-guide/mcpb/mcpb-05-installed.png" alt="Compass extension installed confirmation" loading="lazy"><figcaption><strong>Step 5:</strong> Confirm the extension is installed.</figcaption></figure></li>
           </ol>
         </div>
         <div class="install-block">
@@ -362,6 +393,14 @@
             <li>Add it through your host app's skill import flow.</li>
             <li>Use the product page's starter prompt to confirm the skill is active.</li>
           </ol>
+          <p class="install-subnote">Use the skill when the MCP/plugin path is unavailable, or keep it as a prompt-only fallback alongside the tool connection.</p>
+          <ol class="install-walkthrough" aria-label="Compass skill install screenshots">
+            <li><figure class="install-step-shot"><img src="assets/install-guide/skill/skill-01-open-skills.png" alt="Claude Skills area before upload" loading="lazy"><figcaption><strong>Step 1:</strong> Open the Skills area.</figcaption></figure></li>
+            <li><figure class="install-step-shot"><img src="assets/install-guide/skill/skill-02-plus-button.png" alt="Skills plus button" loading="lazy"><figcaption><strong>Step 2:</strong> Click the plus button.</figcaption></figure></li>
+            <li><figure class="install-step-shot"><img src="assets/install-guide/skill/skill-03-upload-skill-menu.png" alt="Create Skill menu with Upload Skill option" loading="lazy"><figcaption><strong>Step 3:</strong> Choose Create Skill, then Upload Skill.</figcaption></figure></li>
+            <li><figure class="install-step-shot"><img src="assets/install-guide/skill/skill-04-select-file.png" alt="Skill file selection screen" loading="lazy"><figcaption><strong>Step 4:</strong> Select the Compass skill file or skill zip.</figcaption></figure></li>
+            <li><figure class="install-step-shot"><img src="assets/install-guide/skill/skill-05-installed.png" alt="Compass skill installed confirmation" loading="lazy"><figcaption><strong>Step 5:</strong> Confirm the Compass is available as a skill.</figcaption></figure></li>
+          </ol>
         </div>
         <div class="install-block">
           <h2>Source Zip</h2>
@@ -369,8 +408,28 @@
           <ol>
             <li>Download the source zip.</li>
             <li>Review the files and checksums.</li>
-            <li>Follow the product page's source-install instructions rather than guessing from the suite page.</li>
+            <li>Follow the product page's source-install instructions rather than guessing from the suite page. Treat this as a technical fallback, not the beginner install path.</li>
           </ol>
+        </div>
+      </section>
+
+      <section class="install-grid" aria-label="Install verification and recovery">
+        <div class="install-block">
+          <h2>After Install, Verify</h2>
+          <ol>
+            <li>Fully restart Claude if the tool list does not refresh.</li>
+            <li>Start a new chat.</li>
+            <li>Ask for the product's <code>get_started</code> or overview tool.</li>
+            <li>If you had other MCPs installed before, confirm they still appear.</li>
+          </ol>
+        </div>
+        <div class="install-block">
+          <h2>If the Expected UI Is Missing</h2>
+          <p>Do not improvise in Connectors unless that surface clearly accepts the exact file type you downloaded. Use the skill/reference path or the product diagnostic prompt instead.</p>
+        </div>
+        <div class="install-block">
+          <h2>Back Out Safely</h2>
+          <p>Restore the latest config backup or remove only the Compass entry you added from <code>mcpServers</code>. Never reset the whole config to fix one install.</p>
         </div>
       </section>
 
