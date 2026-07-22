@@ -1,10 +1,12 @@
 # Third-Party Notices
 
-This file records third-party materials included in the Compass Suite public site.
+This file records third-party materials included in the Working Tools public site.
 
 ## Current Public Site
 
-No additional third-party notices are required for this public site beyond dependencies declared in package metadata or individual Compass release packages.
+The homepage's editorial still life was generated for this project with OpenAI image generation. It is labeled as generated artwork in the interface and is used for atmosphere, not documentary evidence. No external font, icon, illustration, or JavaScript package is loaded by the site.
+
+Install-guide screenshots document Claude product interfaces. Claude is a product of Anthropic; the screenshots are included for instructional and compatibility context and do not imply endorsement.
 
 ## Future Package Format
 

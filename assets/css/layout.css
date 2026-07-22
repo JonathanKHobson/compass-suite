@@ -1,0 +1,128 @@
+.site-header,
+.hero,
+.section-inner,
+.site-footer-inner,
+.page-heading {
+  width: var(--page);
+  margin-inline: auto;
+}
+
+.site-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  min-height: 5rem;
+  border-bottom: 1px solid var(--ink);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(20rem, 0.78fr);
+  gap: clamp(3rem, 7vw, 8rem);
+  align-items: center;
+  min-height: min(52rem, calc(100vh - 5rem));
+  padding-block: clamp(4rem, 8vw, 8rem);
+}
+
+.hero-copy {
+  align-self: center;
+}
+
+.hero-lede {
+  max-width: 38rem;
+  color: var(--muted);
+  font-family: var(--display);
+  font-size: var(--step-1);
+  line-height: 1.42;
+}
+
+.hero-figure {
+  position: relative;
+  width: min(100%, 31rem);
+  margin: 0 1rem 0 auto;
+}
+
+.hero-figure::before {
+  position: absolute;
+  inset: 1.4rem -1rem -1rem 1rem;
+  z-index: -1;
+  background: var(--signal);
+  content: "";
+}
+
+.hero-figure img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1003 / 1568;
+  object-fit: cover;
+  border: 1px solid var(--ink);
+}
+
+.hero-figure figcaption {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+  color: var(--muted);
+  line-height: 1.35;
+}
+
+.section-block {
+  border-top: 1px solid var(--ink);
+}
+
+.section-inner {
+  padding-block: clamp(5rem, 9vw, 9rem);
+}
+
+.section-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.65fr);
+  gap: var(--space-7);
+  align-items: end;
+  margin-bottom: var(--space-7);
+}
+
+.section-heading > :last-child {
+  max-width: 34rem;
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.featured-section {
+  background: var(--night);
+  color: var(--cream);
+}
+
+.featured-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(24rem, 1.18fr);
+  gap: clamp(3rem, 8vw, 9rem);
+  align-items: center;
+}
+
+.featured-copy p:not(.eyebrow) {
+  max-width: 36rem;
+  color: #d6cec1;
+  font-size: var(--step-1);
+}
+
+.trust-section {
+  background: var(--highlight);
+}
+
+.trust-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(24rem, 1.2fr);
+  gap: var(--space-7);
+}
+
+.page-heading {
+  padding-block: clamp(4rem, 8vw, 7rem);
+}
+
+.page-heading p {
+  max-width: var(--reading);
+  color: var(--muted);
+  font-size: var(--step-1);
+}

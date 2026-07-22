@@ -1,11 +1,11 @@
 {
   "schema_version": "compass-suite.manifest.v1",
   "site": {
-    "name": "Compass Suite",
+    "name": "Working Tools by J. Kyle Hobson",
     "planned_public_url": "https://jonathankhobson.github.io/compass-suite/",
-    "description": "A public storefront for Jonathan Kyle Hobson's local-first Compass tools.",
-    "last_verified": "2026-05-07",
-    "source_of_truth_note": "Keep product cards, download buttons, statuses, and safety gates aligned with this manifest before publishing."
+    "description": "The verified Compass product records inside Jonathan Kyle Hobson's larger Working Tools library.",
+    "last_verified": "2026-07-22",
+    "source_of_truth_note": "This manifest remains the authority for Compass status, public release URLs, checksums, and safety gates. The public interface renders these records into the larger Working Tools library."
   },
   "products": [
     {

@@ -1,0 +1,38 @@
+:root {
+  --paper: #f4efe6;
+  --paper-deep: #e7ded0;
+  --cream: #fffaf2;
+  --ink: #171512;
+  --ink-soft: #25231f;
+  --muted: #625d54;
+  --rule: #bdb3a4;
+  --rule-dark: #6f685f;
+  --signal: #d95d3a;
+  --signal-dark: #94331f;
+  --highlight: #e7ff32;
+  --night: #20211e;
+  --night-soft: #30312d;
+  --success: #2f6b45;
+  --focus: #245ee8;
+  --display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --sans: "Avenir Next", Avenir, "Segoe UI", system-ui, sans-serif;
+  --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --step--1: clamp(0.78rem, 0.75rem + 0.12vw, 0.85rem);
+  --step-0: clamp(1rem, 0.95rem + 0.18vw, 1.1rem);
+  --step-1: clamp(1.22rem, 1.1rem + 0.42vw, 1.52rem);
+  --step-2: clamp(1.75rem, 1.45rem + 1vw, 2.55rem);
+  --step-3: clamp(2.7rem, 2rem + 2.7vw, 5.4rem);
+  --step-4: clamp(4rem, 2.7rem + 5.4vw, 8.25rem);
+  --space-1: 0.35rem;
+  --space-2: 0.7rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2.25rem;
+  --space-6: 3.5rem;
+  --space-7: 5.5rem;
+  --space-8: 8rem;
+  --page: min(90rem, calc(100vw - 2.5rem));
+  --reading: 70ch;
+  --shadow-hard: 12px 12px 0 var(--signal);
+}
+

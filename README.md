@@ -1,38 +1,30 @@
-# Compass Suite Storefront
+# Working Tools by J. Kyle Hobson
 
-Static storefront for the Compass Suite. This page links people to individual Compass home pages and public downloads without replacing the product-specific pages.
+Working Tools is the rebuilt public directory that replaces the old Compass
+Suite storefront. It connects the existing Compass products with Humanizer,
+public field guides, downloadable skill collections, connected services, and a
+carefully bounded view of local systems.
 
-## Current V1 Boundary
+The visitor starts with a job—write, research, design, build, career, teach, or
+run a game—rather than a product family.
 
-- Tabs: `Get Started`, `About`, `Install Guide`, `FAQ`.
-- No `Advanced` or `Examples` tab in the suite site yet.
-- Critical Compass, Prompt Compass, and UX Heuristics Compass have public beta download buttons.
-- UX Heuristics Compass is published as `v0.1.0-beta.10`; its individual landing page remains authoritative for install guidance, checksums, examples, and release notes.
-- Alpha and early-alpha products stay preview-only until their packages, pages, and privacy boundaries are verified.
-- Job Application Compass must not publish downloads, screenshots, examples, or home-page content until a personal-information scrub passes.
+## Sources of truth
 
-## Source of Truth
+- `suite-manifest.json`: Compass release status, public URLs, checksums, and
+  safety gates. Do not duplicate these facts in HTML.
+- `data/tool-library.json`: the larger public-safe directory and access labels.
+- `content/site-copy.md`: editorial copy source.
+- `docs/project-map.md`: architecture, ownership, and change paths.
+- `docs/design-direction.md`: design thesis and visual QA anchors.
+- `docs/asset-manifest.md`: source status and intended use for visuals.
 
-Use `suite-manifest.json` for product status, download URLs, checksums, maturity labels, and safety gates.
-
-When a product release changes:
-
-1. Update `suite-manifest.json`.
-2. Update matching card content in `index.html`.
-3. Run the validator.
-4. Verify public URLs before publishing.
-
-## Local Preview
+## Local preview
 
 ```bash
 python3 -m http.server 8787
 ```
 
-Then open:
-
-```text
-http://127.0.0.1:8787/
-```
+Open `http://127.0.0.1:8787/`.
 
 ## Validate
 
@@ -40,16 +32,20 @@ http://127.0.0.1:8787/
 python3 scripts/validate_suite_site.py
 ```
 
-Optional live link check:
+To check public destinations as well:
 
 ```bash
 python3 scripts/validate_suite_site.py --check-links
 ```
 
-## Publish Guardrails
+## Publishing guardrails
 
-- Do not copy a generated individual Compass page over this suite site.
-- Do not combine `About` and `FAQ`.
-- Do not add direct alpha downloads until package and public/private-boundary checks pass.
-- Do not publish Job Application Compass material until the personal-information scrub passes.
-- Individual Compass pages remain authoritative for install specifics, checksums, examples, and release notes.
+- Public downloads must use a verified HTTPS destination.
+- Local-only records must not expose a path, credential, private setup, or CTA.
+- Preview Compass products do not gain downloads until their release and
+  public/private reviews are complete.
+- Job Application Compass remains skills-only; its private MCP and packet
+  engine are not published.
+- Generated artwork supplies atmosphere, not evidence. Install screenshots are
+  documentary assets and remain separate.
+- Run the validator and desktop/mobile visual QA before publishing.
