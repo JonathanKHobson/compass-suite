@@ -36,35 +36,15 @@
   line-height: 1.42;
 }
 
-.hero-figure {
-  position: relative;
-  width: min(100%, 31rem);
-  margin: 0 1rem 0 auto;
-}
-
-.hero-figure::before {
-  position: absolute;
-  inset: 1.4rem -1rem -1rem 1rem;
-  z-index: -1;
-  background: var(--signal);
-  content: "";
-}
-
-.hero-figure img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 1003 / 1568;
-  object-fit: cover;
-  border: 1px solid var(--ink);
-}
-
-.hero-figure figcaption {
-  display: flex;
-  justify-content: space-between;
-  gap: var(--space-3);
-  margin-top: var(--space-3);
-  color: var(--muted);
-  line-height: 1.35;
+.hero-specimen {
+  width: min(100%, 34rem);
+  margin: 0 1rem 1rem auto;
+  padding: clamp(1.4rem, 3vw, 2.4rem);
+  border: 1px solid #5d5e58;
+  box-shadow: 14px 14px 0 var(--signal);
+  background: var(--night);
+  color: var(--cream);
+  transform: rotate(1.2deg);
 }
 
 .section-block {
@@ -108,7 +88,7 @@
 }
 
 .trust-section {
-  background: var(--highlight);
+  background: var(--paper-deep);
 }
 
 .trust-layout {

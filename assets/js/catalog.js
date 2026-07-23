@@ -13,8 +13,6 @@ const COMPASS_JOBS = {
   "critical-compass": ["research", "write"],
   "prompt-compass": ["write", "build"],
   "ux-heuristics-compass": ["design", "build"],
-  "ttrpg-compass": ["table", "write"],
-  "research-compass": ["research"],
   "job-application-compass": ["career", "write"]
 };
 
@@ -31,7 +29,7 @@ function normalizeCompass(product) {
     id: product.id,
     name: product.name,
     kind: "Compass project",
-    access: hasDownloads ? "public-download" : "preview",
+    access: hasDownloads ? "public-download" : "public-site",
     jobs: COMPASS_JOBS[product.id] || [],
     tagline: product.tagline,
     description: product.description,
@@ -100,12 +98,6 @@ function createRow(item, accessLabels) {
     const link = element("a", "button button-primary", item.action);
     link.href = item.href;
     side.append(link);
-  } else if (item.access === "local-only") {
-    side.append(element("p", "local-note", "Named for context only. No public installer or private setup is exposed here."));
-  } else if (item.access === "connected-service") {
-    side.append(element("p", "local-note", "Requires the visitor's own account, host, and granted permissions."));
-  } else if (item.access === "preview") {
-    side.append(element("p", "local-note", "Public package and boundary review are still pending."));
   }
 
   if (item.skills?.length) side.append(createSkillDetails(item.skills));
@@ -138,7 +130,10 @@ export async function startCatalog() {
     if (!libraryResponse.ok || !compassResponse.ok) throw new Error("Catalog source unavailable");
     const library = await libraryResponse.json();
     const compass = await compassResponse.json();
-    const items = [...compass.products.map(normalizeCompass), ...library.items];
+    const publicCompasses = compass.products
+      .filter((product) => product.downloads?.some((download) => download.availability === "available"))
+      .map(normalizeCompass);
+    const items = [...publicCompasses, ...library.items];
 
     function render() {
       const query = state.query.trim().toLowerCase();

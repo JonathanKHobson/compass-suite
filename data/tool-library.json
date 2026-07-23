@@ -1,23 +1,21 @@
 {
-  "schema_version": "working-tools.library.v1",
+  "schema_version": "working-tools.library.v2",
   "updated": "2026-07-22",
+  "public_only": true,
   "access_labels": {
     "public-download": "Public download",
-    "public-site": "Public field guide",
-    "connected-service": "Connected service",
-    "local-only": "Local system",
-    "preview": "Preview"
+    "public-site": "Public resource"
   },
   "items": [
     {
       "id": "humanizer",
       "name": "Humanizer",
-      "kind": "skill",
+      "kind": "writing skill and field guide",
       "access": "public-site",
-      "jobs": ["write", "career", "design"],
+      "jobs": ["write", "career", "design", "teach"],
       "tagline": "Keep the writer in the room.",
-      "description": "Reviews a draft for vague claims, borrowed confidence, citation problems, and voice drift without inventing facts or chasing a detector score.",
-      "href": "https://humanizer-writing-tools.jkylehobson.chatgpt.site",
+      "description": "Revise vague claims, borrowed confidence, citation problems, and voice drift without inventing facts or chasing a detector score.",
+      "href": "https://jonathankhobson.github.io/shareables/s/humanizer-writing-enhancement/",
       "action": "Open Humanizer",
       "featured": true,
       "skills": ["humanizer"]
@@ -25,134 +23,93 @@
     {
       "id": "creative-writing-studio",
       "name": "Creative Writing Studio",
-      "kind": "plugin collection",
+      "kind": "downloadable skill pack",
       "access": "public-download",
       "jobs": ["write", "teach", "table"],
       "tagline": "Shape stories, scenes, learning, and play.",
-      "description": "A broad creative practice for story architecture, publishing, originality, teaching, games, and TTRPG work.",
-      "href": "https://jonathankhobson.github.io/shareables/s/humanizer-writing-enhancement/downloads/creative-writing-studio-claude-plugin.zip",
-      "action": "Download collection",
-      "skills": ["board-game-design", "creative-project-context", "creative-project-router", "daggerheart-adapter", "debrief-canon-maintainer", "develop-web-game", "edu-role-play", "game-designer", "gm-roleplay-router", "improv-roleplay-coach", "lavish-axi", "learning-experience-designer", "live-table-director", "npc-performance-director", "originality-rights-and-provenance", "pacing-scene-director", "personal-gm-style-adapter", "player-facilitator", "professional-public-gm", "publishing-router", "rules-teaching-coach", "safety-accessibility-facilitator", "show-vs-tell-craft", "story-architecture", "story-atlas-prep", "story-book-router", "ttrpg-router"]
+      "description": "Story architecture, publishing, originality, teaching, games, and TTRPG craft in one installable Claude collection.",
+      "href": "https://jonathankhobson.github.io/compass-suite/creative-writing-studio/",
+      "action": "Explore the studio",
+      "skills": ["story-architecture", "show-vs-tell-craft", "publishing-router", "originality-rights-and-provenance", "learning-experience-designer", "ttrpg-router"]
     },
     {
       "id": "marketing-social-studio",
       "name": "Marketing & Social Studio",
-      "kind": "plugin collection",
+      "kind": "downloadable skill pack",
       "access": "public-download",
-      "jobs": ["write", "career"],
+      "jobs": ["write", "career", "research"],
       "tagline": "Make public communication earn attention.",
-      "description": "Marketing strategy, current audience research, social content, and public proof with Humanizer as the final copy gate.",
-      "href": "https://jonathankhobson.github.io/shareables/s/humanizer-writing-enhancement/downloads/marketing-social-studio-claude-plugin.zip",
-      "action": "Download collection",
-      "skills": ["communication-story-crafter", "current-social-research", "marketing-strategy-operator", "social-content-studio"]
+      "description": "Marketing strategy, current audience research, social content, and evidence-aware public communication with Humanizer as the final copy gate.",
+      "href": "https://jonathankhobson.github.io/compass-suite/marketing-social-studio/",
+      "action": "Explore the studio",
+      "skills": ["communication-story-crafter", "current-social-research", "marketing-strategy-operator", "social-content-studio", "humanizer"]
     },
     {
       "id": "career-grants-studio",
       "name": "Career & Grants Studio",
-      "kind": "plugin collection",
+      "kind": "downloadable skill pack",
       "access": "public-download",
       "jobs": ["career", "write"],
       "tagline": "Build the case without inventing the evidence.",
-      "description": "Resumes, cover letters, portfolios, and grant-process support grounded in the source material the applicant can defend.",
-      "href": "https://jonathankhobson.github.io/shareables/s/humanizer-writing-enhancement/downloads/career-grants-studio-claude-plugin.zip",
-      "action": "Download collection",
-      "skills": ["cover-letter-crafter", "grant-process-crafter", "portfolio-crafter", "resume-crafter"]
+      "description": "Resumes, cover letters, portfolio cases, and grant-process support grounded in source material the applicant can defend.",
+      "href": "https://jonathankhobson.github.io/compass-suite/career-grants-studio/",
+      "action": "Explore the studio",
+      "skills": ["resume-crafter", "cover-letter-crafter", "portfolio-crafter", "grant-process-crafter"]
     },
     {
       "id": "ttrpg-gm-director",
       "name": "TTRPG GM Director",
-      "kind": "plugin collection",
+      "kind": "downloadable skill pack",
       "access": "public-download",
       "jobs": ["table", "write", "teach"],
       "tagline": "Keep the table moving without flattening the story.",
-      "description": "GM-facing writing, scene direction, facilitation, rules teaching, campaign preparation, safety, and live-table craft.",
-      "href": "https://jonathankhobson.github.io/shareables/s/humanizer-writing-enhancement/downloads/ttrpg-gm-director-claude-plugin.zip",
-      "action": "Download collection",
-      "skills": ["board-game-design", "communication-story-crafter", "creative-project-context", "daggerheart-adapter", "debrief-canon-maintainer", "game-designer", "gm-roleplay-router", "improv-roleplay-coach", "live-table-director", "npc-performance-director", "originality-rights-and-provenance", "pacing-scene-director", "personal-gm-style-adapter", "player-facilitator", "professional-public-gm", "publishing-router", "rules-teaching-coach", "safety-accessibility-facilitator", "show-vs-tell-craft", "story-architecture", "story-atlas-prep", "ttrpg-router", "visual-asset-integration"]
+      "description": "GM-facing writing, scene direction, player facilitation, rules teaching, campaign preparation, safety, and live-table craft.",
+      "href": "https://jonathankhobson.github.io/compass-suite/ttrpg-gm-director/",
+      "action": "Explore the director",
+      "skills": ["live-table-director", "pacing-scene-director", "player-facilitator", "rules-teaching-coach", "safety-accessibility-facilitator", "story-atlas-prep"]
     },
     {
       "id": "ux-design-toolkit",
       "name": "UX Design Toolkit",
-      "kind": "plugin collection",
+      "kind": "downloadable skill pack",
       "access": "public-download",
       "jobs": ["design", "build", "write"],
       "tagline": "Make the interface clearer before making it prettier.",
       "description": "UX writing, frontend behavior, heuristic review, design systems, visual assets, Figma work, and a final craft gate.",
-      "href": "https://jonathankhobson.github.io/shareables/s/humanizer-writing-enhancement/downloads/ux-design-toolkit-claude-plugin.zip",
-      "action": "Download collection",
-      "skills": ["design-taste-gate", "figma", "figma-implement-design", "frontend-ux", "ui-ux-pro-max", "ux-heuristic-compass", "ux-oracle", "ux-writer", "visual-asset-integration"]
+      "href": "https://jonathankhobson.github.io/compass-suite/ux-design-toolkit/",
+      "action": "Explore the toolkit",
+      "skills": ["frontend-ux", "ux-writer", "design-taste-gate", "visual-asset-integration", "figma", "ux-heuristic-compass"]
     },
     {
       "id": "builder-tools",
       "name": "Builder Tools + Vibe Check",
-      "kind": "plugin collection",
+      "kind": "downloadable skill pack",
       "access": "public-download",
       "jobs": ["build", "design"],
       "tagline": "Turn the idea into a build that stays navigable.",
       "description": "Planning, project structure, debugging, GitHub conventions, browser checks, deployment, and beginner-safe build guidance.",
-      "href": "https://jonathankhobson.github.io/shareables/s/humanizer-writing-enhancement/downloads/builder-tools-vibe-check-claude-plugin.zip",
-      "action": "Download collection",
-      "skills": ["cloudflare-deploy", "code-intelligence", "gh-address-comments", "gh-fix-ci", "github-conventions", "golang-effective", "local-app-pipeline", "native-macos-app-builder", "openai-docs", "pattern-picker", "plain-to-dev", "playwright", "playwright-interactive", "prd-strategist", "project-structure-architect", "systematic-debugging", "vibe-check"]
-    },
-    {
-      "id": "mcp-workbench",
-      "name": "MCP Workbench",
-      "kind": "plugin collection",
-      "access": "local-only",
-      "jobs": ["build", "research"],
-      "tagline": "Inspect the connector before trusting the connection.",
-      "description": "Local MCP building, debugging, security review, storage setup, skill authoring, and ChatGPT app work.",
-      "skills": ["chatgpt-apps", "critical-compass", "discord-bot-mcp-setup", "local-data-mcp-builder", "local-mcp-debugging", "local-storage-mcp", "personal-security-check", "safe-install-review", "skill-authoring"]
-    },
-    {
-      "id": "mac-ops-toolkit",
-      "name": "Mac Ops Toolkit",
-      "kind": "plugin collection",
-      "access": "local-only",
-      "jobs": ["build"],
-      "tagline": "Keep the machine from becoming the project.",
-      "description": "Focus, storage, troubleshooting, project memory, prompt operations, and Mac-specific environment conventions.",
-      "skills": ["chronicle", "focus-ops-manager", "hatch-pet", "mac-environment-conventions", "mac-troubleshooter", "obsidian-vault-router", "prompt-playbook", "storage-memory-manager"]
-    },
-    {
-      "id": "media-io-toolkit",
-      "name": "Media I/O Toolkit",
-      "kind": "plugin collection",
-      "access": "local-only",
-      "jobs": ["build", "write", "design"],
-      "tagline": "Move between drafts, media, and deliverables.",
-      "description": "Documents, PDFs, screenshots, image generation, presentations, video, speech, and transcription workflows.",
-      "skills": ["doc", "html-presentation-builder", "imagegen", "pdf", "screenshot", "sora", "speech", "transcribe"]
+      "href": "https://jonathankhobson.github.io/compass-suite/builder-tools/",
+      "action": "Explore builder tools",
+      "skills": ["vibe-check", "project-structure-architect", "systematic-debugging", "playwright", "github-conventions", "local-app-pipeline"]
     },
     {
       "id": "participatory-defense-field-guide",
       "name": "Participatory Defense Field Guide",
-      "kind": "field guide",
+      "kind": "field guide and skill downloads",
       "access": "public-site",
       "jobs": ["research", "teach"],
       "tagline": "Prepare carefully, verify sources, and know when to hand off.",
       "description": "A safety-first resource for community defense, legal education, source-grounded preparation, and human review.",
       "href": "https://jonathankhobson.github.io/shareables/s/participatory-defense-field-guide/",
-      "action": "Open field guide"
-    },
-    {
-      "id": "humanizer-field-guide",
-      "name": "Humanizer Writing Enhancement",
-      "kind": "field guide",
-      "access": "public-site",
-      "jobs": ["write", "design", "career"],
-      "tagline": "See the method, downloads, and source boundary.",
-      "description": "The public field guide behind Humanizer, with revision examples, skill downloads, complementary collections, and install guidance.",
-      "href": "https://jonathankhobson.github.io/shareables/s/humanizer-writing-enhancement/",
-      "action": "Open field guide"
+      "action": "Open the field guide"
     },
     {
       "id": "understanding-ai-2026",
-      "name": "Understanding AI 2026",
-      "kind": "field guide",
+      "name": "Understanding AI in 2026",
+      "kind": "beginner field guide",
       "access": "public-site",
       "jobs": ["teach", "research"],
-      "tagline": "Get the layers straight before choosing the tool.",
+      "tagline": "Get the layers straight before choosing a tool.",
       "description": "A practical orientation to models, products, interfaces, agents, connectors, and the systems around them.",
       "href": "https://jonathankhobson.github.io/shareables/s/understanding-ai-2026/",
       "action": "Open AI Basics"
@@ -160,157 +117,13 @@
     {
       "id": "mcp-basics",
       "name": "What Is an MCP?",
-      "kind": "field guide",
+      "kind": "guide and safety-skill download",
       "access": "public-site",
       "jobs": ["build", "research", "teach"],
       "tagline": "Know what the connector can reach before installing it.",
-      "description": "A plain-language guide to MCP tools, permissions, local and remote servers, and the checks that belong before setup.",
+      "description": "A plain-language guide to MCP tools, permissions, local and remote servers, plus a downloadable safety-review skill.",
       "href": "https://jonathankhobson.github.io/what-is-an-mcp/",
       "action": "Open MCP Basics"
-    },
-    {
-      "id": "sites",
-      "name": "Sites",
-      "kind": "connected service",
-      "access": "connected-service",
-      "jobs": ["build", "design"],
-      "tagline": "Build and publish a site from the same working thread.",
-      "description": "The ChatGPT site-building and hosting surface used for pages such as the Humanizer site. Access depends on the user's own workspace."
-    },
-    {
-      "id": "figma-service",
-      "name": "Figma",
-      "kind": "connected service",
-      "access": "connected-service",
-      "jobs": ["design", "build"],
-      "tagline": "Move between design context and implementation.",
-      "description": "Design-file inspection, diagrams, libraries, design-to-code, and implementation handoff through the connected Figma account."
-    },
-    {
-      "id": "google-workspace",
-      "name": "Google Workspace connectors",
-      "kind": "connected service",
-      "access": "connected-service",
-      "jobs": ["research", "career", "write"],
-      "tagline": "Bring the calendar, inbox, documents, sheets, and slides into the task.",
-      "description": "Gmail, Google Calendar, and Google Drive connectors used only with the account and permissions granted for the current job."
-    },
-    {
-      "id": "github-service",
-      "name": "GitHub",
-      "kind": "connected service",
-      "access": "connected-service",
-      "jobs": ["build"],
-      "tagline": "Keep source, review, and release evidence together.",
-      "description": "Repository, issue, pull-request, workflow, and release work through the connected GitHub account."
-    },
-    {
-      "id": "kyle-second-brain",
-      "name": "Kyle Second Brain",
-      "kind": "MCP",
-      "access": "local-only",
-      "jobs": ["research", "write", "career", "table"],
-      "tagline": "Capture durable context and retrieve it when continuity matters.",
-      "description": "The permanent local memory system for decisions, commitments, project state, source material, and transcript-worthy evidence."
-    },
-    {
-      "id": "shareables-mcp",
-      "name": "Shareables",
-      "kind": "MCP",
-      "access": "local-only",
-      "jobs": ["design", "build", "write"],
-      "tagline": "Turn finished work into a public artifact with a verifiable publish path.",
-      "description": "The local build, validation, packaging, review, and publishing lane behind the public Shareables library."
-    },
-    {
-      "id": "knowledge-atlas",
-      "name": "Knowledge Atlas",
-      "kind": "MCP",
-      "access": "local-only",
-      "jobs": ["research", "teach", "build"],
-      "tagline": "Find the framework, concept, or reference that fits the question.",
-      "description": "A local knowledge sidecar for structured concepts, related frameworks, standards, and searchable reference material."
-    },
-    {
-      "id": "arxiv-scout",
-      "name": "Arxiv Scout",
-      "kind": "MCP",
-      "access": "local-only",
-      "jobs": ["research"],
-      "tagline": "Start academic research with papers, not summaries of summaries.",
-      "description": "The academic paper search lane used to locate and check current arXiv work."
-    },
-    {
-      "id": "discord-digest",
-      "name": "Discord Digest",
-      "kind": "MCP",
-      "access": "local-only",
-      "jobs": ["write", "build"],
-      "tagline": "Deliver a concise update and keep the message URL as proof.",
-      "description": "A bounded local publishing lane for ready-to-send Discord digests and delivery records."
-    },
-    {
-      "id": "research-suite-package",
-      "name": "Research Suite Package",
-      "kind": "MCP",
-      "access": "local-only",
-      "jobs": ["research", "teach"],
-      "tagline": "Search the local research corpus through one consolidated front door.",
-      "description": "The current local replacement for separate research-orchestrator, AI-glossary, and Oppia-search services."
-    },
-    {
-      "id": "local-storage-mcp",
-      "name": "Local Storage",
-      "kind": "MCP",
-      "access": "local-only",
-      "jobs": ["build", "research"],
-      "tagline": "Check the machine and mounted drives before guessing where the file went.",
-      "description": "Local machine evidence, storage conventions, and bounded file-system context."
-    },
-    {
-      "id": "chatgpt-history-mcp",
-      "name": "ChatGPT History",
-      "kind": "MCP",
-      "access": "local-only",
-      "jobs": ["research", "write"],
-      "tagline": "Recover prior conversation evidence when the current thread is not enough.",
-      "description": "An on-demand research and recall connector for exported ChatGPT history."
-    },
-    {
-      "id": "source-library-mcp",
-      "name": "Source Library",
-      "kind": "MCP",
-      "access": "local-only",
-      "jobs": ["research", "write"],
-      "tagline": "Locate the source before repeating the claim.",
-      "description": "A local source-retrieval and library lookup lane used when documents and citations need direct inspection."
-    },
-    {
-      "id": "idea-reality-mcp",
-      "name": "Idea Reality",
-      "kind": "MCP",
-      "access": "local-only",
-      "jobs": ["research", "build"],
-      "tagline": "Separate the attractive idea from the thing the evidence can support.",
-      "description": "A grounding aid for idea-versus-reality checks and early product pressure tests."
-    },
-    {
-      "id": "rpg-mcp-pack",
-      "name": "RPG MCP pack",
-      "kind": "MCP collection",
-      "access": "local-only",
-      "jobs": ["table", "research"],
-      "tagline": "Bring the right game reference into the session lane.",
-      "description": "On-demand P2K GM, P2P GM, TRPG, role-playing, Mnehmos RPG, MTG Oracle, and Stargate playtest systems."
-    },
-    {
-      "id": "browser-design-mcps",
-      "name": "Browser and design MCPs",
-      "kind": "MCP collection",
-      "access": "local-only",
-      "jobs": ["design", "build"],
-      "tagline": "Inspect the rendered surface when code alone cannot prove the experience.",
-      "description": "On-demand Playwright, Figma, and GitHub MCPs for browser QA, design context, repository inspection, and release work."
     }
   ]
 }

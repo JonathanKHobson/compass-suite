@@ -11,7 +11,7 @@
     {
       "id": "critical-compass",
       "name": "Critical Compass",
-      "status": "v0.1.0-beta.10",
+      "status": "v0.1.0-beta.11",
       "maturity": "public beta",
       "tagline": "Pressure-test claims before they travel.",
       "description": "A critical-thinking assistant for auditing evidence gaps, assumptions, framing risks, missing voices, and report-ready next steps.",
@@ -25,8 +25,8 @@
           "label": "Plugin Zip",
           "kind": "plugin_zip",
           "filename": "critical-compass-plugin.zip",
-          "url": "https://github.com/JonathanKHobson/critical-compass/releases/download/v0.1.0-beta.10/critical-compass-plugin.zip",
-          "checksum": "350e5bb5a2d834e6d7993eefea2d4e174bfa5b20011c06af995de1a888e33880",
+          "url": "https://github.com/JonathanKHobson/critical-compass/releases/download/v0.1.0-beta.11/critical-compass-plugin.zip",
+          "checksum": "451bc450b61df8088a60d71ec0cb822eefb7523961a765a362e744d343e1ec3c",
           "availability": "available",
           "recommended_for": "Claude Cowork or Claude Code"
         },
@@ -34,8 +34,8 @@
           "label": "Desktop Extension",
           "kind": "mcpb",
           "filename": "critical-compass-0.1.0.mcpb",
-          "url": "https://github.com/JonathanKHobson/critical-compass/releases/download/v0.1.0-beta.10/critical-compass-0.1.0.mcpb",
-          "checksum": "49736f5277454c16e796be25f3460a7a774397a00e0a01597a7e2f65919af219",
+          "url": "https://github.com/JonathanKHobson/critical-compass/releases/download/v0.1.0-beta.11/critical-compass-0.1.0.mcpb",
+          "checksum": "a9a22efd47b9b10d7b7ff603dcb763b1ac57bdd88781279602e2df49f16cc77c",
           "availability": "available",
           "recommended_for": "Claude Desktop"
         },
@@ -43,8 +43,8 @@
           "label": "Skill File",
           "kind": "skill_file",
           "filename": "critical-compass.skill",
-          "url": "https://github.com/JonathanKHobson/critical-compass/releases/download/v0.1.0-beta.10/critical-compass.skill",
-          "checksum": "a817558e092776153bb16a3454aec9b655dd48b011296c6db927f25d2c5abd2f",
+          "url": "https://github.com/JonathanKHobson/critical-compass/releases/download/v0.1.0-beta.11/critical-compass.skill",
+          "checksum": "ba1ee07256c209e2f1a406fe4926665692c088fa896ac466c2ad68df8b842533",
           "availability": "available",
           "recommended_for": "Prompt-only Claude skill use"
         },
@@ -52,8 +52,8 @@
           "label": "Skill Zip",
           "kind": "skill_zip",
           "filename": "skill.zip",
-          "url": "https://github.com/JonathanKHobson/critical-compass/releases/download/v0.1.0-beta.10/skill.zip",
-          "checksum": "efa064bc1becc8c1794d837f33a60a3aa5efd11a797587a431271ecbe23476cf",
+          "url": "https://github.com/JonathanKHobson/critical-compass/releases/download/v0.1.0-beta.11/skill.zip",
+          "checksum": "fe5df54382bbd097cbda82e898812f09384d986955de620b22f0e98d5c5f63c4",
           "availability": "available",
           "recommended_for": "Skill import workflows that expect a zip"
         },
@@ -61,8 +61,8 @@
           "label": "Source Zip",
           "kind": "source_zip",
           "filename": "critical-compass-source.zip",
-          "url": "https://github.com/JonathanKHobson/critical-compass/releases/download/v0.1.0-beta.10/critical-compass-source.zip",
-          "checksum": "6bac6e3dd4be9886358c8ab877f5f763ed8692daf400ebdfd9f908d95a32c58d",
+          "url": "https://github.com/JonathanKHobson/critical-compass/releases/download/v0.1.0-beta.11/critical-compass-source.zip",
+          "checksum": "effd8bf6edc4aabe5e2737ce0cbd3a4b99a1db3ae0ad7e2927919dbd86aa5bdd",
           "availability": "available",
           "recommended_for": "Technical reviewers and source installs"
         }
@@ -222,7 +222,7 @@
       "status": "public skills beta",
       "maturity": "public skills beta",
       "tagline": "Craft career materials without inventing claims.",
-      "description": "A skills-only public release for evidence-grounded resumes, cover letters, portfolio cases, and career communication. The private MCP and packet engine remain local-only.",
+      "description": "Four public skills for evidence-grounded resumes, cover letters, portfolio cases, and career communication.",
       "homepage_url": "https://jonathankhobson.github.io/job-application-compass/",
       "repo_url": "https://github.com/JonathanKHobson/job-application-compass",
       "learn_more_url": "https://jonathankhobson.github.io/job-application-compass/",

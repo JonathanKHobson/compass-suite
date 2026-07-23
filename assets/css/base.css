@@ -20,17 +20,6 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-body::before {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background-image: radial-gradient(rgb(23 21 18 / 7%) 0.65px, transparent 0.65px);
-  background-size: 8px 8px;
-  content: "";
-  opacity: 0.22;
-}
-
 img {
   display: block;
   height: auto;
@@ -107,8 +96,8 @@ code {
   z-index: 100;
   padding: 0.75rem 1rem;
   transform: translateY(-200%);
-  background: var(--highlight);
-  color: var(--ink);
+  background: var(--signal);
+  color: var(--cream);
   font-weight: 800;
 }
 
@@ -120,7 +109,6 @@ code {
 .section-index,
 .meta-line,
 .status-label,
-.hero-figure figcaption,
 .library-kind,
 .skill-list code {
   font-family: var(--mono);

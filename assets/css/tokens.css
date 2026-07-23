@@ -9,7 +9,7 @@
   --rule-dark: #6f685f;
   --signal: #d95d3a;
   --signal-dark: #94331f;
-  --highlight: #e7ff32;
+  --signal-wash: #efd8ce;
   --night: #20211e;
   --night-soft: #30312d;
   --success: #2f6b45;
@@ -35,4 +35,3 @@
   --reading: 70ch;
   --shadow-hard: 12px 12px 0 var(--signal);
 }
-

@@ -1,7 +1,5 @@
-import { startCatalog } from "./catalog.js";
 import { startNavigation } from "./site-nav.js";
 
 document.documentElement.classList.add("js-enabled");
-
 startNavigation();
-startCatalog();
+

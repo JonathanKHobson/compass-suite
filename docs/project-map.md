@@ -7,8 +7,8 @@ Compass Suite storefront. The redesign keeps the existing Compass product
 content and verified release links, but the visitor-facing brand is now
 **Working Tools by J. Kyle Hobson**.
 
-The homepage has one job: help a visitor find the right public tool, collection,
-field guide, or local system for the work in front of them.
+The homepage has one job: help a visitor find the right public tool, skill pack,
+or field guide for the work in front of them.
 
 ## Entrypoints
 
@@ -16,18 +16,22 @@ field guide, or local system for the work in front of them.
   message.
 - `assets/js/main.js`: starts the catalog, filters, navigation, copy buttons,
   and progressive disclosure.
+- `assets/js/site-nav.js`: shared responsive navigation behavior.
+- `assets/js/collection.js`: starts navigation on pages that do not load the
+  catalog.
 - `assets/css/main.css`: imports the design tokens and layout layers.
 - `suite-manifest.json`: verified Compass product status, release URLs,
   checksums, and safety gates. It remains the authority for Compass downloads.
-- `data/tool-library.json`: public-facing directory of collections, field
-  guides, public tools, connected services, and local-only systems.
+- `data/tool-library.json`: public-only directory of skill packs, field guides,
+  public products, and educational resources.
+- `<collection>/index.html`: six public landing pages that explain a bundle,
+  show a working example, name its limits, and provide the real download.
 
 ## Ownership boundaries
 
 ```text
 assets/
-  css/                 Visual tokens, base rules, layout, components, responsive rules
-  generated/           Generated atmosphere/identity assets and derivatives
+  css/                 Visual tokens, base rules, collection pages, responsive rules
   install-guide/       Real screenshots that document tested install paths
   js/                  Small browser modules; no framework or build step
 content/
@@ -45,23 +49,21 @@ suite-manifest.json    Compass release/download authority
 
 ## Core concepts
 
-- **Working Tool**: one public artifact or local system with a bounded job.
+- **Working Tool**: one public artifact with a bounded job and usable public
+  destination.
 - **Collection**: a group of related skills or plugins distributed together.
 - **Field Guide**: a public, task-specific resource with prompts, guardrails,
   and source-aware instructions.
 - **Public download**: a verified artifact with a public destination.
-- **Local-only system**: a tool used in Jonathan's private workflow. The site
-  may name its role but must not expose paths, credentials, configuration, or a
-  download CTA.
-- **Connected service**: an external service reached through an installed
-  connector or plugin. Availability depends on the user's own account and host.
+- **Public catalog rule**: private systems, account-bound connectors, previews,
+  and items without a working page or download do not appear in the library.
 
 ## Data flow
 
 1. `main.js` loads `data/tool-library.json` and `suite-manifest.json`.
 2. The catalog module normalizes both sources into searchable records.
-3. Visitors filter by job or surface. Public tools expose verified destinations;
-   local-only systems expose description only.
+3. Visitors filter by job. Every rendered item exposes a verified public
+   destination.
 4. Install directions use the preserved screenshots under
    `assets/install-guide/` and remain behind native disclosure controls.
 
@@ -69,8 +71,9 @@ suite-manifest.json    Compass release/download authority
 
 - New Compass release: update `suite-manifest.json`, then run the validator.
 - New public collection or field guide: update `data/tool-library.json`.
-- New visual asset: add it under `assets/generated/` or the appropriate evidence
-  folder and update `docs/asset-manifest.md`.
+- New visual asset: add it only when it performs a reader-facing job, then
+  record the source, role, placement, and verification in
+  `docs/asset-manifest.md`.
 - Copy revision: update `content/site-copy.md` first, then the matching HTML or
   catalog record.
 - Brand or layout change: update the relevant CSS layer; do not add one-off
@@ -83,7 +86,7 @@ suite-manifest.json    Compass release/download authority
 - Runtime: `python3 -m http.server 8787`.
 - Safe checks: `python3 scripts/validate_suite_site.py` and the browser QA
   commands recorded in the release notes.
-- Risky changes: release URLs, checksums, local/private system descriptions,
-  license copy, and public deployment.
+- Risky changes: release URLs, checksums, public/private boundaries, license
+  copy, and public deployment.
 - Common failure: duplicating release facts in HTML instead of reading the
   manifest.

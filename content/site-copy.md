@@ -14,9 +14,9 @@
 
 # Use the tool that fits the work.
 
-This is the library I use to write, research, design, build, teach, and run
-games with AI. Some tools are public downloads. Some are field guides. Some are
-local systems that show how the work fits together.
+This is a public library for writing, research, design, building, career work,
+teaching, and games with AI. Every item opens to a resource another person can
+read, install, or download.
 
 - Primary action: Find a tool
 - Secondary action: Open Humanizer
@@ -49,8 +49,8 @@ evidence where the draft has not earned certainty.
 
 ### The working library
 
-Search by task or narrow the list by surface. Public downloads are labeled.
-Local-only systems explain their job without exposing private setup.
+Search by task or narrow the list. Every result opens a public page, guide,
+example, or download that a visitor can actually use.
 
 Empty result: No tools match those filters. Clear a filter or try a different
 word.
@@ -60,12 +60,12 @@ links above still work.
 
 ## Trust boundary
 
-### Public tools and private systems are different things
+### Every listing has somewhere useful to go
 
-A public download has a verified destination. A connected service depends on
-the visitor's own account and host. A local-only system is part of my working
-setup, not a public installer. The label appears before the action so no one has
-to infer the difference.
+This is a public resource shelf, not an inventory of private setup. Downloads,
+field guides, and collection pages appear only when the visitor has a real
+public action. Private systems, account-bound connectors, unfinished previews,
+and tools without a public resource stay out.
 
 ## Install
 
@@ -86,4 +86,3 @@ finished.
 
 The library will change. The rule stays the same: one tool should have one
 bounded job, a visible limit, and a result a person can inspect.
-

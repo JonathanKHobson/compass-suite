@@ -17,14 +17,9 @@
     min-height: auto;
   }
 
-  .hero-figure {
+  .hero-specimen {
     width: min(100%, 42rem);
     margin-inline: auto;
-  }
-
-  .hero-figure img {
-    aspect-ratio: 16 / 10;
-    object-position: 50% 56%;
   }
 
   .section-heading {
@@ -106,8 +101,10 @@
     max-width: 9.5ch;
   }
 
-  .hero-figure::before {
-    inset: 0.8rem -0.45rem -0.45rem 0.45rem;
+  .hero-specimen {
+    margin: 0 0.45rem 0.45rem 0;
+    box-shadow: 8px 8px 0 var(--signal);
+    transform: none;
   }
 
   .task-grid {
@@ -174,10 +171,6 @@
 @media (max-width: 28rem) {
   .task-grid {
     grid-template-columns: 1fr;
-  }
-
-  .hero-figure figcaption {
-    display: block;
   }
 
   .button-row .button {

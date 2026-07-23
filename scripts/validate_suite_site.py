@@ -22,22 +22,45 @@ EXPECTED_COMPASS_IDS = [
     "research-compass",
     "job-application-compass",
 ]
+COLLECTION_SLUGS = [
+    "creative-writing-studio",
+    "marketing-social-studio",
+    "career-grants-studio",
+    "ttrpg-gm-director",
+    "ux-design-toolkit",
+    "builder-tools",
+]
+EXPECTED_LIBRARY_IDS = {
+    "humanizer",
+    "creative-writing-studio",
+    "marketing-social-studio",
+    "career-grants-studio",
+    "ttrpg-gm-director",
+    "ux-design-toolkit",
+    "builder-tools",
+    "participatory-defense-field-guide",
+    "understanding-ai-2026",
+    "mcp-basics",
+}
 ALLOWED_JOBS = {"write", "research", "design", "build", "career", "teach", "table"}
-ALLOWED_ACCESS = {"public-download", "public-site", "connected-service", "local-only", "preview"}
-PAGE_FILES = [Path("index.html"), Path("404.html"), Path("about/index.html"), Path("license/index.html")]
+ALLOWED_ACCESS = {"public-download", "public-site"}
+CORE_PAGES = [Path("index.html"), Path("404.html"), Path("about/index.html"), Path("license/index.html")]
+COLLECTION_PAGES = [Path(slug) / "index.html" for slug in COLLECTION_SLUGS]
+PAGE_FILES = CORE_PAGES + COLLECTION_PAGES
 REQUIRED_FILES = [
     *PAGE_FILES,
     Path("styles.css"),
     Path("assets/working-tools-mark.svg"),
-    Path("assets/generated/working-tools-editorial-v01.png"),
-    Path("assets/generated/working-tools-editorial-v01.jpg"),
     Path("assets/css/main.css"),
     Path("assets/css/tokens.css"),
     Path("assets/css/base.css"),
     Path("assets/css/layout.css"),
     Path("assets/css/components.css"),
+    Path("assets/css/collection.css"),
     Path("assets/css/responsive.css"),
     Path("assets/js/main.js"),
+    Path("assets/js/site-nav.js"),
+    Path("assets/js/collection.js"),
     Path("assets/js/catalog.js"),
     Path("content/site-copy.md"),
     Path("data/tool-library.json"),
@@ -102,10 +125,15 @@ def validate_files() -> None:
         if path.suffix.lower() in {".png", ".jpg", ".jpeg"} and path.stat().st_size < 10_000:
             fail(f"image appears empty or incomplete: {relative}")
 
-    if (ROOT / "assets/compass-badge.svg").exists():
-        fail("retired Compass badge is still present")
-    if (ROOT / "site.js").exists():
-        fail("retired monolithic site.js is still present")
+    retired = [
+        Path("assets/compass-badge.svg"),
+        Path("assets/generated/working-tools-editorial-v01.png"),
+        Path("assets/generated/working-tools-editorial-v01.jpg"),
+        Path("site.js"),
+    ]
+    for path in retired:
+        if (ROOT / path).exists():
+            fail(f"retired asset is still present: {path}")
 
     for path in ROOT.rglob("*"):
         if ".git" in path.parts or "__pycache__" in path.parts:
@@ -115,33 +143,43 @@ def validate_files() -> None:
 
 
 def validate_public_text() -> None:
-    relative_text_files = [
+    text_files = [
         *PAGE_FILES,
         Path("styles.css"),
+        Path("assets/working-tools-mark.svg"),
         Path("assets/css/tokens.css"),
         Path("assets/css/base.css"),
         Path("assets/css/layout.css"),
         Path("assets/css/components.css"),
+        Path("assets/css/collection.css"),
         Path("assets/css/responsive.css"),
         Path("assets/js/main.js"),
+        Path("assets/js/site-nav.js"),
+        Path("assets/js/collection.js"),
         Path("assets/js/catalog.js"),
         Path("content/site-copy.md"),
         Path("data/tool-library.json"),
         Path("suite-manifest.json"),
         Path("snippets/universal-footer.html"),
     ]
-    combined = "\n".join(read(path) for path in relative_text_files)
+    combined = "\n".join(read(path) for path in text_files)
     forbidden = [
         "/Volumes/",
         "/Users/",
         "compass-badge",
         "Choose the right Compass",
         "compass-public-visual-system: uxhc-v1",
-        "PLACE" + "HOLDER",
+        "working-tools-editorial",
+        "#e7ff32",
+        "--highlight",
+        "Connected service",
+        "Local system",
+        "MCP collection",
+        "plugin collection",
         ".DS_Store",
     ]
     for string in forbidden:
-        if string in combined:
+        if string.lower() in combined.lower():
             fail(f"forbidden public string found: {string}")
 
     home = read("index.html")
@@ -157,30 +195,44 @@ def validate_public_text() -> None:
         'id="install"',
         "humanizer-writing-tools.jkylehobson.chatgpt.site",
         "shareables/s/humanizer-writing-enhancement/",
-        "assets/generated/working-tools-editorial-v01.jpg",
+        'class="hero-specimen"',
         'type="module"',
     ]:
         if required not in home:
             fail(f"homepage contract missing: {required}")
 
-    for page in PAGE_FILES:
+    for page in CORE_PAGES:
         text = read(page)
         for required in ["skip-link", "site-header", "site-footer", "working-tools-mark.svg"]:
             if required not in text:
                 fail(f"{page} missing shared shell requirement: {required}")
 
+    for slug, page in zip(COLLECTION_SLUGS, COLLECTION_PAGES):
+        text = read(page)
+        required = [
+            "skip-link",
+            "site-header",
+            "collection-hero",
+            "collection-specimen",
+            "Starting prompt",
+            "Good fit",
+            "Not a substitute for",
+            f"downloads/{'builder-tools-vibe-check' if slug == 'builder-tools' else slug}-claude-plugin.zip",
+            "Download plugin ZIP",
+        ]
+        for contract in required:
+            if contract not in text:
+                fail(f"{page} missing collection-page requirement: {contract}")
+
     audit = ImageAudit()
     audit.feed(home)
-    if len(audit.images) != 10:
-        fail(f"expected 10 homepage images, found {len(audit.images)}")
+    if len(audit.images) != 9:
+        fail(f"expected 9 functional install images, found {len(audit.images)}")
     for image in audit.images:
         if "alt" not in image or not image["alt"].strip():
             fail(f"homepage image missing useful alt text: {image.get('src', 'unknown')}")
-        if "install-guide" in image.get("src", "") and image.get("loading") != "lazy":
-            fail(f"install screenshot must be lazy-loaded: {image['src']}")
-    hero = next((image for image in audit.images if "working-tools-editorial" in image.get("src", "")), None)
-    if not hero or hero.get("width") != "1023" or hero.get("height") != "1600":
-        fail("hero artwork must reserve its verified 1023 by 1600 dimensions")
+        if image.get("loading") != "lazy":
+            fail(f"install screenshot must be lazy-loaded: {image.get('src', 'unknown')}")
 
 
 def validate_css_and_js() -> None:
@@ -191,6 +243,7 @@ def validate_css_and_js() -> None:
             "assets/css/base.css",
             "assets/css/layout.css",
             "assets/css/components.css",
+            "assets/css/collection.css",
             "assets/css/responsive.css",
         ]
     )
@@ -202,16 +255,17 @@ def validate_css_and_js() -> None:
         ".library-row",
         ".task-grid",
         ".install-gallery",
-        ".content-grid",
+        ".collection-hero",
+        ".collection-specimen",
         "--signal: #d95d3a",
-        "--highlight: #e7ff32",
+        "--signal-wash: #efd8ce",
     ]:
         if contract not in css:
             fail(f"CSS contract missing: {contract}")
-    if "fonts.googleapis.com" in css or "linear-gradient" in css:
+    if "fonts.googleapis.com" in css or "gradient(" in css:
         fail("visual system must remain dependency-light and gradient-free")
 
-    js = read("assets/js/catalog.js") + read("assets/js/main.js")
+    js = read("assets/js/catalog.js") + read("assets/js/main.js") + read("assets/js/site-nav.js")
     for contract in [
         'fetch("data/tool-library.json")',
         'fetch("suite-manifest.json")',
@@ -258,54 +312,38 @@ def validate_manifest(manifest: dict) -> None:
 
 
 def validate_library(library: dict) -> None:
-    if library.get("schema_version") != "working-tools.library.v1":
+    if library.get("schema_version") != "working-tools.library.v2":
         fail("unexpected tool library schema")
+    if library.get("public_only") is not True:
+        fail("tool library must declare public_only")
     labels = library.get("access_labels", {})
     if set(labels) != ALLOWED_ACCESS:
         fail(f"access label set changed: {sorted(labels)}")
     items = library.get("items", [])
-    if len(items) < 30:
-        fail(f"tool library is unexpectedly small: {len(items)} records")
+    if len(items) != len(EXPECTED_LIBRARY_IDS):
+        fail(f"expected {len(EXPECTED_LIBRARY_IDS)} public records, found {len(items)}")
     ids = [item.get("id") for item in items]
-    if len(ids) != len(set(ids)) or None in ids:
-        fail("tool library IDs must be present and unique")
-
-    required_ids = {
-        "humanizer",
-        "creative-writing-studio",
-        "ux-design-toolkit",
-        "builder-tools",
-        "participatory-defense-field-guide",
-        "sites",
-        "figma-service",
-        "kyle-second-brain",
-        "shareables-mcp",
-        "arxiv-scout",
-    }
-    if not required_ids.issubset(ids):
-        fail(f"required catalog records missing: {sorted(required_ids - set(ids))}")
+    if set(ids) != EXPECTED_LIBRARY_IDS or len(ids) != len(set(ids)):
+        fail(f"public catalog identity changed: {sorted(set(ids))}")
 
     for item in items:
         access = item.get("access")
         if access not in ALLOWED_ACCESS:
-            fail(f"unknown access label on {item['id']}: {access}")
+            fail(f"unknown or non-public access label on {item['id']}: {access}")
         jobs = set(item.get("jobs", []))
         if not jobs or not jobs.issubset(ALLOWED_JOBS):
             fail(f"invalid or empty job mapping on {item['id']}: {sorted(jobs)}")
         href = item.get("href")
         action = item.get("action")
-        if access in {"local-only", "connected-service", "preview"} and (href or action):
-            fail(f"non-public record exposes an action: {item['id']}")
-        if access in {"public-download", "public-site"}:
-            if not href or not href.startswith("https://") or not action:
-                fail(f"public record lacks a verified HTTPS action: {item['id']}")
+        if not href or not href.startswith("https://") or not action:
+            fail(f"public record lacks a verified HTTPS action: {item['id']}")
         public_blob = json.dumps(item)
         if "/Volumes/" in public_blob or "/Users/" in public_blob:
             fail(f"local path exposed in catalog record: {item['id']}")
 
 
 def check_url(url: str) -> None:
-    request = urllib.request.Request(url, method="HEAD", headers={"User-Agent": "WorkingToolsValidator/1.0"})
+    request = urllib.request.Request(url, method="HEAD", headers={"User-Agent": "WorkingToolsValidator/2.0"})
     try:
         with urllib.request.urlopen(request, timeout=25) as response:
             if response.status >= 400:
@@ -313,7 +351,7 @@ def check_url(url: str) -> None:
     except urllib.error.HTTPError as exc:
         if exc.code not in {403, 405}:
             fail(f"URL returned HTTP {exc.code}: {url}")
-        fallback = urllib.request.Request(url, headers={"User-Agent": "WorkingToolsValidator/1.0", "Range": "bytes=0-0"})
+        fallback = urllib.request.Request(url, headers={"User-Agent": "WorkingToolsValidator/2.0", "Range": "bytes=0-0"})
         try:
             with urllib.request.urlopen(fallback, timeout=25) as response:
                 if response.status >= 400:
@@ -336,7 +374,7 @@ def validate_links(manifest: dict, library: dict) -> None:
             if value.startswith("https://"):
                 urls.add(value)
         urls.update(item["url"] for item in product.get("downloads", []))
-    urls.update(item["href"] for item in library["items"] if item.get("href"))
+    urls.update(item["href"] for item in library["items"])
     for url in sorted(urls):
         check_url(url)
         print(f"OK: {url}")
