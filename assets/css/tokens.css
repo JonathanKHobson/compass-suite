@@ -14,15 +14,15 @@
   --night-soft: #30312d;
   --success: #2f6b45;
   --focus: #245ee8;
-  --display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-  --sans: "Avenir Next", Avenir, "Segoe UI", system-ui, sans-serif;
+  --display: Georgia, "Times New Roman", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   --step--1: clamp(0.78rem, 0.75rem + 0.12vw, 0.85rem);
   --step-0: clamp(1rem, 0.95rem + 0.18vw, 1.1rem);
   --step-1: clamp(1.22rem, 1.1rem + 0.42vw, 1.52rem);
   --step-2: clamp(1.75rem, 1.45rem + 1vw, 2.55rem);
   --step-3: clamp(2.7rem, 2rem + 2.7vw, 5.4rem);
-  --step-4: clamp(4rem, 2.7rem + 5.4vw, 8.25rem);
+  --step-4: clamp(3.75rem, 2.8rem + 4vw, 7rem);
   --space-1: 0.35rem;
   --space-2: 0.7rem;
   --space-3: 1rem;

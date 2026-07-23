@@ -17,6 +17,8 @@ or field guide for the work in front of them.
 - `assets/js/main.js`: starts the catalog, filters, navigation, copy buttons,
   and progressive disclosure.
 - `assets/js/site-nav.js`: shared responsive navigation behavior.
+- `assets/js/network-frame.js`: canonical cross-repository Working Tools
+  header, active-route state, and favicon contract.
 - `assets/js/collection.js`: starts navigation on pages that do not load the
   catalog.
 - `assets/css/main.css`: imports the design tokens and layout layers.
@@ -31,6 +33,7 @@ or field guide for the work in front of them.
 
 ```text
 assets/
+  brand/               Generated KH identity, favicon, and touch-icon PNGs
   css/                 Visual tokens, base rules, collection pages, responsive rules
   install-guide/       Real screenshots that document tested install paths
   js/                  Small browser modules; no framework or build step

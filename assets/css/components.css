@@ -409,7 +409,8 @@
 
 .library-tagline {
   margin-bottom: 0.4rem;
-  font-weight: 800;
+  font-weight: 650;
+  line-height: 1.45;
 }
 
 .library-description {

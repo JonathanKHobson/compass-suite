@@ -14,8 +14,8 @@
   grid-template-columns: minmax(0, 1.06fr) minmax(20rem, 0.94fr);
   gap: clamp(3rem, 7vw, 8rem);
   align-items: center;
-  min-height: min(49rem, calc(100vh - 5rem));
-  padding-block: clamp(4rem, 8vw, 8rem);
+  min-height: clamp(32rem, 62vh, 38rem);
+  padding-block: clamp(3rem, 5vw, 4.75rem);
 }
 
 .collection-hero h1 {
@@ -25,9 +25,9 @@
 .collection-lede {
   max-width: 36rem;
   color: var(--muted);
-  font-family: var(--display);
-  font-size: var(--step-1);
-  line-height: 1.42;
+  font-family: var(--sans);
+  font-size: var(--step-0);
+  line-height: 1.62;
 }
 
 .collection-specimen {
@@ -43,7 +43,7 @@
 .collection-specimen h2 {
   margin: var(--space-5) 0 var(--space-4);
   color: var(--cream);
-  font-size: clamp(2rem, 3.6vw, 3.7rem);
+  font-size: clamp(1.85rem, 3vw, 3rem);
 }
 
 .collection-specimen p {
@@ -54,7 +54,7 @@
   margin: var(--space-5) 0;
   color: var(--cream);
   font-family: var(--display);
-  font-size: clamp(1.25rem, 2vw, 1.65rem);
+  font-size: clamp(1.18rem, 1.65vw, 1.45rem);
   line-height: 1.32;
 }
 
@@ -63,7 +63,7 @@
 }
 
 .collection-section-inner {
-  padding-block: clamp(5rem, 9vw, 9rem);
+  padding-block: clamp(4rem, 7vw, 7rem);
 }
 
 .collection-heading {
@@ -169,14 +169,16 @@
 }
 
 .example-panel pre {
-  max-height: 28rem;
+  max-height: none;
   margin: var(--space-4) 0 0;
   padding: var(--space-4);
-  overflow: auto;
+  overflow: visible;
+  overflow-wrap: anywhere;
   border: 1px solid #5d5e58;
   background: var(--night-soft);
   color: var(--cream);
   white-space: pre-wrap;
+  word-break: break-word;
 }
 
 .install-callout {
@@ -262,6 +264,11 @@
     width: min(100%, 42rem);
   }
 
+  .collection-hero {
+    min-height: auto;
+    padding-block: clamp(3rem, 5vw, 4rem);
+  }
+
   .collection-heading {
     gap: var(--space-4);
   }
@@ -308,4 +315,3 @@
     width: 100%;
   }
 }
-

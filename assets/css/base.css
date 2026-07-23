@@ -66,22 +66,22 @@ h1 {
   max-width: 8.8ch;
   margin-bottom: var(--space-5);
   font-size: var(--step-4);
-  letter-spacing: -0.082em;
-  line-height: 0.85;
+  letter-spacing: -0.05em;
+  line-height: 0.92;
 }
 
 h2 {
   margin-bottom: var(--space-4);
   font-size: var(--step-3);
-  letter-spacing: -0.065em;
-  line-height: 0.95;
+  letter-spacing: -0.035em;
+  line-height: 1;
 }
 
 h3 {
   margin-bottom: var(--space-2);
   font-size: var(--step-2);
-  letter-spacing: -0.045em;
-  line-height: 1;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
 }
 
 code {

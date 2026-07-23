@@ -50,7 +50,9 @@ PAGE_FILES = CORE_PAGES + COLLECTION_PAGES
 REQUIRED_FILES = [
     *PAGE_FILES,
     Path("styles.css"),
-    Path("assets/working-tools-mark.svg"),
+    Path("assets/brand/working-tools-mark-64.png"),
+    Path("assets/brand/working-tools-favicon-32.png"),
+    Path("assets/brand/working-tools-icon-180.png"),
     Path("assets/css/main.css"),
     Path("assets/css/tokens.css"),
     Path("assets/css/base.css"),
@@ -122,7 +124,9 @@ def validate_files() -> None:
         path = ROOT / relative
         if not path.is_file():
             fail(f"missing required file: {relative}")
-        if path.suffix.lower() in {".png", ".jpg", ".jpeg"} and path.stat().st_size < 10_000:
+        is_compact_brand_asset = relative.parts[:2] == ("assets", "brand")
+        minimum_size = 400 if is_compact_brand_asset else 10_000
+        if path.suffix.lower() in {".png", ".jpg", ".jpeg"} and path.stat().st_size < minimum_size:
             fail(f"image appears empty or incomplete: {relative}")
 
     retired = [
@@ -146,7 +150,6 @@ def validate_public_text() -> None:
     text_files = [
         *PAGE_FILES,
         Path("styles.css"),
-        Path("assets/working-tools-mark.svg"),
         Path("assets/css/tokens.css"),
         Path("assets/css/base.css"),
         Path("assets/css/layout.css"),
@@ -203,7 +206,7 @@ def validate_public_text() -> None:
 
     for page in CORE_PAGES:
         text = read(page)
-        for required in ["skip-link", "site-header", "site-footer", "working-tools-mark.svg"]:
+        for required in ["skip-link", "site-header", "site-footer", "working-tools-favicon-32.png"]:
             if required not in text:
                 fail(f"{page} missing shared shell requirement: {required}")
 
