@@ -45,7 +45,11 @@ if (!networkNav) {
   const legacyFrame = document.querySelector(
     "body > .site-nav, body > .site-header, body > .network-bar, body > .bar",
   );
-  if (legacyFrame) {
+  const sharedFrame = document.querySelector(".kh-network");
+  if (sharedFrame) {
+    sharedFrame.insertAdjacentElement("afterend", networkNav);
+    legacyFrame?.remove();
+  } else if (legacyFrame) {
     legacyFrame.replaceWith(networkNav);
   } else {
     const skipLink = document.querySelector("body > .skip-link");

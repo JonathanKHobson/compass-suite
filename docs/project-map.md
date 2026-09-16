@@ -93,3 +93,6 @@ suite-manifest.json    Compass release/download authority
   copy, and public deployment.
 - Common failure: duplicating release facts in HTML instead of reading the
   manifest.
+
+## Shared site orientation
+The Kyle Hobson bar links this product to the portfolio, Compass Suite, AI Glossary, Workshop Studio, GameMasterKyle, and the Building with AI case study. The shared home is https://jonathankhobson.github.io/portfolio/spaces/. Each product retains its own local navigation. Shared navigation sources live in the portfolio-suite authoring project under `src/network/`; regenerate static copies with `scripts/sync_network.py` when destinations change.
