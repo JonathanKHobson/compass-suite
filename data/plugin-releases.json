@@ -1,7 +1,7 @@
 {
   "schema_version": "working-tools.plugins.v1",
   "source_repository": "https://github.com/JonathanKHobson/working-tools-plugins.git",
-  "source_revision": "73d7d44304570a47061873b454d3bd04c8dd49d7",
+  "source_revision": "480863a1c64e8dc0fdb5cf87dbfb99ec2866906c",
   "packages": [
     {
       "id": "stitch-design-studio",
@@ -73,7 +73,7 @@
     {
       "id": "figma-design-workflow",
       "name": "Figma Design Workflow",
-      "version": "0.2.1",
+      "version": "0.2.2",
       "description": "Six complete methods for Figma operation, design-partner iteration, source references and visual QA.",
       "requirements": [
         "Figma account",
@@ -93,12 +93,12 @@
         "design",
         "build"
       ],
-      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/figma-design-workflow/v0.2.1"
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/figma-design-workflow/v0.2.2"
     },
     {
       "id": "video-production-workflow",
       "name": "Video Production Workflow",
-      "version": "0.4.1",
+      "version": "0.4.2",
       "description": "Nineteen video methods with a Python renderer, timeline interchange, Loom walkthroughs and review packets.",
       "requirements": [
         "Python >=3.10",
@@ -133,7 +133,7 @@
         "design",
         "teach"
       ],
-      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/video-production-workflow/v0.4.1"
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/video-production-workflow/v0.4.2"
     },
     {
       "id": "instructional-design-studio",
@@ -265,7 +265,7 @@
     {
       "id": "build-mcp-apps",
       "name": "Build MCP Apps",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "description": "Build or improve interactive MCP apps and their servers, from a clear user task through protocol and host verification. Complete public edition: 2 retained skill heads; no restricted source methods omitted.",
       "requirements": [
         "Host coding tools",
@@ -280,12 +280,12 @@
       "jobs": [
         "build"
       ],
-      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/build-mcp-apps/v1.0.3"
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/build-mcp-apps/v1.0.4"
     },
     {
       "id": "development-studio",
       "name": "Development Studio",
-      "version": "0.2.1",
+      "version": "0.2.2",
       "description": "Twenty-one software workflows with complete native, Go, GitHub, local pipeline, MCP and debugging procedures.",
       "requirements": [
         "Host coding tools",
@@ -319,7 +319,7 @@
       "jobs": [
         "build"
       ],
-      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/development-studio/v0.2.1"
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/development-studio/v0.2.2"
     },
     {
       "id": "video-templates",
@@ -345,7 +345,7 @@
     {
       "id": "data-visualization-toolkit",
       "name": "Data Visualization Toolkit",
-      "version": "0.2.3",
+      "version": "0.2.4",
       "description": "Choose, build, critique, and verify truthful data visualizations with complete web visualization methods across charts, maps, diagrams, dashboards, stories, and exports.",
       "requirements": [
         "Python 3.12 and declared MCP dependencies",
@@ -373,7 +373,7 @@
         "design",
         "build"
       ],
-      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/data-visualization-toolkit/v0.2.3"
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/data-visualization-toolkit/v0.2.4"
     },
     {
       "id": "activities-templates",
@@ -441,7 +441,7 @@
     {
       "id": "survey-studio",
       "name": "Survey Studio",
-      "version": "0.1.2",
+      "version": "0.1.3",
       "description": "Focused survey strategy, question design, sampling, logic, accessibility/privacy, pilot QA, exports and analysis/codebooks. 8 retained skill heads. One restricted supplied QuestionTypes.txt archive excluded; all original procedure/helper content retained.",
       "requirements": [
         "Host file tools",
@@ -463,7 +463,7 @@
         "research",
         "teach"
       ],
-      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/survey-studio/v0.1.2"
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/survey-studio/v0.1.3"
     },
     {
       "id": "discord",
@@ -490,7 +490,7 @@
     {
       "id": "mac-ops-toolkit",
       "name": "Mac Operations Toolkit",
-      "version": "0.3.1",
+      "version": "0.3.2",
       "description": "Ten Mac workflows for recovery, verified copies, storage catalogs and memory diagnosis.",
       "requirements": [
         "macOS",
@@ -513,7 +513,7 @@
       "jobs": [
         "build"
       ],
-      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/mac-ops-toolkit/v0.3.1"
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/mac-ops-toolkit/v0.3.2"
     },
     {
       "id": "work-management",
@@ -552,7 +552,7 @@
     {
       "id": "oppia-research-compass",
       "name": "Oppia Research Compass",
-      "version": "0.4.2",
+      "version": "0.4.3",
       "description": "10 complete Oppia research methods and full read-only 10-tool runtime. Private team evidence DB and project handles excluded; schema-compatible zero-row corpus supplied.",
       "requirements": [
         "Python and declared MCP dependencies for optional server",
@@ -576,7 +576,7 @@
         "research",
         "teach"
       ],
-      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/oppia-research-compass/v0.4.2"
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/oppia-research-compass/v0.4.3"
     },
     {
       "id": "graphic-design-studio",
@@ -613,7 +613,7 @@
     {
       "id": "brand-templates",
       "name": "Brand Templates",
-      "version": "0.1.2",
+      "version": "0.1.3",
       "description": "Complete brand-kit chooser and verified source-closure handoffs for explicitly supplied external collections.",
       "requirements": [
         "Python 3.12 and declared MCP dependencies",
@@ -628,7 +628,7 @@
         "design",
         "build"
       ],
-      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/brand-templates/v0.1.2"
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/brand-templates/v0.1.3"
     },
     {
       "id": "writing-templates",

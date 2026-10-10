@@ -90,7 +90,7 @@ bounded job, a visible limit, and a result a person can inspect.
 
 ## Versioned plugin release entry
 
-The current installable packages live in Working Tools Plugins on GitHub. The catalog imports `data/plugin-releases.json`, generated from a pinned release-registry commit. Requirements, edition limits, native installation instructions and package licenses accompany each entry. Existing Compass resources and original downloads remain available.
+The current installable packages live in Working Tools Plugins on GitHub. The catalog imports `data/plugin-releases.json`, generated from a pinned release-registry commit. Requirements, edition limits, native installation instructions and package licenses accompany each entry. The install entry links six starting workflows with inputs, expected results and provider boundaries. Claude Code uses the explicit HTTPS marketplace URL to avoid an unnecessary SSH-key prerequisite. Existing Compass resources and original downloads remain available.
 
 ## Licensing for current plugins and the glossary
 
