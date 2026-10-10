@@ -26,6 +26,11 @@ or field guide for the work in front of them.
   checksums, and safety gates. It remains the authority for Compass downloads.
 - `data/tool-library.json`: public-only directory of skill packs, field guides,
   public products, and educational resources.
+- `sites-sources.json`: exact public Git revisions used for the combined
+  Working Tools Site. Five companion checkouts remain independently maintained.
+- `scripts/build_working_tools_site.py`: builds the Site projection into ignored
+  `dist/` from those pinned revisions. The script rewrites internal tool routes,
+  retains existing external download URLs, and records output file hashes.
 - `<collection>/index.html`: six public landing pages that explain a bundle,
   show a working example, name its limits, and provide the real download.
 
@@ -91,6 +96,14 @@ suite-manifest.json    Compass release/download authority
   commands recorded in the release notes.
 - Risky changes: release URLs, checksums, public/private boundaries, license
   copy, and public deployment.
+- Combined Site build: place the four Compass satellite public Git checkouts in
+  `../sources/<repo>/` and the published MCP guide checkout at
+  `../../site-pilot/source/`, then run
+  `python3 scripts/build_working_tools_site.py`. Supply a verified Site HTTPS
+  origin with `--site-origin` and the returned project ID with
+  `--site-project-id` when preparing the final publication archive. For an
+  independent checkout, use `--sources-dir` with five pinned companion Git
+  checkouts named by repository.
 - Common failure: duplicating release facts in HTML instead of reading the
   manifest.
 

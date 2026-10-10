@@ -1,0 +1,29 @@
+{
+  "schema_version": "working-tools.source-pins.v1",
+  "sources": {
+    "compass-suite": {
+      "checkout": ".",
+      "sha": "a895e49044b088ce5d6931e88d4bf48a0ac63304"
+    },
+    "critical-compass": {
+      "checkout": "../sources/critical-compass",
+      "sha": "71fbfbc3cbac74e639f0565dfc1ad3e49a54ee6c"
+    },
+    "prompt-compass": {
+      "checkout": "../sources/prompt-compass",
+      "sha": "5b258662fec81e6350204294036656ba8934fd8f"
+    },
+    "job-application-compass": {
+      "checkout": "../sources/job-application-compass",
+      "sha": "3561f0beac83ead523ac5076664daefe23f1adee"
+    },
+    "ux-heuristic-compass": {
+      "checkout": "../sources/ux-heuristic-compass",
+      "sha": "e74eaea52e389d25a1e5c2faa7ebd8c5662df553"
+    },
+    "what-is-an-mcp": {
+      "checkout": "../../site-pilot/source",
+      "sha": "61aeab7e7071857f92685777188b7a00b8e79361"
+    }
+  }
+}
