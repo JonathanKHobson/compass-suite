@@ -706,8 +706,14 @@ summary {
 .install-content pre { max-width: 100%; overflow-x: auto; padding: 1rem; border: 1px solid currentColor; font-size: 0.875rem; line-height: 1.6; }
 
 .legacy-main .legacy-hero {
+  display: block;
   min-height: auto;
   padding-bottom: var(--space-5);
+}
+
+.legacy-hero h1 {
+  max-width: 19ch;
+  font-size: clamp(3rem, 6vw, 5rem);
 }
 
 .legacy-list {
