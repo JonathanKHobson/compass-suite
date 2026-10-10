@@ -194,4 +194,4 @@
 /* Keep package requirements and native commands inside their own column. */
 .library-row > *, .library-controls > *, .install-content { min-width: 0; }
 .skill-list code { overflow-wrap: anywhere; }
-.section-block[id] { scroll-margin-top: 9rem; }
+.section-block[id], #top { scroll-margin-top: 9rem; }
