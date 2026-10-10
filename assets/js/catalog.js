@@ -164,7 +164,29 @@ export async function startCatalog() {
   if (!list || !search || !status) return;
 
   const initialHash = window.location.hash;
-  const state = { job: "all", query: "" };
+  const state = { job: "all", query: search.value };
+  let render = () => {};
+
+  search.addEventListener("input", () => {
+    state.query = search.value;
+    render();
+  });
+
+  filters.forEach((button) => {
+    button.addEventListener("click", () => {
+      state.job = button.dataset.libraryFilter;
+      filters.forEach((candidate) => candidate.setAttribute("aria-pressed", String(candidate === button)));
+      render();
+    });
+  });
+
+  document.querySelectorAll("[data-job-link]").forEach((link) => {
+    link.addEventListener("click", () => {
+      const job = link.dataset.jobLink;
+      const button = filters.find((candidate) => candidate.dataset.libraryFilter === job);
+      if (button) button.click();
+    });
+  });
 
   try {
     const [libraryResponse, pluginResponse] = await Promise.all([
@@ -180,7 +202,7 @@ export async function startCatalog() {
     const currentResources = library.items.filter((item) => ["participatory-defense-field-guide", "understanding-ai-2026", "mcp-basics"].includes(item.id));
     const items = [...plugins, ...currentResources];
 
-    function render() {
+    render = () => {
       const query = state.query.trim().toLowerCase();
       const matches = items.filter((item) => {
         const jobMatch = state.job === "all" || item.jobs.includes(state.job);
@@ -205,28 +227,8 @@ export async function startCatalog() {
       list.replaceChildren(...sections);
       status.textContent = `${matches.length} ${matches.length === 1 ? "product" : "products"} shown · ${JOB_LABELS[state.job]}`;
       empty.hidden = matches.length !== 0;
-    }
+    };
 
-    search.addEventListener("input", () => {
-      state.query = search.value;
-      render();
-    });
-
-    filters.forEach((button) => {
-      button.addEventListener("click", () => {
-        state.job = button.dataset.libraryFilter;
-        filters.forEach((candidate) => candidate.setAttribute("aria-pressed", String(candidate === button)));
-        render();
-      });
-    });
-
-    document.querySelectorAll("[data-job-link]").forEach((link) => {
-      link.addEventListener("click", () => {
-        const job = link.dataset.jobLink;
-        const button = filters.find((candidate) => candidate.dataset.libraryFilter === job);
-        if (button) button.click();
-      });
-    });
 
     render();
 
