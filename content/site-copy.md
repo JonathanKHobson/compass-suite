@@ -91,3 +91,7 @@ bounded job, a visible limit, and a result a person can inspect.
 ## Versioned plugin release entry
 
 The current installable packages live in Working Tools Plugins on GitHub. The catalog imports `data/plugin-releases.json`, generated from a pinned release-registry commit. Requirements, edition limits, native installation instructions and package licenses accompany each entry. Existing Compass resources and original downloads remain available.
+
+## Licensing for current plugins and the glossary
+
+Jonathan Kyle Hobson owns the original code and content in the current Working Tools plugins and AI Glossary Library. These editions follow the Compass Suite model: AGPL-3.0-only for original software, CC BY-SA 4.0 for original documentation, methods, templates and glossary compilation, and reserved official branding. Bundled third-party material keeps its existing terms. Earlier release grants remain valid. Use each package's LICENSE, NOTICE and file-level scope to determine the applicable terms.
