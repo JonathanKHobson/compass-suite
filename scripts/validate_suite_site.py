@@ -346,10 +346,19 @@ def validate_library(library: dict) -> None:
             fail(f"local path exposed in catalog record: {item['id']}")
 
 
+class CatalogRedirectHandler(urllib.request.HTTPRedirectHandler):
+    # Python 3.9 lacks native 308 handling. This validator only sends HEAD/GET.
+    def http_error_308(self, req, fp, code, msg, headers):
+        return self.http_error_301(req, fp, 301, msg, headers)
+
+
+LINK_OPENER = urllib.request.build_opener(CatalogRedirectHandler())
+
+
 def check_url(url: str) -> None:
     request = urllib.request.Request(url, method="HEAD", headers={"User-Agent": "WorkingToolsValidator/2.0"})
     try:
-        with urllib.request.urlopen(request, timeout=25) as response:
+        with LINK_OPENER.open(request, timeout=25) as response:
             if response.status >= 400:
                 fail(f"URL returned HTTP {response.status}: {url}")
     except urllib.error.HTTPError as exc:
@@ -357,7 +366,7 @@ def check_url(url: str) -> None:
             fail(f"URL returned HTTP {exc.code}: {url}")
         fallback = urllib.request.Request(url, headers={"User-Agent": "WorkingToolsValidator/2.0", "Range": "bytes=0-0"})
         try:
-            with urllib.request.urlopen(fallback, timeout=25) as response:
+            with LINK_OPENER.open(fallback, timeout=25) as response:
                 if response.status >= 400:
                     fail(f"URL returned HTTP {response.status}: {url}")
         except urllib.error.URLError as fallback_exc:
