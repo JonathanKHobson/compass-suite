@@ -49,5 +49,5 @@ master, and AI-tool builder. I make these tools when a repeated task needs a
 clearer boundary, a better handoff, or a way to verify that the work actually
 finished.
 
-The library will change. The rule stays the same: one tool should have one
-bounded job, a visible limit, and a result a person can inspect.
+The library will grow. Each tool should help you do something useful, explain
+its limits, and produce work you can review.

@@ -88,7 +88,6 @@
       "description": "Choose reusable design templates and carry the source, tokens, and handoff details into your own project."
     },
     "reasoning-studio": {
-      "name": "Reasoning Toolkit",
       "family": "toolkits",
       "tagline": "Test the assumption before you commit to the answer.",
       "description": "Clarify a claim, compare explanations, and choose a useful next step with evidence in view.",
@@ -123,6 +122,40 @@
       "family": "templates",
       "tagline": "Find the right structure for the piece you need to write.",
       "description": "Browse reusable writing frameworks and adapt one to your audience, purpose, and evidence."
+    },
+    "prompt-playbook-studio": {
+      "family": "studios",
+      "tagline": "Turn what you need into a prompt that gets it across.",
+      "description": "Design, refine, and test prompts with clear inputs, useful examples, and a result you can evaluate.",
+      "ownership_note": "Prompt Compass workflows are part of Prompt Playbook Studio."
+    },
+    "master-security-toolkit": {
+      "family": "toolkits",
+      "tagline": "Understand the risks before you put a tool to work.",
+      "description": "Review software, plugins, permissions, and AI instructions, then focus on the findings and fixes that matter."
+    },
+    "career-studio": {
+      "family": "studios",
+      "tagline": "Make your experience easier to see.",
+      "description": "Build a focused resume, cover letter, portfolio story, or interview answer from the work you have actually done.",
+      "ownership_note": "Job Application Compass workflows are part of Career Studio."
+    },
+    "marketing-strategy-studio": {
+      "family": "studios",
+      "tagline": "Give your offer a clear place in the market.",
+      "description": "Clarify your audience, positioning, and offer, then turn that direction into campaigns and a practical measurement plan."
+    },
+    "writing-quality-studio": {
+      "family": "studios",
+      "tagline": "Make your meaning clear and keep the facts intact.",
+      "description": "Revise a draft, shape a message, match an authentic voice, or check its sources with focused writing and review workflows.",
+      "ownership_note": "Humanizer workflows are part of Writing Quality Studio. Critical Compass belongs to Reasoning Toolkit, which this Studio links to for argument review."
+    },
+    "ux-design-toolkit": {
+      "family": "studios",
+      "tagline": "Design interfaces people can understand and use.",
+      "description": "Shape layouts, interactions, dashboards, and interface copy, then review the experience for usability and visual clarity.",
+      "ownership_note": "UX Heuristics Compass is part of UX Design Studio."
     }
   },
   "excluded_ids": [

@@ -267,8 +267,8 @@ def validate_css_and_js() -> None:
 
     js = read("assets/js/catalog.js") + read("assets/js/main.js") + read("assets/js/site-nav.js")
     for contract in [
-        'fetch("data/tool-library.json?v=phase3-ux7")',
-        'fetch("data/plugin-releases.json?v=phase3-ux7")',
+        'fetch("data/tool-library.json?v=phase3-ux8")',
+        'fetch("data/plugin-releases.json?v=phase3-ux8")',
         'setAttribute("aria-pressed"',
         "replaceChildren",
         "textContent",
@@ -385,6 +385,8 @@ def validate_plugin_projection(projection: dict) -> None:
     if {"discord", "oppia-research-compass"} & set(identities):
         fail("personal Discord or Oppia corpus cannot appear in the storefront projection")
     for item in packages:
+        if not re.fullmatch(r"[a-f0-9]{40}", item.get("source_revision", "")):
+            fail(f"plugin {item['id']} lacks its verified source commit")
         for field in ["name", "version", "description", "requirements", "edition", "license", "skill_names"]:
             if not item.get(field):
                 fail(f"plugin {item['id']} lacks {field}")

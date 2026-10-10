@@ -34,6 +34,9 @@ dependencies, source, and license details.
 1. The catalog loads `data/plugin-releases.json` and `data/tool-library.json`.
 2. Released packages are presented with benefit-led copy from
    `data/storefront-copy.json`; each card links to its versioned GitHub release.
+   Preparing a successor retains the most recent released version from the pinned
+   registry history. Each product records its own source commit. New unverified
+   products and excluded or removed identities stay out of the storefront.
 3. Requirements, license, scope, and technical package overview stay behind a
    disclosure on the card and in the GitHub package documentation.
 4. Earlier products are accessible through the single Legacy Library link.
@@ -44,6 +47,8 @@ dependencies, source, and license details.
 - Edit storefront language and grouping in `data/storefront-copy.json`.
 - Update technical package facts at their source in `working-tools-plugins`,
   then regenerate the projection with `scripts/sync_plugin_registry.py`.
+- Product names come from each released plugin's display name. The projection
+  rejects conflicting storefront overrides so local and public names stay aligned.
 - Update standalone guide links in `data/tool-library.json`.
 - Preserve `suite-manifest.json` release URLs and checksums during the archive
   transition.
@@ -55,6 +60,7 @@ dependencies, source, and license details.
 ```bash
 python3 scripts/validate_suite_site.py
 python3 scripts/test_site_transition.py
+python3 scripts/test_plugin_projection.py
 python3 scripts/validate_suite_site.py --check-links
 ```
 
