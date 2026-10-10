@@ -4,7 +4,7 @@
     "name": "Working Tools by J. Kyle Hobson",
     "planned_public_url": "https://jonathankhobson.github.io/compass-suite/",
     "description": "The verified Compass product records inside Jonathan Kyle Hobson's larger Working Tools library.",
-    "last_verified": "2026-07-22",
+    "last_verified": "2026-10-10",
     "source_of_truth_note": "This manifest remains the authority for Compass status, public release URLs, checksums, and safety gates. The public interface renders these records into the larger Working Tools library."
   },
   "products": [
@@ -86,7 +86,7 @@
           "kind": "plugin_zip",
           "filename": "prompt-compass-plugin.zip",
           "url": "https://github.com/JonathanKHobson/prompt-compass/releases/download/v0.1.0-beta.3/prompt-compass-plugin.zip",
-          "checksum": "473123d1a5cafa89e660abc7dff690b20a0b836cc6ccc42dc6f046163f635530",
+          "checksum": "7522ba7ff823a7788f19914b6e2b74da92b45b9ae2ae430d5e17be008a75fd31",
           "availability": "available",
           "recommended_for": "Claude Cowork or Claude Code"
         },
@@ -95,7 +95,7 @@
           "kind": "mcpb",
           "filename": "prompt-compass-0.1.0.mcpb",
           "url": "https://github.com/JonathanKHobson/prompt-compass/releases/download/v0.1.0-beta.3/prompt-compass-0.1.0.mcpb",
-          "checksum": "3da7253481bc15ba051f1bc45481a641854becea4c5fcf61d6768d193c1bf130",
+          "checksum": "10098681c386fbc8ed4865660ee4b3919ec55553aacffb142d1a68195d9cd057",
           "availability": "available",
           "recommended_for": "Claude Desktop"
         },
@@ -104,7 +104,7 @@
           "kind": "skill_file",
           "filename": "prompt-compass.skill",
           "url": "https://github.com/JonathanKHobson/prompt-compass/releases/download/v0.1.0-beta.3/prompt-compass.skill",
-          "checksum": "77911d338373cc0d3637a3ff07b5fbb72ae81e12449a4b69c76d1c543ce30608",
+          "checksum": "8e03e23b46ccf6606b6032470a989adf95cfbde22a37b4515bad6f9beb5780ef",
           "availability": "available",
           "recommended_for": "Prompt-only Claude skill use"
         },
@@ -113,7 +113,7 @@
           "kind": "skill_zip",
           "filename": "skill.zip",
           "url": "https://github.com/JonathanKHobson/prompt-compass/releases/download/v0.1.0-beta.3/skill.zip",
-          "checksum": "460ef16327ede26813416b3ac412cf316584807731705401b047c80b44344645",
+          "checksum": "213fe8fd0abc7bc72654ef8d001281725e121826d5953b4552a12bb395ad6b19",
           "availability": "available",
           "recommended_for": "Skill import workflows that expect a zip"
         },
@@ -122,7 +122,7 @@
           "kind": "source_zip",
           "filename": "prompt-compass-source.zip",
           "url": "https://github.com/JonathanKHobson/prompt-compass/releases/download/v0.1.0-beta.3/prompt-compass-source.zip",
-          "checksum": "86a052a91c20c380316b2dea6be5f699a0304c417f669eb0a528c314a71f9036",
+          "checksum": "2145f40877a3770d325273e6a3905f9afe869049f0141626a311ef25d2a03d92",
           "availability": "available",
           "recommended_for": "Technical reviewers and source installs"
         }
@@ -146,7 +146,7 @@
           "kind": "plugin_zip",
           "filename": "ux-heuristic-compass-plugin.zip",
           "url": "https://github.com/JonathanKHobson/ux-heuristic-compass/releases/download/v0.1.0-beta.10/ux-heuristic-compass-plugin.zip",
-          "checksum": "dc40974b0602f1f1d7188e4d06f90cf73472e0d4743d55359b10b042d22010c2",
+          "checksum": "927649bd3e152b7551e3dff935cc4a62d8a54d5ff28c7946a025324490ab3567",
           "availability": "available",
           "recommended_for": "Claude Cowork or Claude Code"
         },
@@ -155,7 +155,7 @@
           "kind": "mcpb",
           "filename": "ux-heuristic-compass-0.1.0.mcpb",
           "url": "https://github.com/JonathanKHobson/ux-heuristic-compass/releases/download/v0.1.0-beta.10/ux-heuristic-compass-0.1.0.mcpb",
-          "checksum": "fcbea8b3352cd9b096ece5729977ccd5d6c878116b77a7fd65c6c4078881b2f8",
+          "checksum": "6892f583afaeb5e39a2c7640327264eeca9b908f89fd17155cef1b574119b04d",
           "availability": "available",
           "recommended_for": "Claude Desktop"
         },
@@ -164,7 +164,7 @@
           "kind": "skill_file",
           "filename": "ux-heuristic-compass.skill",
           "url": "https://github.com/JonathanKHobson/ux-heuristic-compass/releases/download/v0.1.0-beta.10/ux-heuristic-compass.skill",
-          "checksum": "0be58675d60e137626303783f1a0dd3d154d1453f597fbe33b8261fcef8f132a",
+          "checksum": "18507c693379eefb37ac0fdb89224d11c93bd4a70573e39026076137466872d6",
           "availability": "available",
           "recommended_for": "Prompt-only Claude skill use"
         },
@@ -173,7 +173,7 @@
           "kind": "skill_zip",
           "filename": "skill.zip",
           "url": "https://github.com/JonathanKHobson/ux-heuristic-compass/releases/download/v0.1.0-beta.10/skill.zip",
-          "checksum": "0d13f5389adb9a269689f83dc76e0fcfd10306b4e1b5e9e3ad73ef24f2b13448",
+          "checksum": "83a885597a48ee44665bb726648720c856cc49f1adb831d234a785a3ef7bcf93",
           "availability": "available",
           "recommended_for": "Skill import workflows that expect a zip"
         },
@@ -182,7 +182,7 @@
           "kind": "source_zip",
           "filename": "ux-heuristic-compass-source.zip",
           "url": "https://github.com/JonathanKHobson/ux-heuristic-compass/releases/download/v0.1.0-beta.10/ux-heuristic-compass-source.zip",
-          "checksum": "18dcd62231a9d3932de81f024b185acbaf5d59d9c1124262bfdbc86ca4d3e0b8",
+          "checksum": "33a97cb4d74a19287f04eb321bf37e49a21ee68407c927589021e5dc8d1c183a",
           "availability": "available",
           "recommended_for": "Technical reviewers and source installs"
         }
