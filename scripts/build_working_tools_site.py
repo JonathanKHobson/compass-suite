@@ -63,6 +63,7 @@ def rewrite(text: str, repo: str, source_path: str, site_origin: str | None) -> 
         resolved = (PurePosixPath(source_path).parent / parsed.path).as_posix()
         return f"href={quote}{PAGES}/{repo}/{resolved}{'?' + parsed.query if parsed.query else ''}{'#' + parsed.fragment if parsed.fragment else ''}{quote}"
 
+    text = text.replace("https://humanizer-writing-tools.jkylehobson.chatgpt.site/", "/humanizer/").replace("https://humanizer-writing-tools.jkylehobson.chatgpt.site", "/humanizer/")
     if source_path.endswith(".html"):
         text = re.sub(r"href=([\"'])([^\"']+)\1", relative_download, text)
 
@@ -169,6 +170,17 @@ def main() -> None:
             copied.append({"source": f"{repo}@{sha}:{name}", "output": relative, "sha256": hashlib.sha256(blob).hexdigest(), "bytes": len(blob)})
             if path.suffix.lower() == ".html":
                 routes.append("/" + relative.removesuffix("index.html"))
+    extra = ROOT / "site-sources" / "humanizer"
+    if extra.exists():
+        for path in extra.rglob("*"):
+            if not path.is_file() or path.suffix == ".md": continue
+            relative = "humanizer/" + path.relative_to(extra).as_posix()
+            target = OUTPUT / relative
+            target.parent.mkdir(parents=True, exist_ok=True)
+            blob = path.read_bytes()
+            target.write_bytes(blob)
+            copied.append({"source": "humanizer-public-projection:" + path.relative_to(extra).as_posix(), "output": relative, "sha256": hashlib.sha256(blob).hexdigest(), "bytes": len(blob)})
+            if path.suffix == ".html": routes.append("/" + relative.removesuffix("index.html"))
     manifest = {
         "schema_version": "working-tools.site-build.v1",
         "site_origin": args.site_origin,

@@ -1,0 +1,3 @@
+# Humanizer public web projection
+
+Static projection of the existing public Humanizer page, captured October 10, 2026. Original managed source revision: `9eb5aece859e3169b8710c227299a4a586759b39`. This preserves the public markup, CSS, artwork, download links and prompt text. The sole client interaction, Copy prompt, is implemented locally in `copy.js`; framework hydration and server scaffolding are unnecessary for this static landing page. Maintain this public projection here; the original managed source and published version remain rollback evidence. No private configuration, database or source-only bindings are included.
