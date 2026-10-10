@@ -1,7 +1,7 @@
 {
   "schema_version": "working-tools.plugins.v1",
   "source_repository": "https://github.com/JonathanKHobson/working-tools-plugins.git",
-  "source_revision": "6ed6d74f97eac8279192dc9d954bae2a176b85fb",
+  "source_revision": "03ff24b757de4003fa093eaf1d4a5b88ad02b8ec",
   "packages": [
     {
       "id": "stitch-design-studio",
@@ -547,7 +547,7 @@
         "Host image tools for generation"
       ],
       "edition": "Complete methods, runtime and reviewed synthetic assets; optional source chooser uses Design Templates",
-      "license": "MIT and Apache-2.0 methods; AGPL-3.0 runtime; CC-BY-SA-4.0 adapted prose",
+      "license": "MIT first-party runtime and methods; MIT/Apache-2.0 imports; CC-BY-SA-4.0 methodology; optional PyMuPDF separately licensed AGPL/commercial",
       "skill_names": [
         "campaign-format-adaptation",
         "composition-and-typography",
