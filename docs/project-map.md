@@ -1,8 +1,16 @@
-# Working Tools project map
+# Compass Suite historical project map
+
+## Successor
+
+Maintained catalog source and builds moved to
+[JonathanKHobson/working-tools-site](https://github.com/JonathanKHobson/working-tools-site).
+This read-only predecessor preserves public Pages routes, migration scripts,
+shared assets and historical downloads. The map below describes its retained
+source; future catalog work belongs in the successor.
 
 ## Purpose
 
-This repository owns the Working Tools public catalog source, shared site
+This repository preserves the former Working Tools public catalog source, shared site
 assets, and compatibility pages for older releases. The live storefront leads
 with the released plugin ecosystem; GitHub package pages carry installation,
 dependencies, source, and license details.

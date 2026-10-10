@@ -1,4 +1,9 @@
-# Working Tools maintenance
+# Compass Suite historical maintenance
+
+This is the read-only predecessor. Maintained catalog source and builds belong in
+JonathanKHobson/working-tools-site. Preserve the existing Pages, migration, shared
+asset and download paths here. The following instructions describe the historical
+source and do not authorize reopening it for routine catalog work.
 
 Read README.md and docs/project-map.md. data/plugin-releases.json is the pinned projection of current public plugin releases; regenerate it from the verified public package registry. data/storefront-copy.json owns product descriptions and grouping, and data/tool-library.json owns the standalone public guides. suite-manifest.json preserves historical Compass release and download records. Keep editorial changes aligned with content/site-copy.md.
 
