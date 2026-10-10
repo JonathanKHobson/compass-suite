@@ -64,6 +64,11 @@ def rewrite(text: str, repo: str, source_path: str, site_origin: str | None) -> 
         return f"href={quote}{PAGES}/{repo}/{resolved}{'?' + parsed.query if parsed.query else ''}{'#' + parsed.fragment if parsed.fragment else ''}{quote}"
 
     text = text.replace("https://humanizer-writing-tools.jkylehobson.chatgpt.site/", "/humanizer/").replace("https://humanizer-writing-tools.jkylehobson.chatgpt.site", "/humanizer/")
+    if repo == "compass-suite" and source_path == "data/tool-library.json":
+        text = text.replace(
+            "https://jonathankhobson.github.io/shareables/s/humanizer-writing-enhancement/",
+            "/humanizer/",
+        )
     if source_path.endswith(".html"):
         text = re.sub(r"href=([\"'])([^\"']+)\1", relative_download, text)
 
