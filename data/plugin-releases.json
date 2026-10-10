@@ -1,0 +1,242 @@
+{
+  "schema_version": "working-tools.plugins.v1",
+  "source_repository": "https://github.com/JonathanKHobson/working-tools-plugins.git",
+  "source_revision": "334c118ac087eabf23c52a265632196818ddc5d3",
+  "packages": [
+    {
+      "id": "stitch-design-studio",
+      "name": "Stitch Design Toolkit",
+      "version": "0.1.1",
+      "description": "Eight original browser workflows for Stitch design, systems, exports and review.",
+      "requirements": [
+        "Stitch account",
+        "Host browser or computer-use tools"
+      ],
+      "edition": "Full original workflow; no provider implementation",
+      "license": "MIT",
+      "skill_names": [
+        "stitch-component-assets",
+        "stitch-design-partner",
+        "stitch-design-review",
+        "stitch-design-system",
+        "stitch-export-handoff",
+        "stitch-flow-prototyping",
+        "stitch-library-evidence",
+        "stitch-workbench"
+      ],
+      "jobs": [
+        "design",
+        "build"
+      ],
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/stitch-design-studio/v0.1.1"
+    },
+    {
+      "id": "davinci-resolve-toolkit",
+      "name": "DaVinci Resolve Toolkit",
+      "version": "0.1.1",
+      "description": "Edition-aware Resolve operation and interchange guidance.",
+      "requirements": [
+        "DaVinci Resolve",
+        "Host computer-use tools or verified scripting route"
+      ],
+      "edition": "Complete method; personal setup records excluded",
+      "license": "MIT",
+      "skill_names": [
+        "davinci-resolve-studio"
+      ],
+      "jobs": [
+        "design",
+        "teach"
+      ],
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/davinci-resolve-toolkit/v0.1.1"
+    },
+    {
+      "id": "artcraft-design-toolkit",
+      "name": "ArtCraft Design Toolkit",
+      "version": "0.2.1",
+      "description": "Local MCP gateway and app guidance for seven separately installed ArtCraft apps.",
+      "requirements": [
+        "Python >=3.10",
+        "ArtCraft CLI for provider operations"
+      ],
+      "edition": "Full original gateway and workflow; provider binaries excluded",
+      "license": "MIT",
+      "skill_names": [
+        "artcraft-apps"
+      ],
+      "jobs": [
+        "design",
+        "build"
+      ],
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/artcraft-design-toolkit/v0.2.1"
+    },
+    {
+      "id": "figma-design-workflow",
+      "name": "Figma Design Workflow",
+      "version": "0.1.1",
+      "description": "Four complete methods for Figma operation, source references, visual QA and an inspectable handoff.",
+      "requirements": [
+        "Figma account",
+        "Host Figma connector or browser tools"
+      ],
+      "edition": "Complete method package; Figma service remains external",
+      "license": "MIT",
+      "skill_names": [
+        "design-reference-prep",
+        "design-visual-qa",
+        "figma-ui-operator",
+        "stitch-figma-handoff"
+      ],
+      "jobs": [
+        "design",
+        "build"
+      ],
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/figma-design-workflow/v0.1.1"
+    },
+    {
+      "id": "video-production-workflow",
+      "name": "Video Production Workflow",
+      "version": "0.3.0",
+      "description": "Seventeen video methods and a portable Python renderer, timeline interchange and delivery QA.",
+      "requirements": [
+        "Python >=3.10",
+        "FFmpeg with drawtext",
+        "FFprobe",
+        "A usable font for typography"
+      ],
+      "edition": "Complete standalone runtime and methods; separate Video Templates MCP is optional",
+      "license": "MIT; bundled upstream MIT and Apache-2.0 notices apply",
+      "skill_names": [
+        "analyze-music-pacing",
+        "analyze-video-content",
+        "compose-slideshow-video",
+        "conform-video-delivery",
+        "create-motion-graphics",
+        "create-video-typography",
+        "design-video-storyboards",
+        "edit-davinci-resolve",
+        "edit-dialogue-footage",
+        "evolve-video-workflow",
+        "exchange-video-timelines",
+        "ingest-video-assets",
+        "install-video-toolchain",
+        "mix-video-audio",
+        "plan-video-production",
+        "render-video-project",
+        "validate-video-quality"
+      ],
+      "jobs": [
+        "design",
+        "teach"
+      ],
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/video-production-workflow/v0.3.0"
+    },
+    {
+      "id": "instructional-design-studio",
+      "name": "Instructional Design Studio",
+      "version": "0.1.1",
+      "description": "Design lessons, alignment checks, practice and assessment from eleven complete methods.",
+      "requirements": [
+        "Host file and reasoning tools"
+      ],
+      "edition": "Complete methods with 31 original assessment adaptations; restricted source summaries and private links excluded",
+      "license": "MIT code; CC-BY-SA-4.0 prose",
+      "skill_names": [
+        "accessible-learning-design",
+        "ai-literacy-education",
+        "assessment-rubric-design",
+        "course-production-handoff",
+        "curriculum-backward-design",
+        "edu-role-play",
+        "instructional-design",
+        "learning-content-storyboarding",
+        "learning-evaluation",
+        "learning-needs-analysis",
+        "lesson-experience-design"
+      ],
+      "jobs": [
+        "teach",
+        "research"
+      ],
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/instructional-design-studio/v0.1.1"
+    },
+    {
+      "id": "workshop-facilitator",
+      "name": "Workshop Facilitator",
+      "version": "0.1.1",
+      "description": "Plan and guide accessible workshops with eight complete facilitation methods.",
+      "requirements": [
+        "Host file and reasoning tools"
+      ],
+      "edition": "Complete original methods with current attributed Liberating Structures adaptations",
+      "license": "MIT code; CC-BY-SA-4.0 prose",
+      "skill_names": [
+        "facilitator-rehearsal",
+        "inclusive-group-dialogue",
+        "live-workshop-facilitation",
+        "workshop-activity-selection",
+        "workshop-debrief-transfer",
+        "workshop-decision-making",
+        "workshop-design",
+        "workshop-evidence-synthesis"
+      ],
+      "jobs": [
+        "teach",
+        "research"
+      ],
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/workshop-facilitator/v0.1.1"
+    },
+    {
+      "id": "game-creation-studio",
+      "name": "Game Creation Studio",
+      "version": "0.2.0",
+      "description": "Ten methods for game loops, prototypes, systems, accessibility and playtesting.",
+      "requirements": [
+        "Host file and reasoning tools",
+        "Your selected game engine for builds"
+      ],
+      "edition": "Complete original workflow and retained MIT methods; external game-engine tools separate",
+      "license": "MIT with retained upstream notices",
+      "skill_names": [
+        "game-asset-production",
+        "game-asset-vendoring",
+        "game-core-loop",
+        "game-creation-studio",
+        "game-performance-optimization",
+        "game-playtest-release",
+        "game-prototype-scope",
+        "game-ui-accessibility",
+        "game-visual-debugging",
+        "gameplay-systems"
+      ],
+      "jobs": [
+        "table",
+        "build"
+      ],
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/game-creation-studio/v0.2.0"
+    },
+    {
+      "id": "solo-service-operations",
+      "name": "Solo Service Operations",
+      "version": "0.2.0",
+      "description": "Four workflows and a read-only helper for invoices, cash tracking and reconciliation.",
+      "requirements": [
+        "Python 3.9+ for reconciliation helper",
+        "Your own source records"
+      ],
+      "edition": "Complete methods and synthetic fixtures; no client records or account connectors",
+      "license": "Apache-2.0 with retained MIT role-source notices",
+      "skill_names": [
+        "cash-flow-planning",
+        "invoice-follow-up",
+        "invoice-preparation",
+        "payment-reconciliation"
+      ],
+      "jobs": [
+        "career",
+        "build"
+      ],
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/solo-service-operations/v0.2.0"
+    }
+  ]
+}

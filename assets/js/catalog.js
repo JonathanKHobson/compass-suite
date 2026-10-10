@@ -83,6 +83,7 @@ function createRow(item, accessLabels) {
 
   const meta = element("div", "library-meta");
   meta.append(element("p", "library-kind", item.kind));
+  if (item.version) meta.append(element("p", "library-kind", `Version ${item.version}`));
   const statusText = item.status ? `${item.status} · ${accessLabels[item.access]}` : accessLabels[item.access];
   const status = element("span", "status-label", statusText);
   status.dataset.access = item.access;
@@ -92,6 +93,8 @@ function createRow(item, accessLabels) {
   main.append(element("h3", "", item.name));
   if (item.tagline) main.append(element("p", "library-tagline", item.tagline));
   main.append(element("p", "library-description", item.description));
+  if (item.requirements?.length) main.append(element("p", "library-description", `Needs: ${item.requirements.join("; ")}.`));
+  if (item.edition) main.append(element("p", "library-description", item.edition));
 
   const side = element("div", "library-side");
   if (item.href && item.action) {
@@ -123,17 +126,20 @@ export async function startCatalog() {
   const state = { job: "all", query: "" };
 
   try {
-    const [libraryResponse, compassResponse] = await Promise.all([
+    const [libraryResponse, compassResponse, pluginResponse] = await Promise.all([
       fetch("data/tool-library.json"),
-      fetch("suite-manifest.json")
+      fetch("suite-manifest.json"),
+      fetch("data/plugin-releases.json")
     ]);
-    if (!libraryResponse.ok || !compassResponse.ok) throw new Error("Catalog source unavailable");
+    if (!libraryResponse.ok || !compassResponse.ok || !pluginResponse.ok) throw new Error("Catalog source unavailable");
     const library = await libraryResponse.json();
     const compass = await compassResponse.json();
+    const releases = await pluginResponse.json();
+    const plugins = releases.packages.map((p) => ({...p, kind: "Installable plugin", access: "public-download", href: `https://github.com/JonathanKHobson/working-tools-plugins/tree/main/plugins/${p.id}`, action: "Install & try", skills: p.skill_names, status: "Released"}));
     const publicCompasses = compass.products
       .filter((product) => product.downloads?.some((download) => download.availability === "available"))
       .map(normalizeCompass);
-    const items = [...publicCompasses, ...library.items];
+    const items = [...plugins, ...publicCompasses, ...library.items];
 
     function render() {
       const query = state.query.trim().toLowerCase();

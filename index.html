@@ -63,7 +63,7 @@
         <p class="hero-lede">A public library for writing, research, design, building, career work, teaching, and games with AI. Every item here opens to a resource you can read, install, or download.</p>
         <div class="button-row">
           <a class="button button-primary" href="#library">Find a tool</a>
-          <a class="button button-quiet" href="https://humanizer-writing-tools.jkylehobson.chatgpt.site">Open Humanizer</a>
+          <a class="button button-quiet" href="https://github.com/JonathanKHobson/working-tools-plugins">Get the plugins</a>
         </div>
       </div>
       <aside class="hero-specimen" aria-label="How to use the Working Tools library">
@@ -169,7 +169,7 @@
         <div>
           <p class="section-index">03 / Boundary</p>
           <h2 id="trust-title">Every listing has somewhere useful to go.</h2>
-          <p>This library is a public resource shelf, not an inventory of my private setup.</p>
+          <p>The versioned plugins have a new software home. Compass demos and earlier downloads remain available for existing users. <a href="https://github.com/JonathanKHobson/working-tools-plugins/blob/main/docs/compass-transition.md">Read the transition guide</a>.</p>
         </div>
         <div class="trust-points">
           <div class="trust-point"><strong>Download</strong><p>A public release file, paired with installation guidance and checksums where the product publishes them.</p></div>
@@ -187,11 +187,24 @@
             <p class="section-index">04 / Install</p>
             <h2 id="install-title">Install the format your host expects.</h2>
           </div>
-          <p>Use each product page as the authority for current files and checksums. These screenshots document tested Claude paths; Codex collections install from extracted skill folders.</p>
+          <p>Use each product page as the authority for current files and checksums. New Working Tools plugins install through the Codex and Claude Code marketplaces. Each package explains its requirements, sample task, license and tested limits. Historical downloads keep their original formats.</p>
         </div>
         <div class="install-stack">
+          <details open>
+            <summary><span class="install-number">00</span><strong>Working Tools plugins: Codex &amp; Claude Code</strong><span class="sr-only">Show steps</span></summary>
+            <div class="install-content">
+              <p>Pick one package from the library. For the Figma workflow, add this marketplace and install the package:</p>
+              <h3>Codex CLI</h3>
+              <pre><code>codex plugin marketplace add JonathanKHobson/working-tools-plugins
+codex plugin add figma-design-workflow@working-tools</code></pre>
+              <h3>Claude Code</h3>
+              <pre><code>claude plugin marketplace add JonathanKHobson/working-tools-plugins
+claude plugin install figma-design-workflow@working-tools</code></pre>
+              <p>Start a fresh chat, then try the package's sample task. Provider accounts and local tools remain separate requirements. <a href="https://github.com/JonathanKHobson/working-tools-plugins/blob/main/docs/install.md">Installation, updates, removal and troubleshooting</a>.</p>
+            </div>
+          </details>
           <details>
-            <summary><span class="install-number">01</span><strong>Claude plugin ZIP</strong><span class="sr-only">Show steps</span></summary>
+            <summary><span class="install-number">01</span><strong>Historical Claude plugin ZIP</strong><span class="sr-only">Show steps</span></summary>
             <div class="install-content">
               <ol><li>Open Claude and choose <strong>Customize</strong>.</li><li>Open personal plugins and choose the add menu.</li><li>Upload the local plugin ZIP, then verify the installed collection.</li></ol>
               <div class="install-gallery">
@@ -246,8 +259,8 @@
     <div class="site-footer-inner">
       <div><p class="eyebrow">Working Tools</p><p class="footer-statement">A public door into the tools, field guides, and bounded systems behind J. Kyle Hobson’s work.</p></div>
       <nav class="footer-group" aria-label="Explore"><h2>Explore</h2><a href="#library">Tool library</a><a href="#install">Install guide</a><a href="about/">About</a></nav>
-      <nav class="footer-group" aria-label="Trust and legal"><h2>Trust &amp; legal</h2><a href="license/">License &amp; attribution</a><a href="https://github.com/JonathanKHobson/compass-suite">Source on GitHub</a></nav>
-      <p class="footer-legal">© 2026 Jonathan Kyle Hobson. Code AGPL-3.0-only; docs, prompts, skills, and methodology CC BY-SA 4.0 unless a specific file says otherwise. Product names and official brand assets are reserved.</p>
+      <nav class="footer-group" aria-label="Trust and legal"><h2>Trust &amp; legal</h2><a href="license/">License &amp; attribution</a><a href="https://github.com/JonathanKHobson/compass-suite">Catalog source on GitHub</a><a href="https://github.com/JonathanKHobson/working-tools-plugins">Plugin source &amp; releases</a></nav>
+      <p class="footer-legal">© 2026 Jonathan Kyle Hobson. Code AGPL-3.0-only; docs, prompts, skills, and methodology CC BY-SA 4.0 unless a specific file says otherwise. New Working Tools plugins use the license stated in each package. Product names and official brand assets are reserved.</p>
     </div>
   </footer>
   <script type="module" src="assets/js/network-frame.js"></script>

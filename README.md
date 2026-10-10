@@ -5,13 +5,19 @@ Suite storefront. It connects the existing Compass products with Humanizer,
 public field guides, downloadable skill collections, connected services, and a
 carefully bounded view of local systems.
 
-The visitor starts with a job—write, research, design, build, career, teach, or
-run a game—rather than a product family.
+The visitor starts with a job: write, research, design, build, career, teach, or run a game.
+
+## Current plugins and historical compatibility
+
+Installable packages now live in [Working Tools Plugins](https://github.com/JonathanKHobson/working-tools-plugins). Use that repository for plugin releases, host installation, contribution and support. This repository continues to own the catalog source, Compass compatibility pages and retained downloads. It stays active because existing sites depend on those assets. Older Compass source and release tags remain in their original repositories.
+
+[Open the public catalog](https://working-tools.jkylehobson.chatgpt.site/) or read the [successor guide](https://github.com/JonathanKHobson/working-tools-plugins/blob/main/docs/compass-transition.md).
 
 ## Sources of truth
 
 - `suite-manifest.json`: Compass release status, public URLs, checksums, and
   safety gates. Do not duplicate these facts in HTML.
+- `data/plugin-releases.json`: generated projection of a pinned public plugin registry revision; update with `scripts/sync_plugin_registry.py`.
 - `data/tool-library.json`: the larger public-safe directory and access labels.
 - `content/site-copy.md`: editorial copy source.
 - `docs/project-map.md`: architecture, ownership, and change paths.

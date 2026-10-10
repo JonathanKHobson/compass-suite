@@ -685,3 +685,6 @@ summary {
 .prose-block p:last-child {
   margin-bottom: 0;
 }
+
+/* Native install commands remain readable on narrow screens. */
+.install-content pre { max-width: 100%; overflow-x: auto; padding: 1rem; border: 1px solid currentColor; font-size: 0.875rem; line-height: 1.6; }
