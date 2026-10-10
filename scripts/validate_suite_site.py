@@ -267,8 +267,8 @@ def validate_css_and_js() -> None:
 
     js = read("assets/js/catalog.js") + read("assets/js/main.js") + read("assets/js/site-nav.js")
     for contract in [
-        'fetch("data/tool-library.json?v=phase3-ux6")',
-        'fetch("data/plugin-releases.json?v=phase3-ux6")',
+        'fetch("data/tool-library.json?v=phase3-ux7")',
+        'fetch("data/plugin-releases.json?v=phase3-ux7")',
         'setAttribute("aria-pressed"',
         "replaceChildren",
         "textContent",

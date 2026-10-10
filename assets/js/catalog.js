@@ -168,8 +168,8 @@ export async function startCatalog() {
 
   try {
     const [libraryResponse, pluginResponse] = await Promise.all([
-      fetch("data/tool-library.json?v=phase3-ux6"),
-      fetch("data/plugin-releases.json?v=phase3-ux6")
+      fetch("data/tool-library.json?v=phase3-ux7"),
+      fetch("data/plugin-releases.json?v=phase3-ux7")
     ]);
     if (!libraryResponse.ok || !pluginResponse.ok) throw new Error("Catalog source unavailable");
     const library = await libraryResponse.json();
