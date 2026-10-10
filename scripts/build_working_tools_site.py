@@ -39,6 +39,27 @@ TEXT_SUFFIXES = {".html", ".css", ".js", ".mjs", ".json", ".svg"}
 IGNORED_PREFIXES = (".git/", ".openai/", "docs/", "scripts/", "content/", "legal/", "snippets/", "output/", "vendor/", "site-sources/")
 EXCLUDED_RUNTIME_FILES = {"404.html"}
 MCP_SITE = "https://what-is-an-mcp.jkylehobson.chatgpt.site/"
+LEGACY_ROUTES = {
+    "critical-compass", "prompt-compass", "job-application-compass",
+    "ux-heuristic-compass", "creative-writing-studio", "marketing-social-studio",
+    "career-grants-studio", "ux-design-toolkit", "builder-tools",
+    "ttrpg-gm-director", "humanizer",
+}
+
+
+def legacy_redirect() -> bytes:
+    """Retire current-site product pages without discarding their old URLs."""
+    return b'''<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex"><title>Legacy Library | Working Tools</title>
+<meta http-equiv="refresh" content="0;url=/legacy/">
+<script>const destination = new URL('/legacy/', location.origin);
+destination.search = location.search; destination.hash = location.hash;
+location.replace(destination.href);</script></head>
+<body><p>This earlier product is in the <a href="/legacy/">Legacy Library</a>.
+For current tools, <a href="/#library">explore the plugin catalog</a>.</p></body></html>
+'''
 
 
 def git(repo: Path, *args: str) -> bytes:
@@ -78,6 +99,10 @@ def rewrite(text: str, repo: str, source_path: str, site_origin: str | None) -> 
 
         def pages_link(match: re.Match[str]) -> str:
             trailing = match.group(1)
+            # The archive deliberately links to original Pages with forwarding
+            # disabled. Rewriting these would create a loop back to /legacy/.
+            if "_legacy=1" in urlparse(trailing).query.split("&"):
+                return match.group(0)
             if PurePosixPath(trailing.split("?", 1)[0].split("#", 1)[0]).suffix.lower() in DOWNLOAD_SUFFIXES:
                 return match.group(0)
             return after + trailing
@@ -169,6 +194,8 @@ def main() -> None:
             if path.suffix.lower() in TEXT_SUFFIXES:
                 blob = rewrite(blob.decode("utf-8"), repo, name, args.site_origin).encode("utf-8")
             relative = destination(repo, name)
+            if path.suffix.lower() == ".html" and relative.split("/", 1)[0] in LEGACY_ROUTES:
+                blob = legacy_redirect()
             target = OUTPUT / relative
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_bytes(blob)
@@ -183,6 +210,8 @@ def main() -> None:
             target = OUTPUT / relative
             target.parent.mkdir(parents=True, exist_ok=True)
             blob = path.read_bytes()
+            if path.suffix == ".html":
+                blob = legacy_redirect()
             target.write_bytes(blob)
             copied.append({"source": "humanizer-public-projection:" + path.relative_to(extra).as_posix(), "output": relative, "sha256": hashlib.sha256(blob).hexdigest(), "bytes": len(blob)})
             if path.suffix == ".html": routes.append("/" + relative.removesuffix("index.html"))

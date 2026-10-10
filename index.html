@@ -5,11 +5,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Working Tools by J. Kyle Hobson</title>
-  <meta name="description" content="A working library for writing, research, design, building, teaching, career work, and tabletop play with AI.">
+  <meta name="description" content="Practical AI plugins for writing, research, design, building, teaching, and creative production.">
   <link rel="canonical" href="https://jonathankhobson.github.io/compass-suite/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Working Tools by J. Kyle Hobson">
-  <meta property="og:description" content="Use the tool that fits the work. Public downloads, practical field guides, and installable skill collections by J. Kyle Hobson.">
+  <meta property="og:description" content="Focused studios, templates, and toolkits for thoughtful, inspectable work by J. Kyle Hobson.">
   <meta property="og:url" content="https://jonathankhobson.github.io/compass-suite/">
   <meta name="theme-color" content="#f4efe6">
   <link rel="icon" type="image/png" sizes="32x32" href="/compass-suite/assets/brand/working-tools-favicon-32.png">
@@ -50,7 +50,8 @@
       <ul class="site-nav-list">
         <li><a href="#work">Start with the work</a></li>
         <li><a href="#library">Library</a></li>
-        <li><a href="#install">Install</a></li>
+        <li><a href="#install">How it works</a></li>
+        <li><a href="legacy/">Legacy library</a></li>
         <li><a href="#about">About</a></li>
       </ul>
     </nav>
@@ -61,10 +62,11 @@
       <div class="hero-copy">
         <p class="eyebrow">Working Tools by J. Kyle Hobson</p>
         <h1 id="hero-title">Use the tool that fits the work.</h1>
-        <p class="hero-lede">A public library for writing, research, design, building, career work, teaching, and games with AI. Every item here opens to a resource you can read, install, or download.</p>
+        <p class="hero-lede">A practical collection of AI plugins for writing, research, design, building, teaching, and creative production. Pick a workflow, try it on real work, and keep the result in your hands.</p>
         <div class="button-row">
           <a class="button button-primary" href="#library">Find a tool</a>
-          <a class="button button-quiet" href="https://github.com/JonathanKHobson/working-tools-plugins">Get the plugins</a>
+          <a class="button button-quiet" href="https://github.com/JonathanKHobson/working-tools-plugins">Explore the collection</a>
+          <a class="button button-quiet" href="legacy/">Browse legacy resources</a>
         </div>
       </div>
       <aside class="hero-specimen" aria-label="How to use the Working Tools library">
@@ -104,22 +106,21 @@
       </div>
     </section>
 
-    <section class="section-block featured-section" aria-labelledby="humanizer-title">
+    <section class="section-block featured-section" aria-labelledby="featured-title">
       <div class="section-inner featured-layout">
         <div class="featured-copy">
-          <p class="eyebrow">Featured collection / Humanizer</p>
-          <h2 id="humanizer-title">Writing that keeps its fingerprints.</h2>
-          <p>Humanizer checks a draft for vague claims, borrowed confidence, citation problems, and voice drift. It keeps the useful irregularities and asks for evidence where the draft has not earned certainty.</p>
+          <p class="eyebrow">Built for the work in front of you</p>
+          <h2 id="featured-title">A clear next step, with room for your judgment.</h2>
+          <p>Choose a focused plugin for the task at hand. Each one brings practical workflows, helpful examples, and review points that keep you in control of the result.</p>
           <div class="button-row">
-            <a class="button button-light" href="https://humanizer-writing-tools.jkylehobson.chatgpt.site">Open the ChatGPT site</a>
-            <a class="button button-signal" href="https://jonathankhobson.github.io/shareables/s/humanizer-writing-enhancement/">Read the field guide</a>
+            <a class="button button-light" href="#library">Find your workflow</a>
+            <a class="button button-signal" href="https://github.com/JonathanKHobson/working-tools-plugins">See the full collection</a>
           </div>
         </div>
-        <article class="revision-specimen" aria-label="Humanizer revision example">
-          <div>
-            <p class="meta-line"><span>Draft 03</span><span>specificity pass</span></p>
-            <p class="revision-draft">This innovative solution empowers users to unlock seamless outcomes.</p>
-            <p class="revision-result">The guide gives first-time facilitators a checklist they can use before the room opens.</p>
+        <article class="revision-specimen" aria-label="A simple Working Tools workflow">
+          <div><p class="meta-line"><span>Start with the task</span><span>Keep the result visible</span></p>
+            <p class="revision-draft">A broad goal, a busy workspace.</p>
+            <p class="revision-result">One useful workflow. A result you can review and build on.</p>
           </div>
         </article>
       </div>
@@ -132,13 +133,13 @@
             <p class="section-index">02 / Library</p>
             <h2 id="library-title">The working library.</h2>
           </div>
-          <p>Search by task or narrow the list. Every result opens a public page, guide, example, or download that a visitor can actually use.</p>
+          <p>Explore studios, template libraries, toolkits, and focused workflows. Choose by the work you want to move forward; open the package details when you are ready to install.</p>
         </div>
 
         <div class="library-controls" role="search" aria-label="Library filters">
           <label class="search-field">
-            Search names, jobs, and included skills
-            <input id="library-search" type="search" placeholder="Try “writing,” “career,” or “research”" autocomplete="off" data-library-search>
+            Search products and the work they support
+            <input id="library-search" type="search" placeholder="Try “writing,” “video,” or “research”" autocomplete="off" data-library-search>
           </label>
           <div>
             <span class="sr-only" id="filter-label">Filter library by job</span>
@@ -160,7 +161,7 @@
         <p class="empty-state" data-library-empty hidden>No tools match those filters. Clear a filter or try a different word.</p>
         <p class="error-state" data-library-error hidden>The full library did not load. The featured tools and public links above still work.</p>
         <noscript>
-          <p class="error-state">JavaScript is off. You can still open <a href="https://humanizer-writing-tools.jkylehobson.chatgpt.site">Humanizer</a>, <a href="https://jonathankhobson.github.io/critical-compass/">Critical Compass</a>, <a href="https://jonathankhobson.github.io/prompt-compass/">Prompt Compass</a>, and <a href="https://jonathankhobson.github.io/ux-heuristic-compass/">UX Heuristics Compass</a>.</p>
+          <p class="error-state">Turn on JavaScript to browse and filter the catalog. You can also <a href="https://github.com/JonathanKHobson/working-tools-plugins">browse the plugin catalog on GitHub</a> or <a href="legacy/">open the legacy library</a>.</p>
         </noscript>
       </div>
     </section>
@@ -170,7 +171,7 @@
         <div>
           <p class="section-index">03 / Boundary</p>
           <h2 id="trust-title">Every listing has somewhere useful to go.</h2>
-          <p>The versioned plugins have a new software home. Compass demos and earlier downloads remain available for existing users. <a href="https://github.com/JonathanKHobson/working-tools-plugins/blob/main/docs/compass-transition.md">Read the transition guide</a>.</p>
+          <p>Working Tools is one organized collection, with studios, templates, and toolkits that help you take a task from first question to usable result. Product pages on GitHub hold installation instructions, dependencies, source, and license details. <a href="legacy/">Looking for an earlier resource? Visit the legacy library.</a></p>
         </div>
         <div class="trust-points">
           <div class="trust-point"><strong>Download</strong><p>A public release file, paired with installation guidance and checksums where the product publishes them.</p></div>
@@ -182,61 +183,17 @@
     </section>
 
     <section class="section-block" id="install" aria-labelledby="install-title">
-      <div class="section-inner">
-        <div class="section-heading">
-          <div>
-            <p class="section-index">04 / Install</p>
-            <h2 id="install-title">Install the format your host expects.</h2>
-          </div>
-          <p>Use each product page as the authority for current files and checksums. New Working Tools plugins install through the Codex and Claude Code marketplaces. Each package explains its requirements, sample task, license and tested limits. Historical downloads keep their original formats.</p>
+      <div class="section-inner trust-layout">
+        <div>
+          <p class="section-index">04 / Get started</p>
+          <h2 id="install-title">Find your fit. Then make it yours.</h2>
+          <p>Start with one plugin that matches your work. Browse its examples, try a first task, and keep the parts that help. The GitHub collection includes installation steps and technical details for every released package.</p>
+          <div class="button-row"><a class="button button-primary" href="https://github.com/JonathanKHobson/working-tools-plugins">Explore plugins on GitHub</a><a class="button button-quiet" href="https://github.com/JonathanKHobson/working-tools-plugins/blob/main/docs/workflows.md">Choose a first workflow</a></div>
         </div>
-        <div class="install-stack">
-          <details open>
-            <summary><span class="install-number">00</span><strong>Working Tools plugins: Codex &amp; Claude Code</strong><span class="sr-only">Show steps</span></summary>
-            <div class="install-content">
-              <p>Pick one package from the library. For the Figma workflow, add this marketplace and install the package:</p>
-              <h3>Codex CLI</h3>
-              <pre><code>codex plugin marketplace add JonathanKHobson/working-tools-plugins
-codex plugin add figma-design-workflow@working-tools</code></pre>
-              <h3>Claude Code</h3>
-              <pre><code>claude plugin marketplace add https://github.com/JonathanKHobson/working-tools-plugins.git
-claude plugin install figma-design-workflow@working-tools</code></pre>
-              <p>Start a fresh chat, then try the package's sample task. <a href="https://github.com/JonathanKHobson/working-tools-plugins/blob/main/docs/workflows.md">Choose a first workflow</a> for design, video, teaching, libraries, building or games. Provider accounts and local tools remain separate requirements. <a href="https://github.com/JonathanKHobson/working-tools-plugins/blob/main/docs/install.md">Installation, updates, removal and troubleshooting</a>.</p>
-            </div>
-          </details>
-          <details>
-            <summary><span class="install-number">01</span><strong>Historical Claude plugin ZIP</strong><span class="sr-only">Show steps</span></summary>
-            <div class="install-content">
-              <ol><li>Open Claude and choose <strong>Customize</strong>.</li><li>Open personal plugins and choose the add menu.</li><li>Upload the local plugin ZIP, then verify the installed collection.</li></ol>
-              <div class="install-gallery">
-                <figure class="install-shot"><img src="assets/install-guide/plugin/plugin-02-customize.png" loading="lazy" alt="Claude sidebar with Customize selected."><figcaption>Open Customize.</figcaption></figure>
-                <figure class="install-shot"><img src="assets/install-guide/plugin/plugin-06-upload-plugin-menu.png" loading="lazy" alt="Claude plugin menu with the upload option visible."><figcaption>Choose the local upload path.</figcaption></figure>
-                <figure class="install-shot"><img src="assets/install-guide/plugin/plugin-09-installed.png" loading="lazy" alt="Claude plugin view showing an installed plugin."><figcaption>Confirm the collection is installed.</figcaption></figure>
-              </div>
-            </div>
-          </details>
-          <details>
-            <summary><span class="install-number">02</span><strong>Claude Desktop extension</strong><span class="sr-only">Show steps</span></summary>
-            <div class="install-content">
-              <ol><li>Download the <code>.mcpb</code> release asset.</li><li>Open Claude Desktop settings and choose Extensions.</li><li>Drop in the file, review its permissions, and confirm installation.</li></ol>
-              <div class="install-gallery">
-                <figure class="install-shot"><img src="assets/install-guide/mcpb/mcpb-01-download.png" loading="lazy" alt="GitHub release page with an MCPB file in the download assets."><figcaption>Download the MCPB release asset.</figcaption></figure>
-                <figure class="install-shot"><img src="assets/install-guide/mcpb/mcpb-03-extensions.png" loading="lazy" alt="Claude Desktop settings open to Extensions."><figcaption>Open Extensions.</figcaption></figure>
-                <figure class="install-shot"><img src="assets/install-guide/mcpb/mcpb-05-installed.png" loading="lazy" alt="Claude Desktop showing an installed extension."><figcaption>Review and confirm the installed extension.</figcaption></figure>
-              </div>
-            </div>
-          </details>
-          <details>
-            <summary><span class="install-number">03</span><strong>Claude skill file</strong><span class="sr-only">Show steps</span></summary>
-            <div class="install-content">
-              <ol><li>Open Claude Skills.</li><li>Choose the add button, then upload a <code>.skill</code> file.</li><li>Confirm the skill appears in the installed list.</li></ol>
-              <div class="install-gallery">
-                <figure class="install-shot"><img src="assets/install-guide/skill/skill-01-open-skills.png" loading="lazy" alt="Claude Skills screen."><figcaption>Open Skills.</figcaption></figure>
-                <figure class="install-shot"><img src="assets/install-guide/skill/skill-03-upload-skill-menu.png" loading="lazy" alt="Claude skill menu showing the upload option."><figcaption>Choose Upload skill.</figcaption></figure>
-                <figure class="install-shot"><img src="assets/install-guide/skill/skill-05-installed.png" loading="lazy" alt="Claude showing an installed skill."><figcaption>Confirm the skill is available.</figcaption></figure>
-              </div>
-            </div>
-          </details>
+        <div class="trust-points">
+          <div class="trust-point"><strong>Pick one job</strong><p>Find the package that fits the work you already need to do.</p></div>
+          <div class="trust-point"><strong>Try a real task</strong><p>Start from an example, then adapt it to your context.</p></div>
+          <div class="trust-point"><strong>Review the result</strong><p>Keep your judgment in the loop and shape the output for your needs.</p></div>
         </div>
       </div>
     </section>
@@ -258,14 +215,14 @@ claude plugin install figma-design-workflow@working-tools</code></pre>
 
   <footer class="site-footer">
     <div class="site-footer-inner">
-      <div><p class="eyebrow">Working Tools</p><p class="footer-statement">A public door into the tools, field guides, and bounded systems behind J. Kyle Hobson’s work.</p></div>
+      <div><p class="eyebrow">Working Tools</p><p class="footer-statement">Practical plugins and workflows for thoughtful, inspectable work.</p></div>
       <nav class="footer-group" aria-label="Explore"><h2>Explore</h2><a href="#library">Tool library</a><a href="#install">Install guide</a><a href="about/">About</a></nav>
-      <nav class="footer-group" aria-label="Trust and legal"><h2>Trust &amp; legal</h2><a href="license/">License &amp; attribution</a><a href="https://github.com/JonathanKHobson/compass-suite">Catalog source on GitHub</a><a href="https://github.com/JonathanKHobson/working-tools-plugins">Plugin source &amp; releases</a></nav>
+      <nav class="footer-group" aria-label="Trust and legal"><h2>Trust &amp; legal</h2><a href="license/">License &amp; attribution</a><a href="https://github.com/JonathanKHobson/working-tools-plugins">Plugin source &amp; releases</a></nav>
       <p class="footer-legal">© 2026 Jonathan Kyle Hobson. Code AGPL-3.0-only; docs, prompts, skills, and methodology CC BY-SA 4.0 unless a specific file says otherwise. New Working Tools plugins use the license stated in each package. Product names and official brand assets are reserved.</p>
     </div>
   </footer>
-  <script type="module" src="assets/js/network-frame.js"></script>
-  <script type="module" src="assets/js/main.js"></script>
+  <script type="module" src="assets/js/network-frame.js?v=phase3-ux3"></script>
+  <script type="module" src="assets/js/main.js?v=phase3-ux6"></script>
 <!-- kh-footer:start -->
 <nav class="kh-footer" data-kh-space="compass" aria-label="Explore Kyle Hobson’s other spaces">
   <div class="kh-footer-inner"><a class="kh-footer-home" href="https://jonathankhobson.github.io/portfolio/spaces/">Kyle Hobson <span>All spaces ↗</span></a>

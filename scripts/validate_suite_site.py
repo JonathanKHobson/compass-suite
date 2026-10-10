@@ -31,20 +31,13 @@ COLLECTION_SLUGS = [
     "builder-tools",
 ]
 EXPECTED_LIBRARY_IDS = {
-    "humanizer",
-    "creative-writing-studio",
-    "marketing-social-studio",
-    "career-grants-studio",
-    "ttrpg-gm-director",
-    "ux-design-toolkit",
-    "builder-tools",
     "participatory-defense-field-guide",
     "understanding-ai-2026",
     "mcp-basics",
 }
 ALLOWED_JOBS = {"write", "research", "design", "build", "career", "teach", "table"}
 ALLOWED_ACCESS = {"public-download", "public-site"}
-CORE_PAGES = [Path("index.html"), Path("404.html"), Path("about/index.html"), Path("license/index.html")]
+CORE_PAGES = [Path("index.html"), Path("404.html"), Path("about/index.html"), Path("license/index.html"), Path("legacy/index.html")]
 COLLECTION_PAGES = [Path(slug) / "index.html" for slug in COLLECTION_SLUGS]
 PAGE_FILES = CORE_PAGES + COLLECTION_PAGES
 REQUIRED_FILES = [
@@ -67,6 +60,7 @@ REQUIRED_FILES = [
     Path("content/site-copy.md"),
     Path("data/tool-library.json"),
     Path("data/plugin-releases.json"),
+    Path("data/storefront-copy.json"),
     Path("suite-manifest.json"),
     Path("docs/project-map.md"),
     Path("docs/design-direction.md"),
@@ -197,13 +191,15 @@ def validate_public_text() -> None:
         'data-library-list',
         'aria-live="polite"',
         'id="install"',
-        "humanizer-writing-tools.jkylehobson.chatgpt.site",
-        "shareables/s/humanizer-writing-enhancement/",
+        'href="legacy/"',
         'class="hero-specimen"',
         'type="module"',
     ]:
         if required not in home:
             fail(f"homepage contract missing: {required}")
+
+    if any(term in home for term in ["Critical Compass", "Prompt Compass", "UX Heuristics Compass", "Job Application Compass", "Humanizer"]):
+        fail("historical products or standalone Humanizer must not be featured on the storefront")
 
     for page in CORE_PAGES:
         text = read(page)
@@ -230,8 +226,8 @@ def validate_public_text() -> None:
 
     audit = ImageAudit()
     audit.feed(home)
-    if len(audit.images) != 9:
-        fail(f"expected 9 functional install images, found {len(audit.images)}")
+    if audit.images:
+        fail("homepage should not show technical installation screenshots in the storefront")
     for image in audit.images:
         if "alt" not in image or not image["alt"].strip():
             fail(f"homepage image missing useful alt text: {image.get('src', 'unknown')}")
@@ -271,8 +267,8 @@ def validate_css_and_js() -> None:
 
     js = read("assets/js/catalog.js") + read("assets/js/main.js") + read("assets/js/site-nav.js")
     for contract in [
-        'fetch("data/tool-library.json")',
-        'fetch("suite-manifest.json")',
+        'fetch("data/tool-library.json?v=phase3-ux6")',
+        'fetch("data/plugin-releases.json?v=phase3-ux6")',
         'setAttribute("aria-pressed"',
         "replaceChildren",
         "textContent",
@@ -383,8 +379,10 @@ def validate_plugin_projection(projection: dict) -> None:
         fail("plugin projection needs an immutable source commit")
     packages = projection.get("packages", [])
     identities = [item.get("id") for item in packages]
-    if not packages or len(identities) != len(set(identities)):
-        fail("plugin projection is empty or has duplicate identities")
+    if len(packages) != 22 or len(identities) != len(set(identities)):
+        fail(f"expected 22 eligible storefront plugins, found {len(packages)} or duplicate identities")
+    if {"discord", "oppia-research-compass"} & set(identities):
+        fail("personal Discord or Oppia corpus cannot appear in the storefront projection")
     for item in packages:
         for field in ["name", "version", "description", "requirements", "edition", "license", "skill_names"]:
             if not item.get(field):
@@ -399,9 +397,18 @@ def validate_plugin_projection(projection: dict) -> None:
 
 def validate_links(manifest: dict, library: dict) -> None:
     urls: set[str] = {
-        "https://humanizer-writing-tools.jkylehobson.chatgpt.site",
-        "https://jonathankhobson.github.io/shareables/s/humanizer-writing-enhancement/",
         "https://jonathankhobson.github.io/shareables/s/participatory-defense-field-guide/",
+        "https://github.com/JonathanKHobson/working-tools-plugins/blob/main/docs/compass-transition.md",
+        "https://jonathankhobson.github.io/critical-compass/?_legacy=1",
+        "https://jonathankhobson.github.io/compass-suite/creative-writing-studio/?_legacy=1",
+        "https://jonathankhobson.github.io/compass-suite/marketing-social-studio/?_legacy=1",
+        "https://jonathankhobson.github.io/compass-suite/career-grants-studio/?_legacy=1",
+        "https://jonathankhobson.github.io/compass-suite/ux-design-toolkit/?_legacy=1",
+        "https://jonathankhobson.github.io/compass-suite/builder-tools/?_legacy=1",
+        "https://jonathankhobson.github.io/compass-suite/ttrpg-gm-director/?_legacy=1",
+        "https://jonathankhobson.github.io/prompt-compass/?_legacy=1",
+        "https://jonathankhobson.github.io/ux-heuristic-compass/?_legacy=1",
+        "https://jonathankhobson.github.io/job-application-compass/?_legacy=1",
     }
     for product in manifest["products"]:
         for key in ("homepage_url", "repo_url", "learn_more_url"):

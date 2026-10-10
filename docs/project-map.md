@@ -1,119 +1,63 @@
 # Working Tools project map
 
-## Current slice
+## Purpose
 
-This repository publishes the public directory formerly presented as the
-Compass Suite storefront. The redesign keeps the existing Compass product
-content and verified release links, but the visitor-facing brand is now
-**Working Tools by J. Kyle Hobson**.
-
-The homepage has one job: help a visitor find the right public tool, skill pack,
-or field guide for the work in front of them.
+This repository owns the Working Tools public catalog source, shared site
+assets, and compatibility pages for older releases. The live storefront leads
+with the released plugin ecosystem; GitHub package pages carry installation,
+dependencies, source, and license details.
 
 ## Entrypoints
 
-- `index.html`: semantic page shell and the no-JavaScript version of the core
-  message.
-- `assets/js/main.js`: starts the catalog, filters, navigation, copy buttons,
-  and progressive disclosure.
-- `assets/js/site-nav.js`: shared responsive navigation behavior.
-- `assets/js/network-frame.js`: canonical cross-repository Working Tools
-  header, active-route state, and favicon contract.
-- `assets/js/collection.js`: starts navigation on pages that do not load the
-  catalog.
-- `assets/css/main.css`: imports the design tokens and layout layers.
-- `suite-manifest.json`: verified Compass product status, release URLs,
-  checksums, and safety gates. It remains the authority for Compass downloads.
-- `data/tool-library.json`: public-only directory of skill packs, field guides,
-  public products, and educational resources.
-- `sites-sources.json`: exact public Git revisions used for the combined
-  Working Tools Site. Five companion checkouts remain independently maintained.
-- `scripts/build_working_tools_site.py`: builds the Site projection into ignored
-  `dist/` from those pinned revisions. The script rewrites internal tool routes,
-  retains existing external download URLs, and records output file hashes.
-- `<collection>/index.html`: six public landing pages that explain a bundle,
-  show a working example, name its limits, and provide the real download.
-
-## Ownership boundaries
-
-```text
-assets/
-  brand/               Generated KH identity, favicon, and touch-icon PNGs
-  css/                 Visual tokens, base rules, collection pages, responsive rules
-  install-guide/       Real screenshots that document tested install paths
-  js/                  Small browser modules; no framework or build step
-content/
-  site-copy.md         Editorial source for the public page copy
-data/
-  tool-library.json    Curated public-safe tool catalog
-docs/
-  design-direction.md  Visual thesis, anchor map, and QA target
-  asset-manifest.md    Asset purpose, source status, crop, alt text, and verification
-  qa-report.md         Release evidence, fixed findings, accessibility, and visual anchors
-scripts/
-  validate_suite_site.py  Static, content, privacy, and structural checks
-suite-manifest.json    Compass release/download authority
-```
-
-## Core concepts
-
-- **Working Tool**: one public artifact with a bounded job and usable public
-  destination.
-- **Collection**: a group of related skills or plugins distributed together.
-- **Field Guide**: a public, task-specific resource with prompts, guardrails,
-  and source-aware instructions.
-- **Public download**: a verified artifact with a public destination.
-- **Public catalog rule**: private systems, account-bound connectors, previews,
-  and items without a working page or download do not appear in the library.
+- `index.html`: main catalog page, task filters, and storefront calls to action.
+- `assets/js/catalog.js`: loads the released package projection and current
+  standalone public guides, groups products, and renders accessible filters.
+- `data/storefront-copy.json`: visitor-facing product descriptions and family
+  groupings. It does not replace package technical metadata.
+- `data/plugin-releases.json`: immutable projection of released public plugin
+  packages, versioned destinations, skills, technical details, and source
+  revision. Regenerate it from the public plugin source with
+  `scripts/sync_plugin_registry.py`.
+- `data/tool-library.json`: standalone public guides shown beside plugins.
+- `legacy/index.html`: one entry point to preserved earlier product pages.
+- `migration/forward.js`: keeps original GitHub Pages routes available.
+- `scripts/build_working_tools_site.py`: builds the hosted projection from
+  pinned commits and turns retired product pages into Legacy Library redirects,
+  while preserving original archive and download destinations.
+- `suite-manifest.json`: historical release status, preserved download URLs,
+  checksums, and continuity constraints.
+- `scripts/validate_suite_site.py`: catalog, privacy, content, route, and
+  structural checks.
 
 ## Data flow
 
-1. `main.js` loads `data/tool-library.json` and `suite-manifest.json`.
-2. The catalog module normalizes both sources into searchable records.
-3. Visitors filter by job. Every rendered item exposes a verified public
-   destination.
-4. Install directions use the preserved screenshots under
-   `assets/install-guide/` and remain behind native disclosure controls.
+1. The catalog loads `data/plugin-releases.json` and `data/tool-library.json`.
+2. Released packages are presented with benefit-led copy from
+   `data/storefront-copy.json`; each card links to its versioned GitHub release.
+3. Requirements, license, scope, and technical package overview stay behind a
+   disclosure on the card and in the GitHub package documentation.
+4. Earlier products are accessible through the single Legacy Library link.
+   Their original GitHub Pages paths and release assets remain preserved.
 
-## Change paths
+## Safe changes
 
-- New Compass release: update `suite-manifest.json`, then run the validator.
-- New public collection or field guide: update `data/tool-library.json`.
-- New visual asset: add it only when it performs a reader-facing job, then
-  record the source, role, placement, and verification in
-  `docs/asset-manifest.md`.
-- Copy revision: update `content/site-copy.md` first, then the matching HTML or
-  catalog record.
-- Brand or layout change: update the relevant CSS layer; do not add one-off
-  visual literals to HTML or JavaScript.
+- Edit storefront language and grouping in `data/storefront-copy.json`.
+- Update technical package facts at their source in `working-tools-plugins`,
+  then regenerate the projection with `scripts/sync_plugin_registry.py`.
+- Update standalone guide links in `data/tool-library.json`.
+- Preserve `suite-manifest.json` release URLs and checksums during the archive
+  transition.
+- Keep old compatibility files available until every redirect, asset, and
+  download destination has been verified from the replacement source.
 
-## Onboarding packet
+## Verification
 
-- First files to read: `docs/design-direction.md`, `content/site-copy.md`,
-  `index.html`, `assets/css/tokens.css`, `assets/js/main.js`.
-- Runtime: `python3 -m http.server 8787`.
-- Safe checks: `python3 scripts/validate_suite_site.py` and the browser QA
-  commands recorded in the release notes.
-- Risky changes: release URLs, checksums, public/private boundaries, license
-  copy, and public deployment.
-- Combined Site build: place the four Compass satellite public Git checkouts in
-  `../sources/<repo>/` and the published MCP guide checkout at
-  `../../site-pilot/source/`, then run
-  `python3 scripts/build_working_tools_site.py`. Supply a verified Site HTTPS
-  origin with `--site-origin` and the returned project ID with
-  `--site-project-id` when preparing the final publication archive. For an
-  independent checkout, use `--sources-dir` with five pinned companion Git
-  checkouts named by repository.
-- Common failure: duplicating release facts in HTML instead of reading the
-  manifest.
+```bash
+python3 scripts/validate_suite_site.py
+python3 scripts/test_site_transition.py
+python3 scripts/validate_suite_site.py --check-links
+```
 
-## Shared site orientation
-The Kyle Hobson bar links this product to the portfolio, Compass Suite, AI Glossary, Workshop Studio, GameMasterKyle, and the Building with AI case study. The shared home is https://jonathankhobson.github.io/portfolio/spaces/. Each product retains its own local navigation. Shared navigation sources live in the portfolio-suite authoring project under `src/network/`; regenerate static copies with `scripts/sync_network.py` when destinations change.
-
-## Theme-aware shared navigation (September 16)
-Shared network tokens, destinations and static footer are owned by portfolio-suite `src/network/` and distributed with `scripts/sync_network.py`. Host palettes preserve local identity. CLARE hash routes compact the top bar below the homepage; Workshop uses a compact bar without a network footer and preserves focused tasks with new-tab links. The Workshop public overview lives at `https://jonathankhobson.github.io/portfolio/workshop-studio/`; the app remains separate.
-
-
-## Current plugin registry projection
-
-`data/plugin-releases.json` is generated by `scripts/sync_plugin_registry.py` from a specific commit in the public Working Tools Plugins repository. Update that source first, verify published release assets, then refresh this projection and review the rendered catalog. It is separate from `suite-manifest.json`, which continues to own historical Compass artifacts. Sites publication stays an explicit reviewed mirror of this source.
+Use a local HTTP preview for catalog interaction checks. Before publishing,
+verify desktop and mobile layouts, keyboard focus, filter states, package links,
+and legacy destinations in a rendered browser.

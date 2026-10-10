@@ -1,18 +1,18 @@
+const basePath = window.location.hostname === "jonathankhobson.github.io" ? "/compass-suite/" : "/";
+
 const frameMarkup = `
   <div class="network-nav-inner">
-    <a class="network-nav-brand" href="https://jonathankhobson.github.io/compass-suite/">
-      <img class="network-nav-mark" src="/compass-suite/assets/brand/working-tools-mark-64.png" width="32" height="32" alt="">
+    <a class="network-nav-brand" href="https://working-tools.jkylehobson.chatgpt.site/">
+      <img class="network-nav-mark" data-network-brand-mark src="${basePath}assets/brand/working-tools-mark-64.png" width="32" height="32" alt="">
       <span class="network-nav-wordmark">Working Tools<span aria-hidden="true">.</span></span>
     </a>
     <button class="network-nav-toggle" type="button" aria-expanded="false" aria-controls="network-nav-menu" data-network-nav-toggle>Menu</button>
     <div class="network-nav-links" id="network-nav-menu" data-network-nav-links>
-      <a class="network-nav-link" data-network-path="/compass-suite/" href="https://jonathankhobson.github.io/compass-suite/#library">Library</a>
-      <a class="network-nav-link" data-network-path="/critical-compass/" href="https://jonathankhobson.github.io/critical-compass/">Critical Compass</a>
-      <a class="network-nav-link" data-network-path="/prompt-compass/" href="https://jonathankhobson.github.io/prompt-compass/">Prompt Compass</a>
-      <a class="network-nav-link" data-network-path="/ux-heuristic-compass/" href="https://jonathankhobson.github.io/ux-heuristic-compass/">UX Heuristics</a>
-      <a class="network-nav-link" data-network-path="/job-application-compass/" href="https://jonathankhobson.github.io/job-application-compass/">Job Applications</a>
-      <a class="network-nav-link" data-network-path="/shareables/s/understanding-ai-2026/" href="https://jonathankhobson.github.io/shareables/s/understanding-ai-2026/">AI Basics</a>
-      <a class="network-nav-link" data-network-path="/what-is-an-mcp/" href="https://jonathankhobson.github.io/what-is-an-mcp/">MCP Basics</a>
+      <a class="network-nav-link" data-network-path="/" href="https://working-tools.jkylehobson.chatgpt.site/#library">Plugin catalog</a>
+      <a class="network-nav-link" href="https://github.com/JonathanKHobson/working-tools-plugins">Plugin source &amp; releases</a>
+      <a class="network-nav-link" data-network-path="/legacy/" href="https://working-tools.jkylehobson.chatgpt.site/legacy/">Legacy library</a>
+      <a class="network-nav-link" href="https://jonathankhobson.github.io/shareables/s/understanding-ai-2026/">AI Basics</a>
+      <a class="network-nav-link" href="https://jonathankhobson.github.io/what-is-an-mcp/">MCP Basics</a>
     </div>
   </div>`;
 
@@ -24,13 +24,13 @@ const favicon = document.createElement("link");
 favicon.rel = "icon";
 favicon.type = "image/png";
 favicon.sizes = "32x32";
-favicon.href = "/compass-suite/assets/brand/working-tools-favicon-32.png";
+favicon.href = `${basePath}assets/brand/working-tools-favicon-32.png`;
 document.head.append(favicon);
 
 const touchIcon = document.createElement("link");
 touchIcon.rel = "apple-touch-icon";
 touchIcon.sizes = "180x180";
-touchIcon.href = "/compass-suite/assets/brand/working-tools-icon-180.png";
+touchIcon.href = `${basePath}assets/brand/working-tools-icon-180.png`;
 document.head.append(touchIcon);
 
 let networkNav = document.querySelector("[data-network-nav]");
@@ -63,19 +63,22 @@ if (networkNav) {
   const links = networkNav.querySelector("[data-network-nav-links]");
   const currentPath = window.location.pathname
     .replace(/^\/shareables-redesign\//, "/shareables/")
+    .replace(/^\/compass-suite\//, "/")
     .replace(/\/+$/, "/");
+  const legacyPaths = new Set(["/critical-compass/", "/prompt-compass/", "/ux-heuristic-compass/", "/job-application-compass/", "/creative-writing-studio/", "/marketing-social-studio/", "/career-grants-studio/", "/ttrpg-gm-director/", "/ux-design-toolkit/", "/builder-tools/"]);
 
   networkNav.querySelectorAll("[data-network-path]").forEach((link) => {
     const path = link.dataset.networkPath;
-    const isLibrary = path === "/compass-suite/" && currentPath.startsWith("/compass-suite/");
-    const isCurrent = path !== "/compass-suite/" && currentPath.startsWith(path);
-    if (isLibrary || isCurrent) link.setAttribute("aria-current", "page");
+    const isLibrary = path === "/" && currentPath === "/";
+    const isCurrent = path !== "/" && currentPath.startsWith(path);
+    const isLegacy = path === "/legacy/" && legacyPaths.has(currentPath);
+    if (isLibrary || isCurrent || isLegacy) link.setAttribute("aria-current", "page");
     else link.removeAttribute("aria-current");
   });
 
   if (!networkNav.querySelector('[aria-current="page"]')) {
     networkNav
-      .querySelector('[data-network-path="/compass-suite/"]')
+      .querySelector('[data-network-path="/"]')
       ?.setAttribute("aria-current", "page");
   }
 

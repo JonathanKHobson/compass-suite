@@ -9,12 +9,7 @@ const JOB_LABELS = {
   table: "Run a game"
 };
 
-const COMPASS_JOBS = {
-  "critical-compass": ["research", "write"],
-  "prompt-compass": ["write", "build"],
-  "ux-heuristics-compass": ["design", "build"],
-  "job-application-compass": ["career", "write"]
-};
+const HIDDEN_PERSONAL_OR_PRIVATE_PACKAGES = new Set(["discord", "oppia-research-compass"]);
 
 function element(tag, className, text) {
   const node = document.createElement(tag);
@@ -23,22 +18,37 @@ function element(tag, className, text) {
   return node;
 }
 
-function normalizeCompass(product) {
-  const hasDownloads = product.downloads?.some((download) => download.availability === "available");
-  return {
-    id: product.id,
-    name: product.name,
-    kind: "Preserved Compass release",
-    access: hasDownloads ? "public-download" : "public-site",
-    jobs: COMPASS_JOBS[product.id] || [],
-    tagline: product.tagline,
-    description: product.description,
-    href: product.learn_more_url?.startsWith("http") ? product.learn_more_url : undefined,
-    action: product.learn_more_url?.startsWith("http") ? `Open ${product.name}` : undefined,
-    downloads: product.downloads || [],
-    maturity: product.maturity,
-    status: product.status
-  };
+const CATALOG_GROUPS = [
+  {
+    id: "studios",
+    title: "Studios",
+    description: "Focused creative and professional workflows that help you move from a real brief to work you can review."
+  },
+  {
+    id: "templates",
+    title: "Template Libraries",
+    description: "Find a strong starting point, adapt it to your project, and keep the editable source close."
+  },
+  {
+    id: "toolkits",
+    title: "Toolkits",
+    description: "Focused tools for clearer decisions, creative production, research, and everyday operations."
+  },
+  {
+    id: "workflows",
+    title: "Workflows",
+    description: "Reliable support for planning, operations, and getting the next step over the line."
+  },
+  {
+    id: "resources",
+    title: "Free Guides",
+    description: "Short, useful resources you can open and use right away."
+  }
+];
+
+function groupFor(item) {
+  if (item.kind === "Installable plugin") return item.family || "workflows";
+  return "resources";
 }
 
 function createSkillDetails(skills) {
@@ -77,32 +87,63 @@ function createDownloadDetails(downloads) {
   return details;
 }
 
+function createPackageDetails(item) {
+  const details = document.createElement("details");
+  const summary = element("summary", "", "Package details");
+  const list = document.createElement("ul");
+  list.className = "package-detail-list";
+  if (item.description) {
+    const row = document.createElement("li");
+    row.append(element("strong", "", "Package overview"), element("span", "", item.description));
+    list.append(row);
+  }
+  if (item.requirements?.length) {
+    const row = document.createElement("li");
+    row.append(element("strong", "", "What you need"), element("span", "", item.requirements.join("; ")));
+    list.append(row);
+  }
+  if (item.edition) {
+    const row = document.createElement("li");
+    row.append(element("strong", "", "Package scope"), element("span", "", item.edition));
+    list.append(row);
+  }
+  if (item.ownership_note) {
+    const row = document.createElement("li");
+    row.append(element("strong", "", "Included capability"), element("span", "", item.ownership_note));
+    list.append(row);
+  }
+  if (item.license) {
+    const row = document.createElement("li");
+    row.append(element("strong", "", "License"), element("span", "", item.license));
+    list.append(row);
+  }
+  details.append(summary, list);
+  return details;
+}
+
 function createRow(item, accessLabels) {
   const row = element("article", "library-row");
+  row.id = `product-${item.id}`;
   row.dataset.access = item.access;
 
   const meta = element("div", "library-meta");
-  meta.append(element("p", "library-kind", item.kind));
-  if (item.version) meta.append(element("p", "library-kind", `Version ${item.version}`));
-  const statusText = item.status ? `${item.status} · ${accessLabels[item.access]}` : accessLabels[item.access];
+  const statusText = item.kind === "Installable plugin" ? "Available now" : accessLabels[item.access];
   const status = element("span", "status-label", statusText);
   status.dataset.access = item.access;
   meta.append(status);
 
   const main = element("div", "library-main");
   main.append(element("h3", "", item.name));
-  if (item.tagline) main.append(element("p", "library-tagline", item.tagline));
-  main.append(element("p", "library-description", item.description));
-  if (item.requirements?.length) main.append(element("p", "library-description", `Needs: ${item.requirements.join("; ")}.`));
-  if (item.edition) main.append(element("p", "library-description", item.edition));
-
+  if (item.storefront_tagline || item.tagline) main.append(element("p", "library-tagline", item.storefront_tagline || item.tagline));
+  main.append(element("p", "library-description", item.storefront_description || item.description));
   const side = element("div", "library-side");
-  if (item.href && item.action) {
+  if ((item.release_url || item.href) && item.action) {
     const link = element("a", "button button-primary", item.action);
-    link.href = item.href;
+    link.href = item.release_url || item.href;
     side.append(link);
   }
 
+  if (item.description || item.requirements?.length || item.edition || item.license) side.append(createPackageDetails(item));
   if (item.skills?.length) side.append(createSkillDetails(item.skills));
   if (item.downloads?.length) {
     const downloadDetails = createDownloadDetails(item.downloads);
@@ -126,34 +167,43 @@ export async function startCatalog() {
   const state = { job: "all", query: "" };
 
   try {
-    const [libraryResponse, compassResponse, pluginResponse] = await Promise.all([
-      fetch("data/tool-library.json"),
-      fetch("suite-manifest.json"),
-      fetch("data/plugin-releases.json")
+    const [libraryResponse, pluginResponse] = await Promise.all([
+      fetch("data/tool-library.json?v=phase3-ux6"),
+      fetch("data/plugin-releases.json?v=phase3-ux6")
     ]);
-    if (!libraryResponse.ok || !compassResponse.ok || !pluginResponse.ok) throw new Error("Catalog source unavailable");
+    if (!libraryResponse.ok || !pluginResponse.ok) throw new Error("Catalog source unavailable");
     const library = await libraryResponse.json();
-    const compass = await compassResponse.json();
     const releases = await pluginResponse.json();
-    const plugins = releases.packages.map((p) => ({...p, kind: "Installable plugin", access: "public-download", href: `https://github.com/JonathanKHobson/working-tools-plugins/tree/main/plugins/${p.id}`, action: "Install & try", skills: p.skill_names, status: "Released"}));
-    const publicCompasses = compass.products
-      .filter((product) => product.downloads?.some((download) => download.availability === "available"))
-      .map(normalizeCompass);
-    const items = [...plugins, ...publicCompasses, ...library.items];
+    const plugins = releases.packages
+      .filter((p) => !HIDDEN_PERSONAL_OR_PRIVATE_PACKAGES.has(p.id))
+      .map((p) => ({...p, kind: "Installable plugin", access: "public-download", href: `https://github.com/JonathanKHobson/working-tools-plugins/tree/main/plugins/${p.id}`, action: "Get this plugin", skills: p.skill_names, status: "Released"}));
+    const currentResources = library.items.filter((item) => ["participatory-defense-field-guide", "understanding-ai-2026", "mcp-basics"].includes(item.id));
+    const items = [...plugins, ...currentResources];
 
     function render() {
       const query = state.query.trim().toLowerCase();
       const matches = items.filter((item) => {
         const jobMatch = state.job === "all" || item.jobs.includes(state.job);
-        const haystack = [item.name, item.kind, item.tagline, item.description, ...(item.skills || [])]
+        const haystack = [item.name, item.kind, item.tagline, item.description, item.ownership_note, ...(item.skills || []), item.family]
           .filter(Boolean)
           .join(" ")
           .toLowerCase();
         return jobMatch && (!query || haystack.includes(query));
       });
 
-      list.replaceChildren(...matches.map((item) => createRow(item, library.access_labels)));
-      status.textContent = `${matches.length} ${matches.length === 1 ? "tool" : "tools"} shown · ${JOB_LABELS[state.job]}`;
+      const sections = CATALOG_GROUPS.map((group) => {
+        const groupItems = matches.filter((item) => groupFor(item) === group.id);
+        if (!groupItems.length) return null;
+        const section = element("section", "library-group");
+        section.setAttribute("aria-labelledby", `library-group-${group.id}`);
+        const heading = element("h3", "library-group-title", group.title);
+        heading.id = `library-group-${group.id}`;
+        section.append(heading, element("p", "library-group-description", group.description));
+        section.append(...groupItems.map((item) => createRow(item, library.access_labels)));
+        return section;
+      }).filter(Boolean);
+      list.replaceChildren(...sections);
+      status.textContent = `${matches.length} ${matches.length === 1 ? "product" : "products"} shown · ${JOB_LABELS[state.job]}`;
       empty.hidden = matches.length !== 0;
     }
 

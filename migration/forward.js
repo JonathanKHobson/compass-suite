@@ -1,5 +1,30 @@
-/* Reversible GitHub Pages forwarding for published Working Tools HTML routes. */
+/* Preserve historical GitHub Pages paths while directing current-site legacy URLs to one archive doorway. */
 (function () {
+  const legacyRoutes = new Set([
+    'critical-compass',
+    'prompt-compass',
+    'ux-heuristic-compass',
+    'job-application-compass',
+    'creative-writing-studio',
+    'marketing-social-studio',
+    'career-grants-studio',
+    'ttrpg-gm-director',
+    'ux-design-toolkit',
+    'builder-tools',
+    'humanizer'
+  ]);
+
+  if (location.hostname === 'working-tools.jkylehobson.chatgpt.site') {
+    const route = location.pathname.split('/').filter(Boolean)[0];
+    if (legacyRoutes.has(route)) {
+      const destination = new URL('/legacy/', location.origin);
+      destination.search = location.search;
+      destination.hash = location.hash;
+      location.replace(destination.href);
+    }
+    return;
+  }
+
   if (location.hostname !== 'jonathankhobson.github.io') return;
   const parts = location.pathname.split('/');
   const repo = parts[1];

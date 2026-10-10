@@ -1,19 +1,21 @@
 {
   "schema_version": "working-tools.plugins.v1",
   "source_repository": "https://github.com/JonathanKHobson/working-tools-plugins.git",
-  "source_revision": "480863a1c64e8dc0fdb5cf87dbfb99ec2866906c",
+  "source_revision": "17ec898aa20cde4cae06291544863cb1752f5d76",
   "packages": [
     {
       "id": "stitch-design-studio",
-      "name": "Stitch Design Toolkit",
       "version": "0.1.2",
-      "description": "Manual Stitch workflows for design exploration, systems, components, prototypes, exports, and evidence recovery.",
+      "description": "Shape an idea into a clearer design system, flow, prototype, or handoff while keeping the decisions and source visible.",
       "requirements": [
         "Stitch account",
         "Host browser or computer-use tools"
       ],
       "edition": "Full original workflow; no provider implementation",
       "license": "AGPL-3.0-only AND CC-BY-SA-4.0; retained upstream licenses as scoped in LICENSE-SCOPE.json",
+      "name": "Stitch Design Toolkit",
+      "family": "toolkits",
+      "tagline": "Bring a promising idea into focus.",
       "skill_names": [
         "stitch-component-assets",
         "stitch-design-partner",
@@ -32,15 +34,17 @@
     },
     {
       "id": "davinci-resolve-toolkit",
-      "name": "DaVinci Resolve Toolkit",
       "version": "0.1.2",
-      "description": "Use DaVinci Resolve from Codex with verified app control, interchange, scripting and AI-assisted workflows.",
+      "description": "Use practical guidance for editing, sound, delivery, and quality checks in DaVinci Resolve.",
       "requirements": [
         "DaVinci Resolve",
         "Host computer-use tools or verified scripting route"
       ],
       "edition": "Complete method; personal setup records excluded",
       "license": "AGPL-3.0-only AND CC-BY-SA-4.0; retained upstream licenses as scoped in LICENSE-SCOPE.json",
+      "name": "DaVinci Resolve Toolkit",
+      "family": "toolkits",
+      "tagline": "Move from footage to a review-ready edit.",
       "skill_names": [
         "davinci-resolve-studio"
       ],
@@ -52,15 +56,17 @@
     },
     {
       "id": "artcraft-design-toolkit",
-      "name": "ArtCraft Design Toolkit",
       "version": "0.2.2",
-      "description": "On-demand CLI and MCP gateway for seven ArtCraft creative apps, with one focused skill.",
+      "description": "Connect your creative brief to image, video, and design work across ArtCraft apps.",
       "requirements": [
         "Python >=3.10",
         "ArtCraft CLI for provider operations"
       ],
       "edition": "Full original gateway and workflow; provider binaries excluded",
       "license": "AGPL-3.0-only AND CC-BY-SA-4.0; retained upstream licenses as scoped in LICENSE-SCOPE.json",
+      "name": "ArtCraft Design Toolkit",
+      "family": "toolkits",
+      "tagline": "Make creative assets with a repeatable workflow.",
       "skill_names": [
         "artcraft-apps"
       ],
@@ -72,15 +78,17 @@
     },
     {
       "id": "figma-design-workflow",
-      "name": "Figma Design Workflow",
       "version": "0.2.2",
-      "description": "Six complete methods for Figma operation, design-partner iteration, source references and visual QA.",
+      "description": "Work across Figma and FigJam with focused guidance for visual exploration, editable handoffs, and review.",
       "requirements": [
         "Figma account",
         "Host Figma connector or browser tools"
       ],
       "edition": "Complete method package; Figma service remains external",
       "license": "AGPL-3.0-only AND CC-BY-SA-4.0; retained upstream licenses as scoped in LICENSE-SCOPE.json",
+      "name": "Figma Design Toolkit",
+      "family": "toolkits",
+      "tagline": "Make design iterations easier to inspect and share.",
       "skill_names": [
         "design-reference-prep",
         "design-visual-qa",
@@ -97,9 +105,8 @@
     },
     {
       "id": "video-production-workflow",
-      "name": "Video Production Workflow",
       "version": "0.4.2",
-      "description": "Nineteen video methods with a Python renderer, timeline interchange, Loom walkthroughs and review packets.",
+      "description": "Plan, design, edit, mix, render, and review video with one connected production workflow.",
       "requirements": [
         "Python >=3.10",
         "FFmpeg with drawtext",
@@ -108,6 +115,9 @@
       ],
       "edition": "Complete standalone runtime and methods; separate Video Templates MCP is optional",
       "license": "AGPL-3.0-only AND CC-BY-SA-4.0; retained upstream licenses as scoped in LICENSE-SCOPE.json",
+      "name": "Video Production Studio",
+      "family": "studios",
+      "tagline": "Take a video idea from plan to polished delivery.",
       "skill_names": [
         "analyze-music-pacing",
         "analyze-video-content",
@@ -137,14 +147,16 @@
     },
     {
       "id": "instructional-design-studio",
-      "name": "Instructional Design Studio",
       "version": "0.2.1",
-      "description": "Twelve complete methods for learning experiences, lesson alignment, practice and assessment.",
+      "description": "Connect objectives, practice, feedback, and assessment so each lesson has a clear purpose.",
       "requirements": [
         "Host file and reasoning tools"
       ],
       "edition": "Complete methods with 31 original assessment adaptations; restricted source summaries and private links excluded",
       "license": "AGPL-3.0-only AND CC-BY-SA-4.0; retained upstream licenses as scoped in LICENSE-SCOPE.json",
+      "name": "Instructional Design Studio",
+      "family": "studios",
+      "tagline": "Turn learning goals into experiences people can use.",
       "skill_names": [
         "accessible-learning-design",
         "ai-literacy-education",
@@ -167,14 +179,16 @@
     },
     {
       "id": "workshop-facilitator",
-      "name": "Workshop Facilitator",
       "version": "0.1.2",
-      "description": "Eight complete workshop design, activity selection, live facilitation, rehearsal, dialogue, decisions, debrief and evidence-synthesis skills. Private Atlas bindings, archive text/scans and private history locators are excluded; adapted source methods retain attribution and share-alike.",
+      "description": "Design and lead inclusive workshops that turn discussion into useful decisions, practice, and follow-through.",
       "requirements": [
         "Host file and reasoning tools"
       ],
       "edition": "Complete original methods with current attributed Liberating Structures adaptations",
       "license": "AGPL-3.0-only AND CC-BY-SA-4.0; retained upstream licenses as scoped in LICENSE-SCOPE.json",
+      "name": "Workshop Facilitation Toolkit",
+      "family": "toolkits",
+      "tagline": "Help a group make progress together.",
       "skill_names": [
         "facilitator-rehearsal",
         "inclusive-group-dialogue",
@@ -193,15 +207,17 @@
     },
     {
       "id": "game-creation-studio",
-      "name": "Game Creation Studio",
       "version": "0.3.1",
-      "description": "Twenty-five methods for game design, prototypes, playtesting and tabletop facilitation with live-session helpers.",
+      "description": "Shape core loops, prototypes, playtests, and tabletop sessions around clear feedback and meaningful decisions.",
       "requirements": [
         "Host file and reasoning tools",
         "Your selected game engine for builds"
       ],
       "edition": "Complete original workflow and retained MIT methods; external game-engine tools separate",
       "license": "AGPL-3.0-only AND CC-BY-SA-4.0; retained upstream licenses as scoped in LICENSE-SCOPE.json",
+      "name": "Game Creation Studio",
+      "family": "studios",
+      "tagline": "Build games around choices players can feel.",
       "skill_names": [
         "board-game-design",
         "daggerheart-adapter",
@@ -237,15 +253,17 @@
     },
     {
       "id": "solo-service-operations",
-      "name": "Solo Service Operations",
       "version": "0.3.1",
-      "description": "Eight methods for invoices, cash, paid-service coordination and Gmail review with an offline receipt gate.",
+      "description": "Organize client work, invoices, cash flow, and follow-up so you can spend more attention on the service itself.",
       "requirements": [
         "Python 3.9+ for reconciliation; POSIX file locking for optional Gmail gate",
         "Your own source records and explicitly authorized communication providers"
       ],
       "edition": "Complete methods and synthetic fixtures; no client records or account connectors",
       "license": "AGPL-3.0-only AND CC-BY-SA-4.0; retained upstream licenses as scoped in LICENSE-SCOPE.json",
+      "name": "Solo Service Operations Studio",
+      "family": "studios",
+      "tagline": "Keep the business side of your service work in view.",
       "skill_names": [
         "cash-flow-planning",
         "gmail-send-review",
@@ -264,15 +282,17 @@
     },
     {
       "id": "build-mcp-apps",
-      "name": "Build MCP Apps",
       "version": "1.0.4",
-      "description": "Build or improve interactive MCP apps and their servers, from a clear user task through protocol and host verification. Complete public edition: 2 retained skill heads; no restricted source methods omitted.",
+      "description": "Move from a clear user task to a working interface, server, and tested handoff.",
       "requirements": [
         "Host coding tools",
         "Runtime named by the selected workflow"
       ],
       "edition": "Complete methods and Apache source; no provider-hosted service",
       "license": "AGPL-3.0-only AND CC-BY-SA-4.0; retained upstream licenses as scoped in LICENSE-SCOPE.json",
+      "name": "Build MCP Apps",
+      "family": "workflows",
+      "tagline": "Turn an interaction idea into a useful MCP app.",
       "skill_names": [
         "build-mcp-apps",
         "use-alpic"
@@ -284,15 +304,17 @@
     },
     {
       "id": "development-studio",
-      "name": "Development Studio",
       "version": "0.2.2",
-      "description": "Twenty-one software workflows with complete native, Go, GitHub, local pipeline, MCP and debugging procedures.",
+      "description": "Plan, build, debug, review, and ship with focused workflows that make the next step easier to see.",
       "requirements": [
         "Host coding tools",
         "Runtime named by the selected workflow"
       ],
       "edition": "Complete source methods, query/scaffolding helpers and synthetic fixtures; authorized Go corpus and platform providers supplied separately",
       "license": "AGPL-3.0-only AND CC-BY-SA-4.0; retained upstream licenses as scoped in LICENSE-SCOPE.json",
+      "name": "Development Studio",
+      "family": "studios",
+      "tagline": "Move software work forward with clearer decisions.",
       "skill_names": [
         "build-mcp-apps",
         "build-native-software",
@@ -323,9 +345,8 @@
     },
     {
       "id": "video-templates",
-      "name": "Video Templates",
       "version": "0.1.2",
-      "description": "Seven pinned animation methods, public example metadata and complete revisioned local storyboarding.",
+      "description": "Explore reusable motion and story treatments, then adapt one into a production-ready direction.",
       "requirements": [
         "Python 3.12 recommended",
         "MCP and Pillow dependencies",
@@ -333,6 +354,9 @@
       ],
       "edition": "Complete runtime, 30-family/38-example metadata catalog and seven MIT methods; external media and creative reference bundles excluded",
       "license": "AGPL-3.0-only AND CC-BY-SA-4.0; retained upstream licenses as scoped in LICENSE-SCOPE.json",
+      "name": "Video Templates",
+      "family": "templates",
+      "tagline": "Give the next video a stronger visual starting point.",
       "skill_names": [
         "video-templates"
       ],
@@ -344,15 +368,17 @@
     },
     {
       "id": "data-visualization-toolkit",
-      "name": "Data Visualization Toolkit",
       "version": "0.2.4",
-      "description": "Choose, build, critique, and verify truthful data visualizations with complete web visualization methods across charts, maps, diagrams, dashboards, stories, and exports.",
+      "description": "Choose, build, and review visualizations that communicate evidence without hiding scale or uncertainty.",
       "requirements": [
         "Python 3.12 and declared MCP dependencies",
         "MCP Apps supporting host for the widget"
       ],
       "edition": "Complete original workflows, runtime and MIT/Apache methods; proprietary Visualize and unlicensed Scientific source libraries excluded",
       "license": "AGPL-3.0-only AND CC-BY-SA-4.0; retained upstream licenses as scoped in LICENSE-SCOPE.json",
+      "name": "Data Visualization Toolkit",
+      "family": "toolkits",
+      "tagline": "Make the data easier to understand and act on.",
       "skill_names": [
         "data-visualization",
         "dense-and-gpu-rendering",
@@ -377,15 +403,17 @@
     },
     {
       "id": "activities-templates",
-      "name": "Activities Templates",
       "version": "0.1.2",
-      "description": "Reusable activity and method catalog, scoped retrieval and chooser runtime. Source notes and private data stay externally bound.",
+      "description": "Explore reusable activities and adapt them to your participants, time, and intended outcome.",
       "requirements": [
         "Python 3.12 and declared MCP dependencies",
         "Your own authorized activity catalog"
       ],
       "edition": "Complete runtime and synthetic example; private activity corpus excluded",
       "license": "AGPL-3.0-only AND CC-BY-SA-4.0; retained upstream licenses as scoped in LICENSE-SCOPE.json",
+      "name": "Activities Templates",
+      "family": "templates",
+      "tagline": "Find an activity that fits the room and the goal.",
       "skill_names": [
         "activity-library"
       ],
@@ -397,15 +425,17 @@
     },
     {
       "id": "design-templates",
-      "name": "Design Templates",
       "version": "0.1.2",
-      "description": "Reusable visual templates with source-bound design handoffs, token checks and small adaptation recipes.",
+      "description": "Choose reusable design templates and carry the source, tokens, and handoff details into your own project.",
       "requirements": [
         "Python 3.12 and declared MCP dependencies",
         "Your own authorized template collection"
       ],
       "edition": "Complete runtime, source chooser and token checks; private template collection excluded",
       "license": "AGPL-3.0-only AND CC-BY-SA-4.0; retained upstream licenses as scoped in LICENSE-SCOPE.json",
+      "name": "Design Templates",
+      "family": "templates",
+      "tagline": "Start with a visual structure worth adapting.",
       "skill_names": [
         "design-templates"
       ],
@@ -417,15 +447,18 @@
     },
     {
       "id": "reasoning-studio",
-      "name": "Reasoning Studio",
       "version": "0.2.1",
-      "description": "Four methods for testing claims, reasoning, assumptions and framework selection from authorized sources.",
+      "description": "Clarify a claim, compare explanations, and choose a useful next step with evidence in view.",
       "requirements": [
         "Host reasoning tools",
         "Explicit binding file for optional helper"
       ],
       "edition": "Complete reasoning and framework-selection methods; recipient corpus binding plus eight original synthetic framework examples",
       "license": "AGPL-3.0-only AND CC-BY-SA-4.0; retained upstream licenses as scoped in LICENSE-SCOPE.json",
+      "name": "Reasoning Toolkit",
+      "family": "toolkits",
+      "tagline": "Test the assumption before you commit to the answer.",
+      "ownership_note": "Critical Compass is the critical reasoning and research-audit capability inside Reasoning Toolkit.",
       "skill_names": [
         "alternative-perspectives",
         "critical-reasoning",
@@ -440,15 +473,17 @@
     },
     {
       "id": "survey-studio",
-      "name": "Survey Studio",
       "version": "0.1.3",
-      "description": "Focused survey strategy, question design, sampling, logic, accessibility/privacy, pilot QA, exports and analysis/codebooks. 8 retained skill heads. One restricted supplied QuestionTypes.txt archive excluded; all original procedure/helper content retained.",
+      "description": "Shape a survey around a clear research question, an appropriate audience, and accessible participation.",
       "requirements": [
         "Host file tools",
         "Python for validation and export helpers"
       ],
       "edition": "Complete original methods and helpers; restricted supplied question-type archive excluded",
       "license": "AGPL-3.0-only AND CC-BY-SA-4.0; retained upstream licenses as scoped in LICENSE-SCOPE.json",
+      "name": "Survey Toolkit",
+      "family": "toolkits",
+      "tagline": "Ask better questions and get more useful answers.",
       "skill_names": [
         "survey-accessibility-and-privacy",
         "survey-analysis-codebooks",
@@ -466,38 +501,18 @@
       "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/survey-studio/v0.1.3"
     },
     {
-      "id": "discord",
-      "name": "Discord",
-      "version": "0.2.1",
-      "description": "Three complete workflows for scoped Discord use, account boundaries and recipient-configured bot MCP setup.",
-      "requirements": [
-        "Authorized Discord access",
-        "Your selected Discord provider or host browser tools"
-      ],
-      "edition": "Complete original workflows and optional launcher; server, credentials and private index are external",
-      "license": "AGPL-3.0-only AND CC-BY-SA-4.0; retained upstream licenses as scoped in LICENSE-SCOPE.json",
-      "skill_names": [
-        "discord-bot-mcp-setup",
-        "discord-computer-use",
-        "discord"
-      ],
-      "jobs": [
-        "write",
-        "research"
-      ],
-      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/discord/v0.2.1"
-    },
-    {
       "id": "mac-ops-toolkit",
-      "name": "Mac Operations Toolkit",
       "version": "0.3.2",
-      "description": "Ten Mac workflows for recovery, verified copies, storage catalogs and memory diagnosis.",
+      "description": "Diagnose common app and file issues with practical checks that protect the work already on your Mac.",
       "requirements": [
         "macOS",
         "Host terminal or computer-use tools"
       ],
       "edition": "Complete original methods and shell helpers; receiving-host storage roles require configuration",
       "license": "AGPL-3.0-only AND CC-BY-SA-4.0; retained upstream licenses as scoped in LICENSE-SCOPE.json",
+      "name": "Mac Operations Toolkit",
+      "family": "toolkits",
+      "tagline": "Make Mac workflows safer and easier to recover.",
       "skill_names": [
         "app-window-recovery",
         "application-installation",
@@ -517,15 +532,17 @@
     },
     {
       "id": "work-management",
-      "name": "Work Management",
       "version": "0.3.1",
-      "description": "Fourteen methods for project structure, delivery, plugin maintenance, GitHub, vaults and cross-host exchange.",
+      "description": "Clarify ownership, sequence, and handoffs so your project can move without losing the thread.",
       "requirements": [
         "Host file and coding tools",
         "Explicit receiving-host bindings for optional helpers"
       ],
       "edition": "Complete methods, helpers and opt-in hooks; personal profile, goals and logs replaced by recipient templates",
       "license": "AGPL-3.0-only AND CC-BY-SA-4.0; retained upstream licenses as scoped in LICENSE-SCOPE.json",
+      "name": "Work Management Studio",
+      "family": "studios",
+      "tagline": "Turn a complicated project into a workable next step.",
       "skill_names": [
         "cross-codex-workflow-exchange",
         "evidence-review",
@@ -550,39 +567,9 @@
       "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/work-management/v0.3.1"
     },
     {
-      "id": "oppia-research-compass",
-      "name": "Oppia Research Compass",
-      "version": "0.4.3",
-      "description": "10 complete Oppia research methods and full read-only 10-tool runtime. Private team evidence DB and project handles excluded; schema-compatible zero-row corpus supplied.",
-      "requirements": [
-        "Python and declared MCP dependencies for optional server",
-        "Your own authorized research corpus"
-      ],
-      "edition": "Complete methods and AGPL runtime with empty schema-only database; private team research excluded",
-      "license": "AGPL-3.0-only AND CC-BY-SA-4.0; retained upstream licenses as scoped in LICENSE-SCOPE.json",
-      "skill_names": [
-        "oppia-competitive-analysis",
-        "oppia-cuj-research",
-        "oppia-heuristic-evaluation",
-        "oppia-interview-study-design",
-        "oppia-netnography",
-        "oppia-persona-research",
-        "oppia-research-compass",
-        "oppia-research-orchestrator",
-        "oppia-research-question-design",
-        "oppia-usability-testing"
-      ],
-      "jobs": [
-        "research",
-        "teach"
-      ],
-      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/oppia-research-compass/v0.4.3"
-    },
-    {
       "id": "graphic-design-studio",
-      "name": "Graphic Design Studio",
       "version": "0.3.1",
-      "description": "Twelve design methods with production helpers, a four-tool MCP runtime, presentations, plotting and pet workflows.",
+      "description": "Develop graphics, layouts, and delivery files with a strong visual hierarchy and purposeful review.",
       "requirements": [
         "Python 3.12 and declared dependencies for local runtime",
         "Design Templates for optional chooser",
@@ -590,6 +577,9 @@
       ],
       "edition": "Complete design methods and original production runtime; retained Apache pet workflow; optional providers remain external",
       "license": "AGPL-3.0-only AND CC-BY-SA-4.0; retained upstream licenses as scoped in LICENSE-SCOPE.json",
+      "name": "Graphic Design Studio",
+      "family": "studios",
+      "tagline": "Turn an idea into clear, production-ready visual work.",
       "skill_names": [
         "campaign-format-adaptation",
         "composition-and-typography",
@@ -612,15 +602,17 @@
     },
     {
       "id": "brand-templates",
-      "name": "Brand Templates",
       "version": "0.1.3",
-      "description": "Complete brand-kit chooser and verified source-closure handoffs for explicitly supplied external collections.",
+      "description": "Explore original fictional brand kits and adapt a coherent identity for your next concept.",
       "requirements": [
         "Python 3.12 and declared MCP dependencies",
         "MCP Apps supporting host for the chooser"
       ],
       "edition": "Full audited 104-kit collection and runtime; separate Fresh Curiosity A2 assets excluded",
       "license": "AGPL-3.0-only AND CC-BY-SA-4.0; retained upstream licenses as scoped in LICENSE-SCOPE.json",
+      "name": "Brand Templates",
+      "family": "templates",
+      "tagline": "Give a new project a distinct visual starting point.",
       "skill_names": [
         "brand-templates"
       ],
@@ -632,15 +624,17 @@
     },
     {
       "id": "writing-templates",
-      "name": "Writing Templates",
       "version": "0.1.2",
-      "description": "Complete writing chooser, routed source-verified handoffs and offline draft QA for explicitly supplied external collections.",
+      "description": "Browse reusable writing frameworks and adapt one to your audience, purpose, and evidence.",
       "requirements": [
         "Python 3.12 and declared MCP dependencies",
         "Your own authorized writing-source catalog"
       ],
       "edition": "Complete runtime and source integrity checks; private and uncleared real-voice corpus excluded",
       "license": "AGPL-3.0-only AND CC-BY-SA-4.0; retained upstream licenses as scoped in LICENSE-SCOPE.json",
+      "name": "Writing Templates",
+      "family": "templates",
+      "tagline": "Find the right structure for the piece you need to write.",
       "skill_names": [
         "writing-templates"
       ],

@@ -1,79 +1,44 @@
-# Working Tools site copy
-
-## Brand voice
-
-- Direct, particular, and calm.
-- Sounds like a builder who uses these tools and knows their limits.
-- Does not sound like a software catalog, an AI evangelist, or a sales funnel.
-- Uses “I” when ownership matters and plain nouns when the tool can speak for
-  itself.
+# Working Tools storefront copy
 
 ## Hero
 
-**Working Tools by J. Kyle Hobson**
+### Use the tool that fits the work.
 
-# Use the tool that fits the work.
+Working Tools is a practical collection of AI plugins for writing, research,
+design, building, teaching, and creative production. Pick a workflow, try it on
+real work, and keep the result in your hands.
 
-This is a public library for writing, research, design, building, career work,
-teaching, and games with AI. Every item opens to a resource another person can
-read, install, or download.
-
-- Primary action: Find a tool
-- Secondary action: Open Humanizer
+- Primary action: Find your workflow
+- Secondary action: Explore the collection
+- Legacy action: Browse legacy resources
 
 ## Task index
 
 ### Start with what you are doing
 
-You do not need the whole system. Pick the work in front of you.
+You do not need the whole system. Pick the work in front of you and browse a
+focused group of studios, template libraries, toolkits, and workflows.
 
-- Write and revise
-- Research and verify
-- Design and review
-- Build and ship
-- Career and grants
-- Run a game
+## Featured section
 
-## Featured collection
+### A clear next step, with room for your judgment
 
-### Writing that keeps its fingerprints
-
-Humanizer checks a draft for vague claims, borrowed confidence, citation
-problems, and voice drift. It keeps the useful irregularities and asks for
-evidence where the draft has not earned certainty.
-
-- Primary action: Open Humanizer
-- Secondary action: Download the collection
+Choose a focused plugin for the task at hand. Each one brings practical
+workflows, helpful examples, and review points that keep you in control of the
+result.
 
 ## Library
 
-### The working library
+### Find the workflow that moves your work forward
 
-Search by task or narrow the list. Every result opens a public page, guide,
-example, or download that a visitor can actually use.
+Browse released plugins by product family or search for the job you need to do.
+Package requirements, versions, licenses, and installation details are available
+inside each product disclosure and on its GitHub package page.
 
-Empty result: No tools match those filters. Clear a filter or try a different
-word.
+## Legacy library
 
-Load failure: The full library did not load. The featured tools and public
-links above still work.
-
-## Trust boundary
-
-### Every listing has somewhere useful to go
-
-This is a public resource shelf, not an inventory of private setup. Downloads,
-field guides, and collection pages appear only when the visitor has a real
-public action. Private systems, account-bound connectors, unfinished previews,
-and tools without a public resource stay out.
-
-## Install
-
-### Install the format your host expects
-
-Use the product or collection page as the authority for current files and
-checksums. The screenshots below document tested Claude paths. Codex collections
-install from extracted skill folders; they are not one-click extensions.
+Earlier product pages and release files remain available from one clearly
+labeled legacy library. The current storefront leads with maintained plugins.
 
 ## About
 
@@ -86,12 +51,3 @@ finished.
 
 The library will change. The rule stays the same: one tool should have one
 bounded job, a visible limit, and a result a person can inspect.
-
-
-## Versioned plugin release entry
-
-The current installable packages live in Working Tools Plugins on GitHub. The catalog imports `data/plugin-releases.json`, generated from a pinned release-registry commit. Requirements, edition limits, native installation instructions and package licenses accompany each entry. The install entry links six starting workflows with inputs, expected results and provider boundaries. Claude Code uses the explicit HTTPS marketplace URL to avoid an unnecessary SSH-key prerequisite. Existing Compass resources and original downloads remain available.
-
-## Licensing for current plugins and the glossary
-
-Jonathan Kyle Hobson owns the original code and content in the current Working Tools plugins and AI Glossary Library. These editions follow the Compass Suite model: AGPL-3.0-only for original software, CC BY-SA 4.0 for original documentation, methods, templates and glossary compilation, and reserved official branding. Bundled third-party material keeps its existing terms. Earlier release grants remain valid. Use each package's LICENSE, NOTICE and file-level scope to determine the applicable terms.

@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "description": "Storefront copy and merchandising groups for publicly released Working Tools packages. Technical requirements remain in GitHub package documentation.",
+  "products": {
+    "stitch-design-studio": {
+      "family": "toolkits",
+      "tagline": "Bring a promising idea into focus.",
+      "description": "Shape an idea into a clearer design system, flow, prototype, or handoff while keeping the decisions and source visible."
+    },
+    "davinci-resolve-toolkit": {
+      "family": "toolkits",
+      "tagline": "Move from footage to a review-ready edit.",
+      "description": "Use practical guidance for editing, sound, delivery, and quality checks in DaVinci Resolve."
+    },
+    "artcraft-design-toolkit": {
+      "family": "toolkits",
+      "tagline": "Make creative assets with a repeatable workflow.",
+      "description": "Connect your creative brief to image, video, and design work across ArtCraft apps."
+    },
+    "figma-design-workflow": {
+      "family": "toolkits",
+      "tagline": "Make design iterations easier to inspect and share.",
+      "description": "Work across Figma and FigJam with focused guidance for visual exploration, editable handoffs, and review."
+    },
+    "video-production-workflow": {
+      "family": "studios",
+      "tagline": "Take a video idea from plan to polished delivery.",
+      "description": "Plan, design, edit, mix, render, and review video with one connected production workflow."
+    },
+    "instructional-design-studio": {
+      "family": "studios",
+      "tagline": "Turn learning goals into experiences people can use.",
+      "description": "Connect objectives, practice, feedback, and assessment so each lesson has a clear purpose."
+    },
+    "workshop-facilitator": {
+      "family": "toolkits",
+      "tagline": "Help a group make progress together.",
+      "description": "Design and lead inclusive workshops that turn discussion into useful decisions, practice, and follow-through."
+    },
+    "game-creation-studio": {
+      "family": "studios",
+      "tagline": "Build games around choices players can feel.",
+      "description": "Shape core loops, prototypes, playtests, and tabletop sessions around clear feedback and meaningful decisions."
+    },
+    "solo-service-operations": {
+      "family": "studios",
+      "tagline": "Keep the business side of your service work in view.",
+      "description": "Organize client work, invoices, cash flow, and follow-up so you can spend more attention on the service itself."
+    },
+    "build-mcp-apps": {
+      "family": "workflows",
+      "tagline": "Turn an interaction idea into a useful MCP app.",
+      "description": "Move from a clear user task to a working interface, server, and tested handoff."
+    },
+    "development-studio": {
+      "family": "studios",
+      "tagline": "Move software work forward with clearer decisions.",
+      "description": "Plan, build, debug, review, and ship with focused workflows that make the next step easier to see."
+    },
+    "video-templates": {
+      "family": "templates",
+      "tagline": "Give the next video a stronger visual starting point.",
+      "description": "Explore reusable motion and story treatments, then adapt one into a production-ready direction."
+    },
+    "data-visualization-toolkit": {
+      "family": "toolkits",
+      "tagline": "Make the data easier to understand and act on.",
+      "description": "Choose, build, and review visualizations that communicate evidence without hiding scale or uncertainty."
+    },
+    "activities-templates": {
+      "family": "templates",
+      "tagline": "Find an activity that fits the room and the goal.",
+      "description": "Explore reusable activities and adapt them to your participants, time, and intended outcome."
+    },
+    "design-templates": {
+      "family": "templates",
+      "tagline": "Start with a visual structure worth adapting.",
+      "description": "Choose reusable design templates and carry the source, tokens, and handoff details into your own project."
+    },
+    "reasoning-studio": {
+      "name": "Reasoning Toolkit",
+      "family": "toolkits",
+      "tagline": "Test the assumption before you commit to the answer.",
+      "description": "Clarify a claim, compare explanations, and choose a useful next step with evidence in view.",
+      "ownership_note": "Critical Compass is the critical reasoning and research-audit capability inside Reasoning Toolkit."
+    },
+    "survey-studio": {
+      "family": "toolkits",
+      "tagline": "Ask better questions and get more useful answers.",
+      "description": "Shape a survey around a clear research question, an appropriate audience, and accessible participation."
+    },
+    "mac-ops-toolkit": {
+      "family": "toolkits",
+      "tagline": "Make Mac workflows safer and easier to recover.",
+      "description": "Diagnose common app and file issues with practical checks that protect the work already on your Mac."
+    },
+    "work-management": {
+      "family": "studios",
+      "tagline": "Turn a complicated project into a workable next step.",
+      "description": "Clarify ownership, sequence, and handoffs so your project can move without losing the thread."
+    },
+    "graphic-design-studio": {
+      "family": "studios",
+      "tagline": "Turn an idea into clear, production-ready visual work.",
+      "description": "Develop graphics, layouts, and delivery files with a strong visual hierarchy and purposeful review."
+    },
+    "brand-templates": {
+      "family": "templates",
+      "tagline": "Give a new project a distinct visual starting point.",
+      "description": "Explore original fictional brand kits and adapt a coherent identity for your next concept."
+    },
+    "writing-templates": {
+      "family": "templates",
+      "tagline": "Find the right structure for the piece you need to write.",
+      "description": "Browse reusable writing frameworks and adapt one to your audience, purpose, and evidence."
+    }
+  },
+  "excluded_ids": [
+    "discord",
+    "oppia-research-compass"
+  ]
+}
