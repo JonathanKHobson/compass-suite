@@ -2,6 +2,16 @@
   "schema_version": 1,
   "description": "Storefront copy and merchandising groups for publicly released Working Tools packages. Technical requirements remain in GitHub package documentation.",
   "products": {
+    "social-content-studio": {
+      "family": "studios",
+      "tagline": "Turn useful work into posts worth sharing.",
+      "description": "Shape posts, carousels, and short-video scripts around your voice, then plan and review them for the channels you use."
+    },
+    "creative-writing-studio": {
+      "family": "toolkits",
+      "tagline": "Give your next story somewhere to go.",
+      "description": "Develop characters, strengthen scenes, and turn scattered story or campaign notes into material you can write, revise, or play."
+    },
     "stitch-design-studio": {
       "family": "toolkits",
       "tagline": "Bring a promising idea into focus.",

@@ -20,7 +20,9 @@ for r in data['packages']:
  display_name=manifest.get('interface',{}).get('displayName',r['name'])
  item={k:r[k] for k in ['id','version','description','requirements','edition','license']}
  item['name']=display_name
- item.update(merch['products'][r['id']],skill_names=skills,jobs=r.get('jobs',['build']),release_url='https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/'+r['id']+'/v'+r['version'])
+ job_aliases={'market':'write','play':'table'}
+ jobs=list(dict.fromkeys(job_aliases.get(job,job) for job in r.get('jobs',['build'])))
+ item.update(merch['products'][r['id']],skill_names=skills,jobs=jobs,release_url='https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/'+r['id']+'/v'+r['version'])
  items.append(item)
 output={'schema_version':'working-tools.plugins.v1','source_repository':remote,'source_revision':sha,'packages':items}
 site_root.joinpath('data/plugin-releases.json').write_text(json.dumps(output,indent=2)+'\n')

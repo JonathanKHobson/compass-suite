@@ -1,7 +1,7 @@
 {
   "schema_version": "working-tools.plugins.v1",
   "source_repository": "https://github.com/JonathanKHobson/working-tools-plugins.git",
-  "source_revision": "17ec898aa20cde4cae06291544863cb1752f5d76",
+  "source_revision": "a0dc987181cbe8b22bf412f0e6e69ed6a49cf665",
   "packages": [
     {
       "id": "stitch-design-studio",
@@ -643,6 +643,66 @@
         "teach"
       ],
       "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/writing-templates/v0.1.2"
+    },
+    {
+      "id": "social-content-studio",
+      "version": "0.2.0",
+      "description": "Shape posts, carousels, and short-video scripts around your voice, then plan and review them for the channels you use.",
+      "requirements": [
+        "Your source facts, voice samples and platform authorization",
+        "Optional AIHumanizer social prose: aihumanizer@openai-curated-remote",
+        "Social Post Previewer app for rendered previews"
+      ],
+      "edition": "Full canonical methods and resources; optional AIHumanizer method supplied through its separately installed provider",
+      "license": "AGPL-3.0-only AND CC-BY-SA-4.0; retained upstream licenses as scoped in LICENSE-SCOPE.json",
+      "name": "Social Content Studio",
+      "family": "studios",
+      "tagline": "Turn useful work into posts worth sharing.",
+      "skill_names": [
+        "channel-adaptation",
+        "content-calendar",
+        "professional-social-proof",
+        "short-form-video",
+        "social-content",
+        "social-editorial-review",
+        "social-preview",
+        "social-publishing"
+      ],
+      "jobs": [
+        "write"
+      ],
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/social-content-studio/v0.2.0"
+    },
+    {
+      "id": "creative-writing-studio",
+      "version": "0.3.0",
+      "description": "Develop characters, strengthen scenes, and turn scattered story or campaign notes into material you can write, revise, or play.",
+      "requirements": [
+        "Your draft, canon notes or game material",
+        "Optional AIHumanizer creative prose: aihumanizer@openai-curated-remote",
+        "Python >=3.10 and recipient-configured backends for optional Atlas, TTRPG and Draw Think integrations"
+      ],
+      "edition": "Full canonical methods and launchers; optional provider skills and recipient-owned runtimes are separate dependencies",
+      "license": "AGPL-3.0-only AND CC-BY-SA-4.0; retained upstream licenses as scoped in LICENSE-SCOPE.json",
+      "name": "Creative Toolkit",
+      "family": "toolkits",
+      "tagline": "Give your next story somewhere to go.",
+      "skill_names": [
+        "creative-project-context",
+        "creative-project-router",
+        "horror-story-crafter",
+        "originality-rights-and-provenance",
+        "publishing-router",
+        "show-vs-tell-craft",
+        "story-architecture",
+        "story-atlas-prep",
+        "story-book-router"
+      ],
+      "jobs": [
+        "write",
+        "table"
+      ],
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/creative-writing-studio/v0.3.0"
     }
   ]
 }

@@ -379,8 +379,9 @@ def validate_plugin_projection(projection: dict) -> None:
         fail("plugin projection needs an immutable source commit")
     packages = projection.get("packages", [])
     identities = [item.get("id") for item in packages]
-    if len(packages) != 22 or len(identities) != len(set(identities)):
-        fail(f"expected 22 eligible storefront plugins, found {len(packages)} or duplicate identities")
+    expected_ids = set(load_json("data/storefront-copy.json")["products"])
+    if set(identities) != expected_ids or len(identities) != len(set(identities)):
+        fail("released projection and storefront product identities differ or contain duplicates")
     if {"discord", "oppia-research-compass"} & set(identities):
         fail("personal Discord or Oppia corpus cannot appear in the storefront projection")
     for item in packages:
