@@ -3,7 +3,7 @@
   "sources": {
     "compass-suite": {
       "checkout": ".",
-      "sha": "a895e49044b088ce5d6931e88d4bf48a0ac63304"
+      "sha": "47264fe8e42a08ce836003b20a28bb3cda8db7d4"
     },
     "critical-compass": {
       "checkout": "../sources/critical-compass",
