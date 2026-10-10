@@ -66,6 +66,7 @@ REQUIRED_FILES = [
     Path("assets/js/catalog.js"),
     Path("content/site-copy.md"),
     Path("data/tool-library.json"),
+    Path("data/plugin-releases.json"),
     Path("suite-manifest.json"),
     Path("docs/project-map.md"),
     Path("docs/design-direction.md"),
@@ -365,6 +366,28 @@ def check_url(url: str) -> None:
         fail(f"URL check failed for {url}: {exc}")
 
 
+def validate_plugin_projection(projection: dict) -> None:
+    expected = "https://github.com/JonathanKHobson/working-tools-plugins"
+    if projection.get("schema_version") != "working-tools.plugins.v1" or projection.get("source_repository", "").removesuffix(".git") != expected:
+        fail("plugin projection must identify the public release registry")
+    if not re.fullmatch(r"[a-f0-9]{40}", projection.get("source_revision", "")):
+        fail("plugin projection needs an immutable source commit")
+    packages = projection.get("packages", [])
+    identities = [item.get("id") for item in packages]
+    if not packages or len(identities) != len(set(identities)):
+        fail("plugin projection is empty or has duplicate identities")
+    for item in packages:
+        for field in ["name", "version", "description", "requirements", "edition", "license", "skill_names"]:
+            if not item.get(field):
+                fail(f"plugin {item['id']} lacks {field}")
+        if not set(item.get("jobs", [])).issubset(ALLOWED_JOBS) or not item.get("jobs"):
+            fail(f"plugin {item['id']} has invalid jobs")
+        if item.get("release_url") != f"{expected}/releases/tag/{item['id']}/v{item['version']}":
+            fail(f"plugin {item['id']} lacks the versioned release destination")
+        if re.search(r"/(?:Users|Volumes)/", json.dumps(item)):
+            fail(f"plugin {item['id']} contains a private path")
+
+
 def validate_links(manifest: dict, library: dict) -> None:
     urls: set[str] = {
         "https://humanizer-writing-tools.jkylehobson.chatgpt.site",
@@ -395,8 +418,12 @@ def main() -> int:
     library = load_json("data/tool-library.json")
     validate_manifest(manifest)
     validate_library(library)
+    plugins = load_json("data/plugin-releases.json")
+    validate_plugin_projection(plugins)
     if args.check_links:
         validate_links(manifest, library)
+        for plugin in plugins["packages"]:
+            check_url(plugin["release_url"])
     print("Working Tools site validation passed.")
     return 0
 

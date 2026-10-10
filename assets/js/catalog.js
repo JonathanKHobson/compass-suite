@@ -28,7 +28,7 @@ function normalizeCompass(product) {
   return {
     id: product.id,
     name: product.name,
-    kind: "Compass project",
+    kind: "Preserved Compass release",
     access: hasDownloads ? "public-download" : "public-site",
     jobs: COMPASS_JOBS[product.id] || [],
     tagline: product.tagline,

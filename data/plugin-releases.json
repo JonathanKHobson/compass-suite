@@ -1,7 +1,7 @@
 {
   "schema_version": "working-tools.plugins.v1",
   "source_repository": "https://github.com/JonathanKHobson/working-tools-plugins.git",
-  "source_revision": "334c118ac087eabf23c52a265632196818ddc5d3",
+  "source_revision": "6ed6d74f97eac8279192dc9d954bae2a176b85fb",
   "packages": [
     {
       "id": "stitch-design-studio",
@@ -73,7 +73,7 @@
     {
       "id": "figma-design-workflow",
       "name": "Figma Design Workflow",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "description": "Four complete methods for Figma operation, source references, visual QA and an inspectable handoff.",
       "requirements": [
         "Figma account",
@@ -91,7 +91,7 @@
         "design",
         "build"
       ],
-      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/figma-design-workflow/v0.1.1"
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/figma-design-workflow/v0.1.2"
     },
     {
       "id": "video-production-workflow",
@@ -237,6 +237,373 @@
         "build"
       ],
       "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/solo-service-operations/v0.2.0"
+    },
+    {
+      "id": "build-mcp-apps",
+      "name": "Build MCP Apps",
+      "version": "1.0.2",
+      "description": "Build and refine MCP apps with two complete methods and the attributed Alpic source.",
+      "requirements": [
+        "Host coding tools",
+        "Runtime named by the selected workflow"
+      ],
+      "edition": "Complete methods and Apache source; no provider-hosted service",
+      "license": "Apache-2.0",
+      "skill_names": [
+        "build-mcp-apps",
+        "use-alpic"
+      ],
+      "jobs": [
+        "build"
+      ],
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/build-mcp-apps/v1.0.2"
+    },
+    {
+      "id": "development-studio",
+      "name": "Development Studio",
+      "version": "0.1.1",
+      "description": "Eleven development workflows with full Superpowers, Alpic and original local MCP procedures.",
+      "requirements": [
+        "Host coding tools",
+        "Runtime named by the selected workflow"
+      ],
+      "edition": "Complete source methods and synthetic local-MCP starter; external provider tools separate",
+      "license": "MIT AND Apache-2.0",
+      "skill_names": [
+        "build-mcp-apps",
+        "build-native-software",
+        "build-web-software",
+        "debug-software",
+        "development-studio",
+        "evaluate-dev-workflows",
+        "implement-software",
+        "local-mcp-systems",
+        "review-and-release",
+        "test-software",
+        "use-alpic"
+      ],
+      "jobs": [
+        "build"
+      ],
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/development-studio/v0.1.1"
+    },
+    {
+      "id": "video-templates",
+      "name": "Video Templates",
+      "version": "0.1.1",
+      "description": "Choose video references and create editable storyboards with eleven local MCP tools.",
+      "requirements": [
+        "Python 3.12 recommended",
+        "MCP and Pillow dependencies",
+        "MCP Apps supporting host for the widget"
+      ],
+      "edition": "Complete runtime, 30-family/38-example metadata catalog and seven MIT methods; external media and creative reference bundles excluded",
+      "license": "MIT with retained Animate notices",
+      "skill_names": [
+        "video-templates"
+      ],
+      "jobs": [
+        "design",
+        "teach"
+      ],
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/video-templates/v0.1.1"
+    },
+    {
+      "id": "data-visualization-toolkit",
+      "name": "Data Visualization Toolkit",
+      "version": "0.2.2",
+      "description": "Thirteen visualization workflows and a local interactive Data Explorer with transparent calculations.",
+      "requirements": [
+        "Python 3.12 and declared MCP dependencies",
+        "MCP Apps supporting host for the widget"
+      ],
+      "edition": "Complete original workflows, runtime and MIT/Apache methods; proprietary Visualize and unlicensed Scientific source libraries excluded",
+      "license": "MIT AND Apache-2.0; retained dependency notices",
+      "skill_names": [
+        "data-visualization",
+        "dense-and-gpu-rendering",
+        "gantt-and-schedules",
+        "interactive-explanations",
+        "live-dashboards",
+        "maps-and-cartography",
+        "reports-and-export",
+        "scientific-figures-and-tables",
+        "statistical-evidence",
+        "structural-diagrams",
+        "visual-stories",
+        "visualization-verification",
+        "web-chart-engineering"
+      ],
+      "jobs": [
+        "research",
+        "design",
+        "build"
+      ],
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/data-visualization-toolkit/v0.2.2"
+    },
+    {
+      "id": "activities-templates",
+      "name": "Activities Templates",
+      "version": "0.1.1",
+      "description": "Reusable activity retrieval and chooser runtime with twelve fixed domain views.",
+      "requirements": [
+        "Python 3.12 and declared MCP dependencies",
+        "Your own authorized activity catalog"
+      ],
+      "edition": "Complete runtime and synthetic example; private activity corpus excluded",
+      "license": "MIT",
+      "skill_names": [
+        "activity-library"
+      ],
+      "jobs": [
+        "teach",
+        "research"
+      ],
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/activities-templates/v0.1.1"
+    },
+    {
+      "id": "design-templates",
+      "name": "Design Templates",
+      "version": "0.1.1",
+      "description": "Find editable design sources and verify their integrity before a handoff.",
+      "requirements": [
+        "Python 3.12 and declared MCP dependencies",
+        "Your own authorized template collection"
+      ],
+      "edition": "Complete runtime, source chooser and token checks; private template collection excluded",
+      "license": "MIT",
+      "skill_names": [
+        "design-templates"
+      ],
+      "jobs": [
+        "design",
+        "build"
+      ],
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/design-templates/v0.1.1"
+    },
+    {
+      "id": "reasoning-studio",
+      "name": "Reasoning Studio",
+      "version": "0.1.3",
+      "description": "Three complete methods for testing claims, reasoning and consequential assumptions.",
+      "requirements": [
+        "Host reasoning tools",
+        "Explicit binding file for optional helper"
+      ],
+      "edition": "Complete original methods and explicitly configured helper; optional Critical Compass backend separate",
+      "license": "MIT code; CC-BY-SA-4.0 prose",
+      "skill_names": [
+        "alternative-perspectives",
+        "critical-reasoning",
+        "socratic-questioning"
+      ],
+      "jobs": [
+        "research",
+        "build"
+      ],
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/reasoning-studio/v0.1.3"
+    },
+    {
+      "id": "survey-studio",
+      "name": "Survey Studio",
+      "version": "0.1.1",
+      "description": "Eight complete survey workflows with schemas, exporters and synthetic instruments.",
+      "requirements": [
+        "Host file tools",
+        "Python for validation and export helpers"
+      ],
+      "edition": "Complete original methods and helpers; restricted supplied question-type archive excluded",
+      "license": "MIT",
+      "skill_names": [
+        "survey-accessibility-and-privacy",
+        "survey-analysis-codebooks",
+        "survey-export",
+        "survey-flow-and-logic",
+        "survey-pilot-and-quality",
+        "survey-question-design",
+        "survey-sampling",
+        "survey-strategist"
+      ],
+      "jobs": [
+        "research",
+        "teach"
+      ],
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/survey-studio/v0.1.1"
+    },
+    {
+      "id": "discord",
+      "name": "Discord",
+      "version": "0.1.1",
+      "description": "Two complete workflows for scoped Discord reading, drafts and explicitly authorized messages.",
+      "requirements": [
+        "Authorized Discord access",
+        "Your selected Discord provider or host browser tools"
+      ],
+      "edition": "Complete original workflows and optional launcher; server, credentials and private index are external",
+      "license": "MIT",
+      "skill_names": [
+        "discord-computer-use",
+        "discord"
+      ],
+      "jobs": [
+        "write",
+        "research"
+      ],
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/discord/v0.1.1"
+    },
+    {
+      "id": "mac-ops-toolkit",
+      "name": "Mac Operations Toolkit",
+      "version": "0.2.2",
+      "description": "Eight Mac maintenance workflows with complete recovery procedures and verified-copy helpers.",
+      "requirements": [
+        "macOS",
+        "Host terminal or computer-use tools"
+      ],
+      "edition": "Complete original methods and shell helpers; receiving-host storage roles require configuration",
+      "license": "MIT",
+      "skill_names": [
+        "app-window-recovery",
+        "application-installation",
+        "mac-environment-conventions",
+        "mac-troubleshooter",
+        "process-diagnosis",
+        "storage-migration",
+        "symlink-audit",
+        "updater-recovery"
+      ],
+      "jobs": [
+        "build"
+      ],
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/mac-ops-toolkit/v0.2.2"
+    },
+    {
+      "id": "work-management",
+      "name": "Work Management",
+      "version": "0.2.0",
+      "description": "Ten complete methods for project structure, focused execution, plugin maintenance and accountable handoffs.",
+      "requirements": [
+        "Host file and coding tools",
+        "Explicit receiving-host bindings for optional helpers"
+      ],
+      "edition": "Complete methods, helpers and opt-in hooks; personal profile, goals and logs replaced by recipient templates",
+      "license": "MIT AND Apache-2.0 with retained upstream notices",
+      "skill_names": [
+        "evidence-review",
+        "find-skills",
+        "focus-work",
+        "parallel-work",
+        "plugin-maintenance",
+        "product-definition",
+        "project-structure",
+        "tool-workflow-routing",
+        "work-handoff",
+        "worker-delegation"
+      ],
+      "jobs": [
+        "build",
+        "career",
+        "research"
+      ],
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/work-management/v0.2.0"
+    },
+    {
+      "id": "oppia-research-compass",
+      "name": "Oppia Research Compass",
+      "version": "0.4.1",
+      "description": "Ten research workflows and a read-only evidence runtime for a recipient-owned corpus.",
+      "requirements": [
+        "Python and declared MCP dependencies for optional server",
+        "Your own authorized research corpus"
+      ],
+      "edition": "Complete methods and AGPL runtime with empty schema-only database; private team research excluded",
+      "license": "AGPL-3.0 code; CC-BY-SA-4.0 prose",
+      "skill_names": [
+        "oppia-competitive-analysis",
+        "oppia-cuj-research",
+        "oppia-heuristic-evaluation",
+        "oppia-interview-study-design",
+        "oppia-netnography",
+        "oppia-persona-research",
+        "oppia-research-compass",
+        "oppia-research-orchestrator",
+        "oppia-research-question-design",
+        "oppia-usability-testing"
+      ],
+      "jobs": [
+        "research",
+        "teach"
+      ],
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/oppia-research-compass/v0.4.1"
+    },
+    {
+      "id": "graphic-design-studio",
+      "name": "Graphic Design Studio",
+      "version": "0.2.0",
+      "description": "Nine complete design methods with production helpers and a four-tool local MCP runtime.",
+      "requirements": [
+        "Python 3.12 and declared dependencies for local runtime",
+        "Design Templates for optional chooser",
+        "Host image tools for generation"
+      ],
+      "edition": "Complete methods, runtime and reviewed synthetic assets; optional source chooser uses Design Templates",
+      "license": "MIT and Apache-2.0 methods; AGPL-3.0 runtime; CC-BY-SA-4.0 adapted prose",
+      "skill_names": [
+        "campaign-format-adaptation",
+        "composition-and-typography",
+        "graphic-asset-compositing",
+        "graphic-design-review",
+        "graphic-design",
+        "infographic-design",
+        "motion-design",
+        "print-and-export-preflight",
+        "promotional-design-copy"
+      ],
+      "jobs": [
+        "design",
+        "build"
+      ],
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/graphic-design-studio/v0.2.0"
+    },
+    {
+      "id": "brand-templates",
+      "name": "Brand Templates",
+      "version": "0.1.1",
+      "description": "Browse 104 original fictional brand kits with editable sources, previews and local MCP handoffs.",
+      "requirements": [
+        "Python 3.12 and declared MCP dependencies",
+        "MCP Apps supporting host for the chooser"
+      ],
+      "edition": "Full audited 104-kit collection and runtime; separate Fresh Curiosity A2 assets excluded",
+      "license": "MIT original code and kits; bundled fonts retain SIL OFL notices",
+      "skill_names": [
+        "brand-templates"
+      ],
+      "jobs": [
+        "design",
+        "build"
+      ],
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/brand-templates/v0.1.1"
+    },
+    {
+      "id": "writing-templates",
+      "name": "Writing Templates",
+      "version": "0.1.1",
+      "description": "Choose and verify writing-source guidance with a local runtime and four synthetic examples.",
+      "requirements": [
+        "Python 3.12 and declared MCP dependencies",
+        "Your own authorized writing-source catalog"
+      ],
+      "edition": "Complete runtime and source integrity checks; private and uncleared real-voice corpus excluded",
+      "license": "MIT",
+      "skill_names": [
+        "writing-templates"
+      ],
+      "jobs": [
+        "write",
+        "teach"
+      ],
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/writing-templates/v0.1.1"
     }
   ]
 }

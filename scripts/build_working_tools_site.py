@@ -36,7 +36,7 @@ RUNTIME_SUFFIXES = {
 }
 DOWNLOAD_SUFFIXES = {".zip", ".skill", ".mcpb", ".pdf", ".md", ".txt"}
 TEXT_SUFFIXES = {".html", ".css", ".js", ".mjs", ".json", ".svg"}
-IGNORED_PREFIXES = (".git/", ".openai/", "docs/", "scripts/", "content/", "legal/", "snippets/", "output/", "vendor/")
+IGNORED_PREFIXES = (".git/", ".openai/", "docs/", "scripts/", "content/", "legal/", "snippets/", "output/", "vendor/", "site-sources/")
 EXCLUDED_RUNTIME_FILES = {"404.html"}
 MCP_SITE = "https://what-is-an-mcp.jkylehobson.chatgpt.site/"
 
