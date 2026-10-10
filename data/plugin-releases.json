@@ -1,11 +1,11 @@
 {
   "schema_version": "working-tools.plugins.v1",
   "source_repository": "https://github.com/JonathanKHobson/working-tools-plugins.git",
-  "source_revision": "4c31dc5ba8bf43ea1f2106256c03acbf60341917",
+  "source_revision": "2881b8ec7c368c7ae13a5177bec016a217dfede7",
   "packages": [
     {
       "id": "stitch-design-studio",
-      "version": "0.1.2",
+      "version": "0.1.3",
       "description": "Shape an idea into a clearer design system, flow, prototype, or handoff while keeping the decisions and source visible.",
       "requirements": [
         "Stitch account",
@@ -30,12 +30,12 @@
         "design",
         "build"
       ],
-      "source_revision": "4c31dc5ba8bf43ea1f2106256c03acbf60341917",
-      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/stitch-design-studio/v0.1.2"
+      "source_revision": "2881b8ec7c368c7ae13a5177bec016a217dfede7",
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/stitch-design-studio/v0.1.3"
     },
     {
       "id": "davinci-resolve-toolkit",
-      "version": "0.1.2",
+      "version": "0.1.4",
       "description": "Use practical guidance for editing, sound, delivery, and quality checks in DaVinci Resolve.",
       "requirements": [
         "DaVinci Resolve",
@@ -53,12 +53,12 @@
         "design",
         "teach"
       ],
-      "source_revision": "4c31dc5ba8bf43ea1f2106256c03acbf60341917",
-      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/davinci-resolve-toolkit/v0.1.2"
+      "source_revision": "2881b8ec7c368c7ae13a5177bec016a217dfede7",
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/davinci-resolve-toolkit/v0.1.4"
     },
     {
       "id": "artcraft-design-toolkit",
-      "version": "0.2.2",
+      "version": "0.2.3",
       "description": "Connect your creative brief to image, video, and design work across ArtCraft apps.",
       "requirements": [
         "Python >=3.10",
@@ -76,8 +76,8 @@
         "design",
         "build"
       ],
-      "source_revision": "4c31dc5ba8bf43ea1f2106256c03acbf60341917",
-      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/artcraft-design-toolkit/v0.2.2"
+      "source_revision": "2881b8ec7c368c7ae13a5177bec016a217dfede7",
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/artcraft-design-toolkit/v0.2.3"
     },
     {
       "id": "figma-design-workflow",
@@ -104,7 +104,7 @@
         "design",
         "build"
       ],
-      "source_revision": "4c31dc5ba8bf43ea1f2106256c03acbf60341917",
+      "source_revision": "2881b8ec7c368c7ae13a5177bec016a217dfede7",
       "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/figma-design-workflow/v0.2.3"
     },
     {
@@ -147,7 +147,7 @@
         "design",
         "teach"
       ],
-      "source_revision": "4c31dc5ba8bf43ea1f2106256c03acbf60341917",
+      "source_revision": "2881b8ec7c368c7ae13a5177bec016a217dfede7",
       "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/video-production-workflow/v0.4.3"
     },
     {
@@ -180,12 +180,12 @@
         "teach",
         "research"
       ],
-      "source_revision": "4c31dc5ba8bf43ea1f2106256c03acbf60341917",
+      "source_revision": "2881b8ec7c368c7ae13a5177bec016a217dfede7",
       "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/instructional-design-studio/v0.2.2"
     },
     {
       "id": "workshop-facilitator",
-      "version": "0.1.2",
+      "version": "0.1.3",
       "description": "Design and lead inclusive workshops that turn discussion into useful decisions, practice, and follow-through.",
       "requirements": [
         "Host file and reasoning tools"
@@ -209,8 +209,8 @@
         "teach",
         "research"
       ],
-      "source_revision": "4c31dc5ba8bf43ea1f2106256c03acbf60341917",
-      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/workshop-facilitator/v0.1.2"
+      "source_revision": "2881b8ec7c368c7ae13a5177bec016a217dfede7",
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/workshop-facilitator/v0.1.3"
     },
     {
       "id": "game-creation-studio",
@@ -256,7 +256,7 @@
         "table",
         "build"
       ],
-      "source_revision": "4c31dc5ba8bf43ea1f2106256c03acbf60341917",
+      "source_revision": "2881b8ec7c368c7ae13a5177bec016a217dfede7",
       "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/game-creation-studio/v0.3.2"
     },
     {
@@ -286,12 +286,12 @@
         "career",
         "build"
       ],
-      "source_revision": "4c31dc5ba8bf43ea1f2106256c03acbf60341917",
+      "source_revision": "2881b8ec7c368c7ae13a5177bec016a217dfede7",
       "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/solo-service-operations/v0.3.2"
     },
     {
       "id": "build-mcp-apps",
-      "version": "1.0.4",
+      "version": "1.0.5",
       "description": "Move from a clear user task to a working interface, server, and tested handoff.",
       "requirements": [
         "Host coding tools",
@@ -309,8 +309,8 @@
       "jobs": [
         "build"
       ],
-      "source_revision": "4c31dc5ba8bf43ea1f2106256c03acbf60341917",
-      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/build-mcp-apps/v1.0.4"
+      "source_revision": "2881b8ec7c368c7ae13a5177bec016a217dfede7",
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/build-mcp-apps/v1.0.5"
     },
     {
       "id": "development-studio",
@@ -351,12 +351,12 @@
       "jobs": [
         "build"
       ],
-      "source_revision": "4c31dc5ba8bf43ea1f2106256c03acbf60341917",
+      "source_revision": "2881b8ec7c368c7ae13a5177bec016a217dfede7",
       "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/development-studio/v0.2.3"
     },
     {
       "id": "video-templates",
-      "version": "0.1.2",
+      "version": "0.1.3",
       "description": "Explore reusable motion and story treatments, then adapt one into a production-ready direction.",
       "requirements": [
         "Python 3.12 recommended",
@@ -375,12 +375,12 @@
         "design",
         "teach"
       ],
-      "source_revision": "4c31dc5ba8bf43ea1f2106256c03acbf60341917",
-      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/video-templates/v0.1.2"
+      "source_revision": "2881b8ec7c368c7ae13a5177bec016a217dfede7",
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/video-templates/v0.1.3"
     },
     {
       "id": "data-visualization-toolkit",
-      "version": "0.2.4",
+      "version": "0.2.5",
       "description": "Choose, build, and review visualizations that communicate evidence without hiding scale or uncertainty.",
       "requirements": [
         "Python 3.12 and declared MCP dependencies",
@@ -411,12 +411,12 @@
         "design",
         "build"
       ],
-      "source_revision": "4c31dc5ba8bf43ea1f2106256c03acbf60341917",
-      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/data-visualization-toolkit/v0.2.4"
+      "source_revision": "2881b8ec7c368c7ae13a5177bec016a217dfede7",
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/data-visualization-toolkit/v0.2.5"
     },
     {
       "id": "activities-templates",
-      "version": "0.1.2",
+      "version": "0.1.3",
       "description": "Explore reusable activities and adapt them to your participants, time, and intended outcome.",
       "requirements": [
         "Python 3.12 and declared MCP dependencies",
@@ -434,12 +434,12 @@
         "teach",
         "research"
       ],
-      "source_revision": "4c31dc5ba8bf43ea1f2106256c03acbf60341917",
-      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/activities-templates/v0.1.2"
+      "source_revision": "2881b8ec7c368c7ae13a5177bec016a217dfede7",
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/activities-templates/v0.1.3"
     },
     {
       "id": "design-templates",
-      "version": "0.1.2",
+      "version": "0.1.6",
       "description": "Choose reusable design templates and carry the source, tokens, and handoff details into your own project.",
       "requirements": [
         "Python 3.12 and declared MCP dependencies",
@@ -457,8 +457,8 @@
         "design",
         "build"
       ],
-      "source_revision": "4c31dc5ba8bf43ea1f2106256c03acbf60341917",
-      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/design-templates/v0.1.2"
+      "source_revision": "2881b8ec7c368c7ae13a5177bec016a217dfede7",
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/design-templates/v0.1.6"
     },
     {
       "id": "reasoning-studio",
@@ -484,12 +484,12 @@
         "research",
         "build"
       ],
-      "source_revision": "4c31dc5ba8bf43ea1f2106256c03acbf60341917",
+      "source_revision": "2881b8ec7c368c7ae13a5177bec016a217dfede7",
       "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/reasoning-studio/v0.2.3"
     },
     {
       "id": "survey-studio",
-      "version": "0.1.3",
+      "version": "0.1.4",
       "description": "Shape a survey around a clear research question, an appropriate audience, and accessible participation.",
       "requirements": [
         "Host file tools",
@@ -497,8 +497,8 @@
       ],
       "edition": "Complete original methods and helpers; restricted supplied question-type archive excluded",
       "license": "AGPL-3.0-only AND CC-BY-SA-4.0; retained upstream licenses as scoped in LICENSE-SCOPE.json",
-      "name": "Survey Toolkit",
-      "family": "toolkits",
+      "name": "Survey Studio",
+      "family": "studios",
       "tagline": "Ask better questions and get more useful answers.",
       "skill_names": [
         "survey-accessibility-and-privacy",
@@ -514,8 +514,8 @@
         "research",
         "teach"
       ],
-      "source_revision": "4c31dc5ba8bf43ea1f2106256c03acbf60341917",
-      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/survey-studio/v0.1.3"
+      "source_revision": "2881b8ec7c368c7ae13a5177bec016a217dfede7",
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/survey-studio/v0.1.4"
     },
     {
       "id": "mac-ops-toolkit",
@@ -545,7 +545,7 @@
       "jobs": [
         "build"
       ],
-      "source_revision": "4c31dc5ba8bf43ea1f2106256c03acbf60341917",
+      "source_revision": "2881b8ec7c368c7ae13a5177bec016a217dfede7",
       "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/mac-ops-toolkit/v0.3.3"
     },
     {
@@ -582,7 +582,7 @@
         "career",
         "research"
       ],
-      "source_revision": "4c31dc5ba8bf43ea1f2106256c03acbf60341917",
+      "source_revision": "2881b8ec7c368c7ae13a5177bec016a217dfede7",
       "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/work-management/v0.3.2"
     },
     {
@@ -617,12 +617,12 @@
         "design",
         "build"
       ],
-      "source_revision": "4c31dc5ba8bf43ea1f2106256c03acbf60341917",
+      "source_revision": "2881b8ec7c368c7ae13a5177bec016a217dfede7",
       "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/graphic-design-studio/v0.3.2"
     },
     {
       "id": "brand-templates",
-      "version": "0.1.3",
+      "version": "0.1.4",
       "description": "Explore original fictional brand kits and adapt a coherent identity for your next concept.",
       "requirements": [
         "Python 3.12 and declared MCP dependencies",
@@ -640,12 +640,12 @@
         "design",
         "build"
       ],
-      "source_revision": "4c31dc5ba8bf43ea1f2106256c03acbf60341917",
-      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/brand-templates/v0.1.3"
+      "source_revision": "2881b8ec7c368c7ae13a5177bec016a217dfede7",
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/brand-templates/v0.1.4"
     },
     {
       "id": "writing-templates",
-      "version": "0.1.2",
+      "version": "0.1.4",
       "description": "Browse reusable writing frameworks and adapt one to your audience, purpose, and evidence.",
       "requirements": [
         "Python 3.12 and declared MCP dependencies",
@@ -663,8 +663,8 @@
         "write",
         "teach"
       ],
-      "source_revision": "4c31dc5ba8bf43ea1f2106256c03acbf60341917",
-      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/writing-templates/v0.1.2"
+      "source_revision": "2881b8ec7c368c7ae13a5177bec016a217dfede7",
+      "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/writing-templates/v0.1.4"
     },
     {
       "id": "social-content-studio",
@@ -693,7 +693,7 @@
       "jobs": [
         "write"
       ],
-      "source_revision": "4c31dc5ba8bf43ea1f2106256c03acbf60341917",
+      "source_revision": "2881b8ec7c368c7ae13a5177bec016a217dfede7",
       "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/social-content-studio/v0.2.3"
     },
     {
@@ -725,7 +725,7 @@
         "write",
         "table"
       ],
-      "source_revision": "4c31dc5ba8bf43ea1f2106256c03acbf60341917",
+      "source_revision": "2881b8ec7c368c7ae13a5177bec016a217dfede7",
       "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/creative-writing-studio/v0.3.4"
     },
     {
@@ -758,7 +758,7 @@
       "jobs": [
         "build"
       ],
-      "source_revision": "4c31dc5ba8bf43ea1f2106256c03acbf60341917",
+      "source_revision": "2881b8ec7c368c7ae13a5177bec016a217dfede7",
       "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/master-security-toolkit/v0.2.3"
     },
     {
@@ -791,7 +791,7 @@
         "write",
         "build"
       ],
-      "source_revision": "4c31dc5ba8bf43ea1f2106256c03acbf60341917",
+      "source_revision": "2881b8ec7c368c7ae13a5177bec016a217dfede7",
       "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/prompt-playbook-studio/v0.2.2"
     },
     {
@@ -827,7 +827,7 @@
         "write",
         "build"
       ],
-      "source_revision": "4c31dc5ba8bf43ea1f2106256c03acbf60341917",
+      "source_revision": "2881b8ec7c368c7ae13a5177bec016a217dfede7",
       "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/career-studio/v0.2.1"
     },
     {
@@ -861,7 +861,7 @@
         "write",
         "design"
       ],
-      "source_revision": "4c31dc5ba8bf43ea1f2106256c03acbf60341917",
+      "source_revision": "2881b8ec7c368c7ae13a5177bec016a217dfede7",
       "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/marketing-strategy-studio/v0.3.1"
     },
     {
@@ -896,7 +896,7 @@
         "write",
         "career"
       ],
-      "source_revision": "4c31dc5ba8bf43ea1f2106256c03acbf60341917",
+      "source_revision": "2881b8ec7c368c7ae13a5177bec016a217dfede7",
       "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/writing-quality-studio/v0.3.5"
     },
     {
@@ -934,7 +934,7 @@
         "design",
         "build"
       ],
-      "source_revision": "4c31dc5ba8bf43ea1f2106256c03acbf60341917",
+      "source_revision": "2881b8ec7c368c7ae13a5177bec016a217dfede7",
       "release_url": "https://github.com/JonathanKHobson/working-tools-plugins/releases/tag/ux-design-toolkit/v0.3.9"
     }
   ]

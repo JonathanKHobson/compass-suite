@@ -3,9 +3,9 @@
   "site": {
     "name": "Working Tools by J. Kyle Hobson",
     "planned_public_url": "https://jonathankhobson.github.io/compass-suite/",
-    "description": "The verified Compass product records inside Jonathan Kyle Hobson's larger Working Tools library.",
+    "description": "Historical Compass release records preserved for existing users.",
     "last_verified": "2026-10-10",
-    "source_of_truth_note": "This manifest remains the authority for Compass status, public release URLs, checksums, and safety gates. The public interface renders these records into the larger Working Tools library."
+    "source_of_truth_note": "This manifest preserves historical release URLs, checksums and distribution boundaries. Current plugin availability is recorded in data/plugin-releases.json and the public plugin registry."
   },
   "products": [
     {
